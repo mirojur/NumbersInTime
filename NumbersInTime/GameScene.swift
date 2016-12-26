@@ -53,8 +53,8 @@ class GameScene: SKScene {
         
         print(tnumber.position)
         
-        let xCoords : [CGFloat] =  [-150.0 , 150]
-        let yCoords : [CGFloat] = [-150 , -100 , -50]
+        let xCoords : [CGFloat] =  [-200.0 , 100]
+        let yCoords : [CGFloat] = [-500 , -250 , 0]
         for i in 0...2 {
             
             for j in 0...1{

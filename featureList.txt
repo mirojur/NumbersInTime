@@ -1,0 +1,7 @@
+- Position der Zahlen
+  - gleiche Anzeige bei unterschiedlichen Auflösungen und Display Grössen
+
+- Zeit Anzeige in der Zielzahl
+  - 1 minute Timer wird bei start des Spiels angezeigt
+  - jede Sekunde wird ein Tick weniger angezeigt
+  - nach 1 min wird das Spiel beendet
