@@ -11,81 +11,152 @@ import GameplayKit
 
 class GameScene: SKScene {
     
+    
+    
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
-    
+    var sceneNumbers = [Number]()
+    var firstInit : Bool = false
+
     private var lastUpdateTime : TimeInterval = 0
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     
+    var wNumber : CGFloat = 0.0
+    var wTargetNumber : CGFloat = 0.0
+    
+    
+    private var selectedNumber : Number?
+    
+    
     override func sceneDidLoad() {
-
-        self.lastUpdateTime = 0
         
-        // Get label node from scene and store it for use later
-        self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
-        if let label = self.label {
-            label.alpha = 0.0
-            label.run(SKAction.fadeIn(withDuration: 2.0))
+        if firstInit {
+            return
         }
         
         // Create shape node to use during mouse interaction
-        let w = (self.size.width + self.size.height) * 0.05
-        self.spinnyNode = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.3)
         
-        if let spinnyNode = self.spinnyNode {
-            spinnyNode.lineWidth = 2.5
+        wNumber  = self.size.width * 0.15
+        wTargetNumber  = self.size.width * 0.2
+        
+        
+        print(self.size.width, self.size.height)
+        
+        let targetNumberPosition : CGPoint = CGPoint(x:0 - wTargetNumber , y: (self.size.height*0.5) - (2.8*wTargetNumber))
+        print(targetNumberPosition)
+        
+        // Target Number
+        let tnumber = TargetNumber(newValue: 255, myRadius: wTargetNumber)
+        tnumber.position = targetNumberPosition
+        self.addChild(tnumber)
+        
+        print(tnumber.position)
+        
+        let xCoords : [CGFloat] =  [-150.0 , 150]
+        let yCoords : [CGFloat] = [-150 , -100 , -50]
+        for i in 0...2 {
             
-            spinnyNode.run(SKAction.repeatForever(SKAction.rotate(byAngle: CGFloat(M_PI), duration: 1)))
-            spinnyNode.run(SKAction.sequence([SKAction.wait(forDuration: 0.5),
-                                              SKAction.fadeOut(withDuration: 0.5),
-                                              SKAction.removeFromParent()]))
+            for j in 0...1{
+                
+                let currentPos : CGPoint = CGPoint(x: xCoords[j] , y: yCoords[i])
+                
+                let number = Number(newValue: 10, myRadius: wNumber , myStartPoint: currentPos)
+                number.position = currentPos
+                self.addChild(number)
+                self.sceneNumbers.append(number)
+            }
         }
+       
+       
+        self.firstInit = true
+ 
     }
     
     
     func touchDown(atPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.green
-            self.addChild(n)
-        }
+    
     }
     
     func touchMoved(toPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.blue
-            self.addChild(n)
-        }
+    
     }
     
     func touchUp(atPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.red
-            self.addChild(n)
-        }
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let label = self.label {
-            label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
+        
+        let pulseUp = SKAction.scale(by: 1.1, duration: 0.05)
+        let pulseDown = SKAction.scale(by: 1.1, duration: 0.05)
+        let pulse = SKAction.sequence([pulseUp, pulseDown])
+        
+        let touch = touches.first as UITouch!
+        let touchLocation = touch?.location(in: self)
+        
+        let touchedNode = self.atPoint(touchLocation!)
+        
+        
+        if let a = self.atPoint(touchLocation!) as? Number {
+            selectedNumber = a
+            //selectedNumber?.run(pulse)
+            
         }
         
-        for t in touches { self.touchDown(atPoint: t.location(in: self)) }
+        if touchedNode is SKLabelNode && touchedNode.parent is Number{
+            selectedNumber = touchedNode.parent as! Number?
+            //selectedNumber?.run(pulse)
+            
+        }
+        
+       
+        
+        //for t in touches { self.touchDown(atPoint: t.location(in: self)) }
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchMoved(toPoint: t.location(in: self)) }
+        
+        let touch = touches.first as UITouch!
+        let touchLocation = touch?.location(in: self)
+        let halfWidth = self.size.width/2
+        let halfHeight = self.size.height/2
+        
+        if (selectedNumber != nil) {
+            var newPosition : CGPoint = CGPoint(x: (touchLocation?.x)! - (selectedNumber?.radius)!, y: (touchLocation?.y)! - (selectedNumber?.radius)!)
+            
+            if (newPosition.x < -halfWidth){
+                newPosition.x = -halfWidth
+            }
+            
+            if (newPosition.x + (2*wNumber) > halfWidth){
+                newPosition.x = halfWidth - (2*wNumber)
+            }
+            
+            if (newPosition.y + (2*wNumber) > halfHeight){
+                newPosition.y = halfHeight - (2*wNumber)
+            }
+            
+            if (newPosition.y  < -halfHeight){
+                newPosition.y = -halfHeight
+            }
+            
+            selectedNumber?.position = newPosition
+            
+        }
+        //for t in touches { self.touchMoved(toPoint: t.location(in: self)) }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
+        
+        if(selectedNumber != nil){
+           selectedNumber?.goBackToStart()
+        }
+
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
+        selectedNumber = nil
     }
     
     

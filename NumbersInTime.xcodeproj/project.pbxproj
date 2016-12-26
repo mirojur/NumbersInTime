@@ -15,6 +15,9 @@
 		3A690C971DE75044005D9A64 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A690C951DE75044005D9A64 /* Main.storyboard */; };
 		3A690C991DE75044005D9A64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A690C981DE75044005D9A64 /* Assets.xcassets */; };
 		3A690C9C1DE75044005D9A64 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A690C9A1DE75044005D9A64 /* LaunchScreen.storyboard */; };
+		3A690CA41DE75604005D9A64 /* Number.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A690CA31DE75604005D9A64 /* Number.swift */; };
+		3AD488741DE8C9E0009CF85D /* TargetNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD488731DE8C9E0009CF85D /* TargetNumber.swift */; };
+		3AD488761DE8CCDF009CF85D /* SceneObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD488751DE8CCDF009CF85D /* SceneObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		3A690C981DE75044005D9A64 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3A690C9B1DE75044005D9A64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A690C9D1DE75044005D9A64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A690CA31DE75604005D9A64 /* Number.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Number.swift; sourceTree = "<group>"; };
+		3AD488731DE8C9E0009CF85D /* TargetNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TargetNumber.swift; sourceTree = "<group>"; };
+		3AD488751DE8CCDF009CF85D /* SceneObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +70,9 @@
 				3A690C8D1DE75044005D9A64 /* GameScene.sks */,
 				3A690C8F1DE75044005D9A64 /* Actions.sks */,
 				3A690C911DE75044005D9A64 /* GameScene.swift */,
+				3AD488751DE8CCDF009CF85D /* SceneObject.swift */,
+				3A690CA31DE75604005D9A64 /* Number.swift */,
+				3AD488731DE8C9E0009CF85D /* TargetNumber.swift */,
 				3A690C931DE75044005D9A64 /* GameViewController.swift */,
 				3A690C951DE75044005D9A64 /* Main.storyboard */,
 				3A690C981DE75044005D9A64 /* Assets.xcassets */,
@@ -105,6 +114,7 @@
 				TargetAttributes = {
 					3A690C871DE75043005D9A64 = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 9JARSYXCR4;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -147,6 +157,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A690CA41DE75604005D9A64 /* Number.swift in Sources */,
+				3AD488761DE8CCDF009CF85D /* SceneObject.swift in Sources */,
+				3AD488741DE8C9E0009CF85D /* TargetNumber.swift in Sources */,
 				3A690C921DE75044005D9A64 /* GameScene.swift in Sources */,
 				3A690C941DE75044005D9A64 /* GameViewController.swift in Sources */,
 				3A690C8C1DE75044005D9A64 /* AppDelegate.swift in Sources */,
@@ -270,6 +283,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 9JARSYXCR4;
 				INFOPLIST_FILE = NumbersInTime/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -283,6 +297,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 9JARSYXCR4;
 				INFOPLIST_FILE = NumbersInTime/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -311,6 +326,7 @@
 				3A690CA21DE75044005D9A64 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
