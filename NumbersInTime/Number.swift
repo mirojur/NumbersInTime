@@ -20,7 +20,7 @@ class Number: SceneObject {
         self.position = startPoint
         
         self.lineWidth = 10
-        self.fillColor = SKColor.brown
+        self.fillColor = SKColor(red: 255/255, green: 82/255, blue: 24/255, alpha:0.85)
         
     }
     

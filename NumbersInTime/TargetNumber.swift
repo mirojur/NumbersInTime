@@ -14,8 +14,7 @@ class TargetNumber: SceneObject {
         super.init(newValue: newValue , myRadius: myRadius)
         
         self.lineWidth = 10
-        self.fillColor = SKColor.blue
-        
+        self.fillColor = SKColor(red: 114/255, green: 0/255, blue: 0/255, alpha:1.0)
     }
     
     required init?(coder aDecoder: NSCoder) {
