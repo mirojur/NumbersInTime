@@ -47,11 +47,28 @@ class GameScene: SKScene {
         print(targetNumberPosition)
         
         // Target Number
-        let tnumber = TargetNumber(newValue: 255, myRadius: wTargetNumber)
-        tnumber.position = targetNumberPosition
-        self.addChild(tnumber)
+        //let tnumber = TargetNumber(newValue: 255, myRadius: wTargetNumber)
+        //tnumber.position = targetNumberPosition
+        //self.addChild(tnumber)
         
-        print(tnumber.position)
+        
+       let shape = SKShapeNode(circleOfRadius: 150)
+            
+       shape.fillColor =  .clear
+       shape.lineWidth = 10
+       shape.strokeColor = .darkGray
+       
+       let myPath = UIBezierPath(arcCenter: CGPoint.zero, radius: -150, startAngle: 0, endAngle: 2*CGFloat(M_PI), clockwise: true)
+    
+       let pattern = [CGFloat(6.0), CGFloat(20.0)]
+       myPath.setLineDash(pattern, count: 2, phase: 0)
+       
+       shape.path = myPath.cgPath
+       shape.position = CGPoint(x: frame.midX, y: frame.midY+300)
+        
+       addChild(shape)
+        
+        
         
         let xCoords : [CGFloat] =  [-200.0 , 100]
         let yCoords : [CGFloat] = [-500 , -250 , 0]
