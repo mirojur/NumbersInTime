@@ -14,6 +14,7 @@ class SceneObject: SKShapeNode {
     var numLabelNode : SKLabelNode!
     var selectedInGame : Bool! =  false
     var radius : CGFloat! = 0
+    var timer = Timer()
     
    
     
@@ -22,11 +23,11 @@ class SceneObject: SKShapeNode {
        
         value = newValue
         radius = myRadius
+        let mycenter = CGPoint(x:self.frame.midX,y:self.frame.midY)
         
-        let diameter = radius * 2
-        self.path = CGPath(ellipseIn: CGRect(origin: CGPoint(x:0,y:0) , size: CGSize(width: diameter, height: diameter)), transform: nil)
+        let mypath = UIBezierPath(arcCenter: mycenter, radius: radius, startAngle: 0, endAngle: CGFloat(2*M_PI), clockwise: true)
         
-        
+        self.path = mypath.cgPath
                 
         numLabelNode  = SKLabelNode(text: String(value))
         numLabelNode.fontSize = 100

@@ -12,16 +12,13 @@ import GameplayKit
 class GameScene: SKScene {
     
     
+    var gameTimer: Timer!
     
-    var entities = [GKEntity]()
-    var graphs = [String : GKGraph]()
     var sceneNumbers = [Number]()
     var firstInit : Bool = false
-
-    private var lastUpdateTime : TimeInterval = 0
-    private var label : SKLabelNode?
-    private var spinnyNode : SKShapeNode?
     
+    var targetNumber : TargetNumber!
+
     var wNumber : CGFloat = 0.0
     var wTargetNumber : CGFloat = 0.0
     
@@ -35,38 +32,19 @@ class GameScene: SKScene {
             return
         }
         
-        // Create shape node to use during mouse interaction
+        
+        // Create target number
         
         wNumber  = self.size.width * 0.15
         wTargetNumber  = self.size.width * 0.2
-        
-        
-        print(self.size.width, self.size.height)
-        
         let targetNumberPosition : CGPoint = CGPoint(x:0 - wTargetNumber , y: (self.size.height*0.5) - (2.8*wTargetNumber))
-        print(targetNumberPosition)
         
-        // Target Number
-        //let tnumber = TargetNumber(newValue: 255, myRadius: wTargetNumber)
-        //tnumber.position = targetNumberPosition
-        //self.addChild(tnumber)
+        // Target number shape node
+        targetNumber = TargetNumber(newValue: 255, myRadius: wTargetNumber)
+        targetNumber.position = targetNumberPosition
+        self.addChild(targetNumber)
         
         
-       let shape = SKShapeNode(circleOfRadius: 150)
-            
-       shape.fillColor =  .clear
-       shape.lineWidth = 10
-       shape.strokeColor = .darkGray
-       
-       let myPath = UIBezierPath(arcCenter: CGPoint.zero, radius: -150, startAngle: 0, endAngle: 2*CGFloat(M_PI), clockwise: true)
-    
-       let pattern = [CGFloat(6.0), CGFloat(20.0)]
-       myPath.setLineDash(pattern, count: 2, phase: 0)
-       
-       shape.path = myPath.cgPath
-       shape.position = CGPoint(x: frame.midX, y: frame.midY+300)
-        
-       addChild(shape)
         
         
         
@@ -85,11 +63,24 @@ class GameScene: SKScene {
             }
         }
        
-       
+        
+        // init timer
+        gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: true)
+        
         self.firstInit = true
  
     }
     
+    func runTimedCode() {
+        
+        if(targetNumber.isRunning()){
+            self.targetNumber.tick()
+        }else{
+            gameTimer.invalidate()
+        }
+        
+        
+    }
     
     func touchDown(atPoint pos : CGPoint) {
     
@@ -107,7 +98,7 @@ class GameScene: SKScene {
         
         let pulseUp = SKAction.scale(by: 1.1, duration: 0.05)
         let pulseDown = SKAction.scale(by: 1.1, duration: 0.05)
-        let pulse = SKAction.sequence([pulseUp, pulseDown])
+        SKAction.sequence([pulseUp, pulseDown])
         
         let touch = touches.first as UITouch!
         let touchLocation = touch?.location(in: self)
@@ -180,19 +171,5 @@ class GameScene: SKScene {
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
         
-        // Initialize _lastUpdateTime if it has not already been
-        if (self.lastUpdateTime == 0) {
-            self.lastUpdateTime = currentTime
-        }
-        
-        // Calculate time since last update
-        let dt = currentTime - self.lastUpdateTime
-        
-        // Update entities
-        for entity in self.entities {
-            entity.update(deltaTime: dt)
-        }
-        
-        self.lastUpdateTime = currentTime
     }
 }
