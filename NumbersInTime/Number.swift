@@ -12,13 +12,11 @@ class Number: SceneObject {
     
     var startPoint : CGPoint!
     
-    init( newValue : Int , myRadius : CGFloat , myStartPoint : CGPoint) {
-        super.init(newValue: newValue , myRadius: myRadius)
+    init( value : Int , radius : CGFloat , position : CGPoint) {
+        super.init(number: value , radius: radius, position: position)
         
-        startPoint = myStartPoint
-        
-        self.position = startPoint
-        
+        self.startPoint = position
+    
         self.lineWidth = 10
         self.fillColor = SKColor(red: 255/255, green: 82/255, blue: 24/255, alpha:0.85)
         

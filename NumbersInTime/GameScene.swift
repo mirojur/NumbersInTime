@@ -14,14 +14,11 @@ class GameScene: SKScene {
     
     var gameTimer: Timer!
     
-    var sceneNumbers = [Number]()
+    var numbers = [Number]()
     var firstInit : Bool = false
     
     var targetNumber : TargetNumber!
 
-    var wNumber : CGFloat = 0.0
-    var wTargetNumber : CGFloat = 0.0
-    
     
     private var selectedNumber : Number?
     
@@ -34,32 +31,27 @@ class GameScene: SKScene {
         
         
         // Create target number
-        
-        wNumber  = self.size.width * 0.15
-        wTargetNumber  = self.size.width * 0.2
-        let targetNumberPosition : CGPoint = CGPoint(x:0 - wTargetNumber , y: (self.size.height*0.5) - (2.8*wTargetNumber))
+        let targetNumberPosition : CGPoint = CGPoint(x:0.0 , y: CGFloat(self.size.height * 0.3))
         
         // Target number shape node
-        targetNumber = TargetNumber(newValue: 255, myRadius: wTargetNumber)
-        targetNumber.position = targetNumberPosition
+        targetNumber = TargetNumber(value: 255, radius: 150.0, position: targetNumberPosition)
         self.addChild(targetNumber)
         
         
         
-        
-        
-        let xCoords : [CGFloat] =  [-200.0 , 100]
-        let yCoords : [CGFloat] = [-500 , -250 , 0]
+        let xCoords : [CGFloat] =  [-CGFloat(self.size.height * 0.12) , CGFloat(self.size.height * 0.12)]
+        let yCoords : [CGFloat] = [-CGFloat(self.size.height * 0.35) , -CGFloat(self.size.height * 0.15) , CGFloat(self.size.height * 0.05)]
         for i in 0...2 {
             
             for j in 0...1{
                 
                 let currentPos : CGPoint = CGPoint(x: xCoords[j] , y: yCoords[i])
+                let number = Number(value : 10, radius: 120.0 , position: currentPos)
                 
-                let number = Number(newValue: 10, myRadius: wNumber , myStartPoint: currentPos)
                 number.position = currentPos
+                
                 self.addChild(number)
-                self.sceneNumbers.append(number)
+                self.numbers.append(number)
             }
         }
        
@@ -74,7 +66,7 @@ class GameScene: SKScene {
     func runTimedCode() {
         
         if(targetNumber.isRunning()){
-            self.targetNumber.tick()
+            targetNumber.tick()
         }else{
             gameTimer.invalidate()
         }
@@ -127,26 +119,30 @@ class GameScene: SKScene {
         
         let touch = touches.first as UITouch!
         let touchLocation = touch?.location(in: self)
-        let halfWidth = self.size.width/2
-        let halfHeight = self.size.height/2
+        let halfWidth = self.size.width/2.0
+        let halfHeight = self.size.height/2.0
+        
+        print(touchLocation)
         
         if (selectedNumber != nil) {
-            var newPosition : CGPoint = CGPoint(x: (touchLocation?.x)! - (selectedNumber?.radius)!, y: (touchLocation?.y)! - (selectedNumber?.radius)!)
+        
+            let currentRadius = (selectedNumber?.radius)!
+            var newPosition : CGPoint = touchLocation!
             
-            if (newPosition.x < -halfWidth){
-                newPosition.x = -halfWidth
+            if (newPosition.x - currentRadius < -halfWidth){
+                newPosition.x = -halfWidth + currentRadius
             }
             
-            if (newPosition.x + (2*wNumber) > halfWidth){
-                newPosition.x = halfWidth - (2*wNumber)
+            if (newPosition.x + currentRadius > halfWidth){
+                newPosition.x = halfWidth - currentRadius
             }
             
-            if (newPosition.y + (2*wNumber) > halfHeight){
-                newPosition.y = halfHeight - (2*wNumber)
+            if (newPosition.y + currentRadius > halfHeight){
+                newPosition.y = halfHeight - currentRadius
             }
             
-            if (newPosition.y  < -halfHeight){
-                newPosition.y = -halfHeight
+            if (newPosition.y - currentRadius < -halfHeight){
+                newPosition.y = -halfHeight + currentRadius
             }
             
             selectedNumber?.position = newPosition
@@ -159,6 +155,7 @@ class GameScene: SKScene {
         
         if(selectedNumber != nil){
            selectedNumber?.goBackToStart()
+            selectedNumber = nil
         }
 
     }
@@ -170,6 +167,6 @@ class GameScene: SKScene {
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
-        
+       
     }
 }
