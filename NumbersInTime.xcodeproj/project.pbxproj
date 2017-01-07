@@ -18,6 +18,13 @@
 		3A690CA41DE75604005D9A64 /* Number.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A690CA31DE75604005D9A64 /* Number.swift */; };
 		3AD488741DE8C9E0009CF85D /* TargetNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD488731DE8C9E0009CF85D /* TargetNumber.swift */; };
 		3AD488761DE8CCDF009CF85D /* SceneObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD488751DE8CCDF009CF85D /* SceneObject.swift */; };
+		4E0180171E1D8CED00BA8301 /* GameAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0180161E1D8CED00BA8301 /* GameAction.swift */; };
+		4E0180191E1D8DDA00BA8301 /* PlusAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0180181E1D8DDA00BA8301 /* PlusAction.swift */; };
+		4E01801B1E1D8E0400BA8301 /* MinusAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E01801A1E1D8E0400BA8301 /* MinusAction.swift */; };
+		4E01801E1E1D8EF800BA8301 /* MultiAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E01801D1E1D8EF800BA8301 /* MultiAction.swift */; };
+		4E0180201E1D8F2D00BA8301 /* DivisionAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E01801F1E1D8F2D00BA8301 /* DivisionAction.swift */; };
+		4E0180221E1D94B600BA8301 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0180211E1D94B600BA8301 /* Game.swift */; };
+		4E08A7F61E1EC08E00994810 /* CancelAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E08A7F51E1EC08E00994810 /* CancelAction.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +41,13 @@
 		3A690CA31DE75604005D9A64 /* Number.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Number.swift; sourceTree = "<group>"; };
 		3AD488731DE8C9E0009CF85D /* TargetNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TargetNumber.swift; sourceTree = "<group>"; };
 		3AD488751DE8CCDF009CF85D /* SceneObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneObject.swift; sourceTree = "<group>"; };
+		4E0180161E1D8CED00BA8301 /* GameAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameAction.swift; sourceTree = "<group>"; };
+		4E0180181E1D8DDA00BA8301 /* PlusAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlusAction.swift; sourceTree = "<group>"; };
+		4E01801A1E1D8E0400BA8301 /* MinusAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinusAction.swift; sourceTree = "<group>"; };
+		4E01801D1E1D8EF800BA8301 /* MultiAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiAction.swift; sourceTree = "<group>"; };
+		4E01801F1E1D8F2D00BA8301 /* DivisionAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DivisionAction.swift; sourceTree = "<group>"; };
+		4E0180211E1D94B600BA8301 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Game.swift; path = ../Game.swift; sourceTree = "<group>"; };
+		4E08A7F51E1EC08E00994810 /* CancelAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CancelAction.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,13 +80,13 @@
 		3A690C8A1DE75044005D9A64 /* NumbersInTime */ = {
 			isa = PBXGroup;
 			children = (
+				4E08A7F41E1EB62000994810 /* objects */,
+				4E08A7F31E1EB5ED00994810 /* game */,
+				4E01801C1E1D8E1000BA8301 /* actions */,
 				3A690C8B1DE75044005D9A64 /* AppDelegate.swift */,
 				3A690C8D1DE75044005D9A64 /* GameScene.sks */,
 				3A690C8F1DE75044005D9A64 /* Actions.sks */,
 				3A690C911DE75044005D9A64 /* GameScene.swift */,
-				3AD488751DE8CCDF009CF85D /* SceneObject.swift */,
-				3A690CA31DE75604005D9A64 /* Number.swift */,
-				3AD488731DE8C9E0009CF85D /* TargetNumber.swift */,
 				3A690C931DE75044005D9A64 /* GameViewController.swift */,
 				3A690C951DE75044005D9A64 /* Main.storyboard */,
 				3A690C981DE75044005D9A64 /* Assets.xcassets */,
@@ -80,6 +94,37 @@
 				3A690C9D1DE75044005D9A64 /* Info.plist */,
 			);
 			path = NumbersInTime;
+			sourceTree = "<group>";
+		};
+		4E01801C1E1D8E1000BA8301 /* actions */ = {
+			isa = PBXGroup;
+			children = (
+				4E0180161E1D8CED00BA8301 /* GameAction.swift */,
+				4E08A7F51E1EC08E00994810 /* CancelAction.swift */,
+				4E0180181E1D8DDA00BA8301 /* PlusAction.swift */,
+				4E01801A1E1D8E0400BA8301 /* MinusAction.swift */,
+				4E01801D1E1D8EF800BA8301 /* MultiAction.swift */,
+				4E01801F1E1D8F2D00BA8301 /* DivisionAction.swift */,
+			);
+			name = actions;
+			sourceTree = "<group>";
+		};
+		4E08A7F31E1EB5ED00994810 /* game */ = {
+			isa = PBXGroup;
+			children = (
+				4E0180211E1D94B600BA8301 /* Game.swift */,
+			);
+			name = game;
+			sourceTree = "<group>";
+		};
+		4E08A7F41E1EB62000994810 /* objects */ = {
+			isa = PBXGroup;
+			children = (
+				3A690CA31DE75604005D9A64 /* Number.swift */,
+				3AD488731DE8C9E0009CF85D /* TargetNumber.swift */,
+				3AD488751DE8CCDF009CF85D /* SceneObject.swift */,
+			);
+			name = objects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,10 +203,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A690CA41DE75604005D9A64 /* Number.swift in Sources */,
+				4E0180201E1D8F2D00BA8301 /* DivisionAction.swift in Sources */,
 				3AD488761DE8CCDF009CF85D /* SceneObject.swift in Sources */,
+				4E0180171E1D8CED00BA8301 /* GameAction.swift in Sources */,
 				3AD488741DE8C9E0009CF85D /* TargetNumber.swift in Sources */,
 				3A690C921DE75044005D9A64 /* GameScene.swift in Sources */,
+				4E01801E1E1D8EF800BA8301 /* MultiAction.swift in Sources */,
+				4E0180221E1D94B600BA8301 /* Game.swift in Sources */,
+				4E0180191E1D8DDA00BA8301 /* PlusAction.swift in Sources */,
 				3A690C941DE75044005D9A64 /* GameViewController.swift in Sources */,
+				4E08A7F61E1EC08E00994810 /* CancelAction.swift in Sources */,
+				4E01801B1E1D8E0400BA8301 /* MinusAction.swift in Sources */,
 				3A690C8C1DE75044005D9A64 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
