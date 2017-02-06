@@ -10,7 +10,7 @@ import SpriteKit
 
 class GameAction: SKShapeNode {
     
-    var width: CGFloat = 80
+    var width: CGFloat = 120
     var symbol: String = ""
     
     init(symbol:String , position: CGPoint) {

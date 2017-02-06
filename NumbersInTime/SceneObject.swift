@@ -36,6 +36,9 @@ class SceneObject: SKShapeNode {
         self.addLabel()
     }
     
+    
+    
+    
     private func addLabel(){
         
         numLabelNode  = SKLabelNode(text: String(value))
@@ -56,6 +59,8 @@ class SceneObject: SKShapeNode {
         fatalError("init(coder:) has not been implemented")
     }
 
-    
+    func handleDoubleTap (scene:SKScene){
+                
+    }
 
 }

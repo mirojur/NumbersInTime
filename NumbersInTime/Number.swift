@@ -22,8 +22,10 @@ class Number: SceneObject {
         
     }
     
+       
     func goBackToStart(){
        self.run(SKAction.move(to: startPoint, duration: 0.5))
+        self.zPosition = 0
     }
     
     required init?(coder aDecoder: NSCoder) {

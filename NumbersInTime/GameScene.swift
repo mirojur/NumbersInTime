@@ -32,7 +32,6 @@ class GameScene: SKScene {
     var addAction: PlusAction!
     var minusAction: MinusAction!
     var modalView: SKShapeNode!
-    var cancelAction: CancelAction!
     
     
     override func sceneDidLoad() {
@@ -55,52 +54,30 @@ class GameScene: SKScene {
  
     }
     
-    
-    
-    func setupTimer(){
-        gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: true)
-    }
-    
-    //add the target number to the scene
-    func addTargetNumber(value : Int){
+    override func didMove(to view: SKView) {
         
-        let targetNumberPosition : CGPoint = CGPoint(x:0.0 , y: CGFloat(self.size.height * 0.3))
-        targetNumber = TargetNumber(value: 255, radius: 150.0, position: targetNumberPosition)
-        
-        self.addChild(targetNumber)
+        let doubleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(GameScene.handleDoubleTap))
+        doubleTap.numberOfTapsRequired = 2
+        view.addGestureRecognizer(doubleTap)
         
     }
     
+    //rollback operation
+    func handleDoubleTap(){
     
-    
-    //add six numbers to the scene
-    func addNumbers(numbersString : String){
-        
-        let xCoords : [CGFloat] =  [-CGFloat(self.size.height * 0.12) , CGFloat(self.size.height * 0.12)]
-        let yCoords : [CGFloat] = [-CGFloat(self.size.height * 0.35) , -CGFloat(self.size.height * 0.15) , CGFloat(self.size.height * 0.05)]
-        
-        
-        var numbersStringArray:[String] = numbersString.components(separatedBy: ";")
-   
-        var counter  = 0
-        
-            for i in 0...2 {
+        if(selectedNumber1 != nil){
+            selectedNumber1?.handleDoubleTap(scene: self)
+            if(selectedNumber1 is Result){
+                let selResult : Result = selectedNumber1 as! Result
                 
-                for j in 0...1{
-                    
-                    let currentPos : CGPoint = CGPoint(x: xCoords[j] , y: yCoords[i])
-                   
-                    let num = Int(numbersStringArray[counter])
-                    let number = Number(value : num! , radius: 120.0 , position: currentPos)
-                    
-                    number.position = currentPos
-                    
-                    self.addChild(number)
-                    self.numbers.append(number)
-                    counter  = counter + 1
-                }
+                numbers.remove(at: (numbers.index(of: selResult))!)
+                numbers.append(selResult.number1)
+                numbers.append(selResult.number2)
             }
-       
+            selectedNumber1 = nil
+            selectedNumber2 = nil
+           
+        }
     }
     
     //Timer
@@ -143,22 +120,21 @@ class GameScene: SKScene {
                     selectedNumber2?.zPosition = 101
                     
                     
-                    if((selectedNumber1?.value)! >= (selectedNumber2?.value)!){
-                        selectedNumber1?.run(SKAction.move(to: firstNumPos, duration: 0.5))
-                        selectedNumber2?.run(SKAction.move(to: secondNumPos, duration: 0.5))
-                    }else{
-                        selectedNumber1?.run(SKAction.move(to: secondNumPos, duration: 0.5))
-                        selectedNumber2?.run(SKAction.move(to: firstNumPos, duration: 0.5))
+                    if((selectedNumber2?.value)! > (selectedNumber1?.value)!){
+                        let tmpNumber : Number = selectedNumber1!
+                        selectedNumber1 = selectedNumber2
+                        selectedNumber2 = tmpNumber
                     }
                     
+                    selectedNumber1?.run(SKAction.move(to: firstNumPos, duration: 0.5))
+                    selectedNumber2?.run(SKAction.move(to: secondNumPos, duration: 0.5))
                     
                     self.addChild(modalView)
                     self.addChild(divAction)
                     self.addChild(multiAction)
                     self.addChild(addAction)
                     self.addChild(minusAction)
-                    self.addChild(cancelAction)
-
+                    
                     return
                 }
             }
@@ -183,60 +159,62 @@ class GameScene: SKScene {
         
         
         modalView = SKShapeNode(path: modalPath.cgPath)
-        modalView.fillColor = UIColor.brown
+        modalView.fillColor = SKColor(red: 48/255, green: 100/255, blue: 111/255, alpha:0.97)
         modalView.lineWidth = 5
         modalView.zPosition = 100
         
         
         
         //add Actions to the screen
-        let divPoint = myAddVector(point1: startPoint, point2: CGPoint(x:(width/2.0),y:(width/2.0)))
+        let divPoint = myAddVector(point1: startPoint, point2: CGPoint(x:(width/4),y:(width/4)))
         divAction = DivisionAction(position: divPoint)
         divAction.zPosition = 101
         
-        let multiPoint = myAddVector(point1: divPoint, point2: CGPoint(x:100.0,y:(0)))
+        let multiPoint = myAddVector(point1: divPoint, point2: CGPoint(x:125,y:(0)))
         multiAction = MultiAction(position: multiPoint)
         multiAction.zPosition = 101
         
-        let addPoint = myAddVector(point1: multiPoint, point2: CGPoint(x:100.0,y:(0)))
+        let addPoint = myAddVector(point1: multiPoint, point2: CGPoint(x:125,y:(0)))
         addAction = PlusAction(position: addPoint)
         addAction.zPosition = 101
         
-        let minusPoint = myAddVector(point1: addPoint, point2: CGPoint(x:100.0, y:0))
+        let minusPoint = myAddVector(point1: addPoint, point2: CGPoint(x:125, y:0))
         minusAction = MinusAction(position: minusPoint)
         minusAction.zPosition = 101
-        
-        let cancelPoint = myAddVector(point1: minusPoint, point2: CGPoint(x:0.0, y:-100.0))
-        cancelAction = CancelAction(position: cancelPoint)
-        cancelAction.zPosition = 101
-        
+       
     }
     
     
-    func rollbackMerge(){
-        
-    }
-
     
-    func touchDown(atPoint pos : CGPoint) {
-    
-    }
-    
-    func touchMoved(toPoint pos : CGPoint) {
-    
-    }
-    
-    func touchUp(atPoint pos : CGPoint) {
-        
-    }
     
     
     func handleAction(node : SKNode){
+     
+        
+        var op : Int = Operation.NO_OPERATION
+        
+        if  (node is SKLabelNode && node.parent is PlusAction) ||
+            (node is PlusAction) {
+            op = Operation.PLU
+        }
+        
+        if  (node is SKLabelNode && node.parent is MinusAction) ||
+            (node is MinusAction) {
+            op = Operation.MIN
+        }
+        
+        if  (node is SKLabelNode && node.parent is MultiAction) ||
+            (node is MultiAction) {
+            op = Operation.MUL
+        }
+        
+        if  (node is SKLabelNode && node.parent is DivisionAction) ||
+            (node is DivisionAction) {
+            op = Operation.DIV
+        }
         
         
-        //
-        if  (node is SKLabelNode && node.parent is CancelAction) ||
-            (node is CancelAction) {
+        if  (op == Operation.NO_OPERATION) {
             
             selectedNumber1?.goBackToStart()
             selectedNumber2?.goBackToStart()
@@ -244,44 +222,45 @@ class GameScene: SKScene {
             selectedNumber1?.zPosition = 0
             selectedNumber2?.zPosition = 0
             
-            selectedNumber1?.run(SKAction.scale(by: 1.0, duration: 0.2))
-            selectedNumber2?.run(SKAction.scale(by: 1.0, duration: 0.2))
-            
-            modalView.removeFromParent()
-            divAction.removeFromParent()
-            multiAction.removeFromParent()
-            addAction.removeFromParent()
-            minusAction.removeFromParent()
-            cancelAction.removeFromParent()
             
             selectedNumber1 = nil
             selectedNumber2 = nil
             
-            isInModalMode = false
+            removeModalDialog()
+            
+            return
+            
+        }
 
-            
-        }
         
-        if  (node is SKLabelNode && node.parent is PlusAction) ||
-            (node is PlusAction) {
-            
-        }
         
-        if  (node is SKLabelNode && node.parent is MinusAction) ||
-            (node is MinusAction) {
-            
-        }
+        let result: Result = Result(num1: selectedNumber1!, num2: selectedNumber2!, operation: op, radius: 120.0, position: (selectedNumber1?.startPoint)!)
         
-        if  (node is SKLabelNode && node.parent is MultiAction) ||
-            (node is MultiAction) {
-            
-        }
+        numbers.append(result)
+        numbers.remove(at: (numbers.index(of: selectedNumber1!))!)
+        numbers.remove(at: (numbers.index(of: selectedNumber2!))!)
         
-        if  (node is SKLabelNode && node.parent is DivisionAction) ||
-            (node is DivisionAction) {
-            
-        }
+        selectedNumber1?.removeFromParent()
+        selectedNumber2?.removeFromParent()
         
+        selectedNumber1 = nil
+        selectedNumber2 = nil
+        
+        removeModalDialog()
+        
+        addChild(result)
+        
+        
+    }
+    
+    private func removeModalDialog(){
+        
+        modalView.removeFromParent()
+        divAction.removeFromParent()
+        multiAction.removeFromParent()
+        addAction.removeFromParent()
+        minusAction.removeFromParent()
+        isInModalMode = false
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -306,13 +285,10 @@ class GameScene: SKScene {
         
         if touchedNode is SKLabelNode && touchedNode.parent is Number{
             selectedNumber1 = touchedNode.parent as! Number?
-            //selectedNumber?.run(pulse)
             
         }
+        print("touchesBegan")
         
-       
-        
-        //for t in touches { self.touchDown(atPoint: t.location(in: self)) }
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -347,7 +323,7 @@ class GameScene: SKScene {
             selectedNumber1?.position = newPosition
             
         }
-        //for t in touches { self.touchMoved(toPoint: t.location(in: self)) }
+      
     }
     
     
@@ -358,10 +334,12 @@ class GameScene: SKScene {
            checkIntersection()
         }
 
+         print("touchesEnded")
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
+        print("touchesCancelled")
+
     }
     
     
@@ -375,5 +353,69 @@ class GameScene: SKScene {
         return CGPoint(x: (point1.x + point2.x) , y: (point1.y + point2.y))
         
     }
+
+    func touchDown(atPoint pos : CGPoint) {
+        print("touchDown")
+
+    }
+    
+    func touchMoved(toPoint pos : CGPoint) {
+        print("touchMoved")
+
+    }
+    
+    func touchUp(atPoint pos : CGPoint) {
+        print("touchUp")
+
+    }
+    
+    func setupTimer(){
+        gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: true)
+    }
+    
+    //add the target number to the scene
+    func addTargetNumber(value : Int){
+        
+        let targetNumberPosition : CGPoint = CGPoint(x:0.0 , y: CGFloat(self.size.height * 0.3))
+        targetNumber = TargetNumber(value: 255, radius: 150.0, position: targetNumberPosition)
+        
+        self.addChild(targetNumber)
+        
+    }
+    
+    
+    
+    //add six numbers to the scene
+    func addNumbers(numbersString : String){
+        
+        let xCoords : [CGFloat] =  [-CGFloat(self.size.height * 0.12) , CGFloat(self.size.height * 0.12)]
+        let yCoords : [CGFloat] = [-CGFloat(self.size.height * 0.35) , -CGFloat(self.size.height * 0.15) , CGFloat(self.size.height * 0.05)]
+        
+        
+        var numbersStringArray:[String] = numbersString.components(separatedBy: ";")
+        
+        var counter  = 0
+        
+        for i in 0...2 {
+            
+            for j in 0...1{
+                
+                let currentPos : CGPoint = CGPoint(x: xCoords[j] , y: yCoords[i])
+                
+                let num = Int(numbersStringArray[counter])
+                let number = Number(value : num! , radius: 120.0 , position: currentPos)
+                
+                number.position = currentPos
+                
+                self.addChild(number)
+                self.numbers.append(number)
+                counter  = counter + 1
+            }
+        }
+        
+    }
+    
+
+
     
 }

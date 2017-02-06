@@ -9,27 +9,33 @@
 import UIKit
 
 class Game {
-
-    var gameString : String = ""
-    var targetNumber : Int!
     
-    var selectedNumber1 : Int?
-    var selectedNumber2 : Int?
+    static let ONLINE_MODE: Int = 3
+    static let OFFLINE_MODE: Int = 2
     
-    var currentOperation : String?
+    var gameModus:Int
+   
+    // Can't init is singleton
+    private init() {
     
-    
-    init(gamestring: String){
-        self.gameString = gamestring
-    }
-    
-    func setCurrentNumbers(num1 : Int , num2 : Int){
+        // server mode
+        // connect to server and get all relevant games
         
+        
+        
+        // local mode
+        //generate local games
+        gameModus = Game.OFFLINE_MODE
+    
     }
     
-    func rollbackCurrentAction(){
-                
-    }
+    //MARK: Shared Instance
     
+    static let sharedInstance: Game = Game()
+    
+    //MARK: Local Variable
+    
+    var gameStringsArray : [String] = []
+
     
 }

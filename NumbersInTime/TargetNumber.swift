@@ -32,8 +32,6 @@ class TargetNumber: SceneObject {
     
         seconds = seconds + 1
         
-        
-        
         let endAngle = CGFloat(2 * M_PI * Double(seconds)/60.0)
         self.path = getLinePath(endAngle: endAngle).cgPath
         

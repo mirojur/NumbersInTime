@@ -24,7 +24,10 @@
 		4E01801E1E1D8EF800BA8301 /* MultiAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E01801D1E1D8EF800BA8301 /* MultiAction.swift */; };
 		4E0180201E1D8F2D00BA8301 /* DivisionAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E01801F1E1D8F2D00BA8301 /* DivisionAction.swift */; };
 		4E0180221E1D94B600BA8301 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0180211E1D94B600BA8301 /* Game.swift */; };
-		4E08A7F61E1EC08E00994810 /* CancelAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E08A7F51E1EC08E00994810 /* CancelAction.swift */; };
+		4E1194CC1E3E736A00E6E8FE /* IntroScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4E1194CB1E3E736A00E6E8FE /* IntroScene.sks */; };
+		4E1194CE1E3E742D00E6E8FE /* IntroScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1194CD1E3E742D00E6E8FE /* IntroScene.swift */; };
+		4EBC4CFD1E3D236C000842EA /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBC4CFC1E3D236C000842EA /* Result.swift */; };
+		4EBC4CFF1E3D24E6000842EA /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBC4CFE1E3D24E6000842EA /* Operation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,7 +50,10 @@
 		4E01801D1E1D8EF800BA8301 /* MultiAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiAction.swift; sourceTree = "<group>"; };
 		4E01801F1E1D8F2D00BA8301 /* DivisionAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DivisionAction.swift; sourceTree = "<group>"; };
 		4E0180211E1D94B600BA8301 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Game.swift; path = ../Game.swift; sourceTree = "<group>"; };
-		4E08A7F51E1EC08E00994810 /* CancelAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CancelAction.swift; sourceTree = "<group>"; };
+		4E1194CB1E3E736A00E6E8FE /* IntroScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = IntroScene.sks; sourceTree = "<group>"; };
+		4E1194CD1E3E742D00E6E8FE /* IntroScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroScene.swift; sourceTree = "<group>"; };
+		4EBC4CFC1E3D236C000842EA /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		4EBC4CFE1E3D24E6000842EA /* Operation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,8 +91,10 @@
 				4E01801C1E1D8E1000BA8301 /* actions */,
 				3A690C8B1DE75044005D9A64 /* AppDelegate.swift */,
 				3A690C8D1DE75044005D9A64 /* GameScene.sks */,
+				4E1194CB1E3E736A00E6E8FE /* IntroScene.sks */,
 				3A690C8F1DE75044005D9A64 /* Actions.sks */,
 				3A690C911DE75044005D9A64 /* GameScene.swift */,
+				4E1194CD1E3E742D00E6E8FE /* IntroScene.swift */,
 				3A690C931DE75044005D9A64 /* GameViewController.swift */,
 				3A690C951DE75044005D9A64 /* Main.storyboard */,
 				3A690C981DE75044005D9A64 /* Assets.xcassets */,
@@ -100,7 +108,6 @@
 			isa = PBXGroup;
 			children = (
 				4E0180161E1D8CED00BA8301 /* GameAction.swift */,
-				4E08A7F51E1EC08E00994810 /* CancelAction.swift */,
 				4E0180181E1D8DDA00BA8301 /* PlusAction.swift */,
 				4E01801A1E1D8E0400BA8301 /* MinusAction.swift */,
 				4E01801D1E1D8EF800BA8301 /* MultiAction.swift */,
@@ -121,8 +128,10 @@
 			isa = PBXGroup;
 			children = (
 				3A690CA31DE75604005D9A64 /* Number.swift */,
+				4EBC4CFC1E3D236C000842EA /* Result.swift */,
 				3AD488731DE8C9E0009CF85D /* TargetNumber.swift */,
 				3AD488751DE8CCDF009CF85D /* SceneObject.swift */,
+				4EBC4CFE1E3D24E6000842EA /* Operation.swift */,
 			);
 			name = objects;
 			sourceTree = "<group>";
@@ -190,6 +199,7 @@
 				3A690C971DE75044005D9A64 /* Main.storyboard in Resources */,
 				3A690C8E1DE75044005D9A64 /* GameScene.sks in Resources */,
 				3A690C991DE75044005D9A64 /* Assets.xcassets in Resources */,
+				4E1194CC1E3E736A00E6E8FE /* IntroScene.sks in Resources */,
 				3A690C9C1DE75044005D9A64 /* LaunchScreen.storyboard in Resources */,
 				3A690C901DE75044005D9A64 /* Actions.sks in Resources */,
 			);
@@ -206,13 +216,15 @@
 				4E0180201E1D8F2D00BA8301 /* DivisionAction.swift in Sources */,
 				3AD488761DE8CCDF009CF85D /* SceneObject.swift in Sources */,
 				4E0180171E1D8CED00BA8301 /* GameAction.swift in Sources */,
+				4EBC4CFD1E3D236C000842EA /* Result.swift in Sources */,
 				3AD488741DE8C9E0009CF85D /* TargetNumber.swift in Sources */,
 				3A690C921DE75044005D9A64 /* GameScene.swift in Sources */,
 				4E01801E1E1D8EF800BA8301 /* MultiAction.swift in Sources */,
+				4EBC4CFF1E3D24E6000842EA /* Operation.swift in Sources */,
 				4E0180221E1D94B600BA8301 /* Game.swift in Sources */,
+				4E1194CE1E3E742D00E6E8FE /* IntroScene.swift in Sources */,
 				4E0180191E1D8DDA00BA8301 /* PlusAction.swift in Sources */,
 				3A690C941DE75044005D9A64 /* GameViewController.swift in Sources */,
-				4E08A7F61E1EC08E00994810 /* CancelAction.swift in Sources */,
 				4E01801B1E1D8E0400BA8301 /* MinusAction.swift in Sources */,
 				3A690C8C1DE75044005D9A64 /* AppDelegate.swift in Sources */,
 			);
@@ -262,6 +274,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -312,6 +325,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -341,7 +355,7 @@
 				INFOPLIST_FILE = NumbersInTime/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.anlumithe.NumbersInTime;
+				PRODUCT_BUNDLE_IDENTIFIER = com.salvamac.NumbersInTime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -355,7 +369,7 @@
 				INFOPLIST_FILE = NumbersInTime/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.anlumithe.NumbersInTime;
+				PRODUCT_BUNDLE_IDENTIFIER = com.salvamac.NumbersInTime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
