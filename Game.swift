@@ -7,35 +7,43 @@
 //
 
 import UIKit
+import SystemConfiguration
+import Foundation
 
 class Game {
+    
+    let defaults = UserDefaults.standard
     
     static let ONLINE_MODE: Int = 3
     static let OFFLINE_MODE: Int = 2
     
-    var gameModus:Int
-   
-    // Can't init is singleton
-    private init() {
-    
-        // server mode
-        // connect to server and get all relevant games
-        
-        
-        
-        // local mode
-        //generate local games
-        gameModus = Game.OFFLINE_MODE
-    
+    var gameModus:Int = 0{
+        didSet {
+               defaults.set(gameModus, forKey: "gameModus")
+        }
     }
     
-    //MARK: Shared Instance
+    var userName:String = ""{
+        didSet {
+            defaults.set(userName, forKey: "userName")
+        }
+    }
+  
     
     static let sharedInstance: Game = Game()
     
-    //MARK: Local Variable
-    
     var gameStringsArray : [String] = []
 
+    func setOnlineMode(){
+        self.gameModus = Game.ONLINE_MODE
+    }
     
+    func getGamesFromServer(){
+        
+        
+    }
+    
+    
+    
+       
 }

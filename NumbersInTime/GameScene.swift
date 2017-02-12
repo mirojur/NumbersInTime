@@ -87,6 +87,7 @@ class GameScene: SKScene {
             targetNumber.tick()
         }else{
             gameTimer.invalidate()
+            
         }
         
     }
