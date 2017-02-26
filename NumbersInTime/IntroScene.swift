@@ -16,24 +16,27 @@ class IntroScene: SKScene {
         let height  = 0.1*self.size.height
         let fontSize = 0.08*self.size.width
 
+        let fontColor = UIColor(hex: "#787878")
         
         let localMode: SKLabelNode = SKLabelNode(text: "local training")
         
         localMode.position = CGPoint(x:0,y:height)
         localMode.horizontalAlignmentMode = .center
         localMode.fontSize = fontSize
+        localMode.fontColor = fontColor
         
         
         let serverMode: SKLabelNode = SKLabelNode(text: "community mode")
         serverMode.position = myAddVector(point1: localMode.position, point2: CGPoint(x:0,y:-height))
         serverMode.horizontalAlignmentMode = .center
         serverMode.fontSize = fontSize
-        
+        serverMode.fontColor = fontColor
 
         let settingsMode: SKLabelNode = SKLabelNode(text: "settings")
         settingsMode.position = myAddVector(point1: serverMode.position, point2: CGPoint(x:0,y:-height))
         settingsMode.horizontalAlignmentMode = .center
         settingsMode.fontSize = fontSize
+        settingsMode.fontColor = fontColor
         
         
         
@@ -61,6 +64,7 @@ class IntroScene: SKScene {
             case "local training":
                 let deviceID = UIDevice.current.identifierForVendor!.uuidString
                 print(deviceID)
+                switchToResultScene()
                 
             case "community mode":
                 
@@ -113,7 +117,25 @@ class IntroScene: SKScene {
         
     }
 
-    
+    func switchToResultScene(){
+        
+        let gameScene = GKScene(fileNamed: "ResultScene")!
+        let sceneNode = gameScene.rootNode as! ResultScene
+        // Set the scale mode to scale to fit the window
+        sceneNode.scaleMode = .aspectFill
+        
+        // Present the scene
+        if let view = self.view {
+            view.presentScene(sceneNode)
+            
+            view.ignoresSiblingOrder = true
+            
+            view.showsFPS = true
+            view.showsNodeCount = true
+        }
+        
+    }
+
     
     private func myAddVector(point1: CGPoint, point2: CGPoint) -> CGPoint{
         

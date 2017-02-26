@@ -11,7 +11,7 @@
 		3A690C8E1DE75044005D9A64 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3A690C8D1DE75044005D9A64 /* GameScene.sks */; };
 		3A690C901DE75044005D9A64 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3A690C8F1DE75044005D9A64 /* Actions.sks */; };
 		3A690C921DE75044005D9A64 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A690C911DE75044005D9A64 /* GameScene.swift */; };
-		3A690C941DE75044005D9A64 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A690C931DE75044005D9A64 /* GameViewController.swift */; };
+		3A690C941DE75044005D9A64 /* StartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A690C931DE75044005D9A64 /* StartController.swift */; };
 		3A690C971DE75044005D9A64 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A690C951DE75044005D9A64 /* Main.storyboard */; };
 		3A690C991DE75044005D9A64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A690C981DE75044005D9A64 /* Assets.xcassets */; };
 		3A690C9C1DE75044005D9A64 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A690C9A1DE75044005D9A64 /* LaunchScreen.storyboard */; };
@@ -26,20 +26,25 @@
 		4E0180221E1D94B600BA8301 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0180211E1D94B600BA8301 /* Game.swift */; };
 		4E1194CC1E3E736A00E6E8FE /* IntroScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4E1194CB1E3E736A00E6E8FE /* IntroScene.sks */; };
 		4E1194CE1E3E742D00E6E8FE /* IntroScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1194CD1E3E742D00E6E8FE /* IntroScene.swift */; };
-		4E1C6FD71E50DD6400D2BF08 /* ResultScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4E1C6FD61E50DD6400D2BF08 /* ResultScene.sks */; };
-		4E1C6FD91E50DD8B00D2BF08 /* ResultScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1C6FD81E50DD8B00D2BF08 /* ResultScene.swift */; };
 		4E33C34B1E4E3FF6007665BA /* Reach.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E33C34A1E4E3FF6007665BA /* Reach.swift */; };
+		4E6923511E6347B500676DCE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4E6923501E6347B500676DCE /* GoogleService-Info.plist */; };
+		4E8024CA1E6362020056CC24 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8024C91E6362020056CC24 /* LoginController.swift */; };
 		4EBC4CFD1E3D236C000842EA /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBC4CFC1E3D236C000842EA /* Result.swift */; };
 		4EBC4CFF1E3D24E6000842EA /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBC4CFE1E3D24E6000842EA /* Operation.swift */; };
+		4EF086361E5B57C200E92BB0 /* ResultScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4EF086351E5B57C200E92BB0 /* ResultScene.sks */; };
+		4EF086381E5B57E400E92BB0 /* ResultScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF086371E5B57E400E92BB0 /* ResultScene.swift */; };
+		4EF4F3CB1E61F3A700FC9921 /* ScoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF4F3CA1E61F3A700FC9921 /* ScoreController.swift */; };
+		62050402435F3A0130E26177 /* Pods_NumbersInTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BFD14081AA310BAD1EA08C2 /* Pods_NumbersInTime.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0634827D12968F0255409928 /* Pods-NumbersInTime.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NumbersInTime.release.xcconfig"; path = "Pods/Target Support Files/Pods-NumbersInTime/Pods-NumbersInTime.release.xcconfig"; sourceTree = "<group>"; };
 		3A690C881DE75044005D9A64 /* NumbersInTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NumbersInTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A690C8B1DE75044005D9A64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A690C8D1DE75044005D9A64 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		3A690C8F1DE75044005D9A64 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		3A690C911DE75044005D9A64 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
-		3A690C931DE75044005D9A64 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		3A690C931DE75044005D9A64 /* StartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartController.swift; sourceTree = "<group>"; };
 		3A690C961DE75044005D9A64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3A690C981DE75044005D9A64 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3A690C9B1DE75044005D9A64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +52,7 @@
 		3A690CA31DE75604005D9A64 /* Number.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Number.swift; sourceTree = "<group>"; };
 		3AD488731DE8C9E0009CF85D /* TargetNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TargetNumber.swift; sourceTree = "<group>"; };
 		3AD488751DE8CCDF009CF85D /* SceneObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneObject.swift; sourceTree = "<group>"; };
+		4BFD14081AA310BAD1EA08C2 /* Pods_NumbersInTime.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NumbersInTime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E0180161E1D8CED00BA8301 /* GameAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameAction.swift; sourceTree = "<group>"; };
 		4E0180181E1D8DDA00BA8301 /* PlusAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlusAction.swift; sourceTree = "<group>"; };
 		4E01801A1E1D8E0400BA8301 /* MinusAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinusAction.swift; sourceTree = "<group>"; };
@@ -55,11 +61,15 @@
 		4E0180211E1D94B600BA8301 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Game.swift; path = ../Game.swift; sourceTree = "<group>"; };
 		4E1194CB1E3E736A00E6E8FE /* IntroScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = IntroScene.sks; sourceTree = "<group>"; };
 		4E1194CD1E3E742D00E6E8FE /* IntroScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroScene.swift; sourceTree = "<group>"; };
-		4E1C6FD61E50DD6400D2BF08 /* ResultScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ResultScene.sks; sourceTree = "<group>"; };
-		4E1C6FD81E50DD8B00D2BF08 /* ResultScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultScene.swift; sourceTree = "<group>"; };
 		4E33C34A1E4E3FF6007665BA /* Reach.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reach.swift; sourceTree = "<group>"; };
+		4E6923501E6347B500676DCE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4E8024C91E6362020056CC24 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		4EBC4CFC1E3D236C000842EA /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		4EBC4CFE1E3D24E6000842EA /* Operation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
+		4EF086351E5B57C200E92BB0 /* ResultScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ResultScene.sks; sourceTree = "<group>"; };
+		4EF086371E5B57E400E92BB0 /* ResultScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultScene.swift; sourceTree = "<group>"; };
+		4EF4F3CA1E61F3A700FC9921 /* ScoreController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreController.swift; sourceTree = "<group>"; };
+		DC6A8FB13C33A42606947CEB /* Pods-NumbersInTime.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NumbersInTime.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NumbersInTime/Pods-NumbersInTime.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62050402435F3A0130E26177 /* Pods_NumbersInTime.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +89,8 @@
 			children = (
 				3A690C8A1DE75044005D9A64 /* NumbersInTime */,
 				3A690C891DE75044005D9A64 /* Products */,
+				822789A93261D970A464EB47 /* Pods */,
+				FEA2281A8775BE944E8209B9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -92,6 +105,7 @@
 		3A690C8A1DE75044005D9A64 /* NumbersInTime */ = {
 			isa = PBXGroup;
 			children = (
+				4E8024C81E6361680056CC24 /* controller */,
 				4E33C3491E4E3FD0007665BA /* helper */,
 				4E08A7F41E1EB62000994810 /* objects */,
 				4E08A7F31E1EB5ED00994810 /* game */,
@@ -101,14 +115,14 @@
 				3A690C911DE75044005D9A64 /* GameScene.swift */,
 				4E1194CB1E3E736A00E6E8FE /* IntroScene.sks */,
 				4E1194CD1E3E742D00E6E8FE /* IntroScene.swift */,
-				4E1C6FD61E50DD6400D2BF08 /* ResultScene.sks */,
-				4E1C6FD81E50DD8B00D2BF08 /* ResultScene.swift */,
+				4EF086371E5B57E400E92BB0 /* ResultScene.swift */,
+				4EF086351E5B57C200E92BB0 /* ResultScene.sks */,
 				3A690C8F1DE75044005D9A64 /* Actions.sks */,
-				3A690C931DE75044005D9A64 /* GameViewController.swift */,
 				3A690C951DE75044005D9A64 /* Main.storyboard */,
 				3A690C981DE75044005D9A64 /* Assets.xcassets */,
 				3A690C9A1DE75044005D9A64 /* LaunchScreen.storyboard */,
 				3A690C9D1DE75044005D9A64 /* Info.plist */,
+				4E6923501E6347B500676DCE /* GoogleService-Info.plist */,
 			);
 			path = NumbersInTime;
 			sourceTree = "<group>";
@@ -153,6 +167,33 @@
 			name = helper;
 			sourceTree = "<group>";
 		};
+		4E8024C81E6361680056CC24 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				4E8024C91E6362020056CC24 /* LoginController.swift */,
+				4EF4F3CA1E61F3A700FC9921 /* ScoreController.swift */,
+				3A690C931DE75044005D9A64 /* StartController.swift */,
+			);
+			name = controller;
+			sourceTree = "<group>";
+		};
+		822789A93261D970A464EB47 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DC6A8FB13C33A42606947CEB /* Pods-NumbersInTime.debug.xcconfig */,
+				0634827D12968F0255409928 /* Pods-NumbersInTime.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FEA2281A8775BE944E8209B9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4BFD14081AA310BAD1EA08C2 /* Pods_NumbersInTime.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -160,9 +201,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3A690CA01DE75044005D9A64 /* Build configuration list for PBXNativeTarget "NumbersInTime" */;
 			buildPhases = (
+				5233667C4D89E0DFE46C4062 /* [CP] Check Pods Manifest.lock */,
 				3A690C841DE75043005D9A64 /* Sources */,
 				3A690C851DE75043005D9A64 /* Frameworks */,
 				3A690C861DE75043005D9A64 /* Resources */,
+				9C79F210487F896A8B881526 /* [CP] Embed Pods Frameworks */,
+				A5C1FF24829B7A840B3E9E32 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -213,7 +257,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E1C6FD71E50DD6400D2BF08 /* ResultScene.sks in Resources */,
+				4EF086361E5B57C200E92BB0 /* ResultScene.sks in Resources */,
+				4E6923511E6347B500676DCE /* GoogleService-Info.plist in Resources */,
 				3A690C971DE75044005D9A64 /* Main.storyboard in Resources */,
 				3A690C8E1DE75044005D9A64 /* GameScene.sks in Resources */,
 				3A690C991DE75044005D9A64 /* Assets.xcassets in Resources */,
@@ -224,6 +269,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5233667C4D89E0DFE46C4062 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9C79F210487F896A8B881526 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NumbersInTime/Pods-NumbersInTime-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A5C1FF24829B7A840B3E9E32 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NumbersInTime/Pods-NumbersInTime-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3A690C841DE75043005D9A64 /* Sources */ = {
@@ -236,14 +329,16 @@
 				4E0180171E1D8CED00BA8301 /* GameAction.swift in Sources */,
 				4EBC4CFD1E3D236C000842EA /* Result.swift in Sources */,
 				3AD488741DE8C9E0009CF85D /* TargetNumber.swift in Sources */,
+				4EF4F3CB1E61F3A700FC9921 /* ScoreController.swift in Sources */,
 				3A690C921DE75044005D9A64 /* GameScene.swift in Sources */,
 				4E01801E1E1D8EF800BA8301 /* MultiAction.swift in Sources */,
 				4EBC4CFF1E3D24E6000842EA /* Operation.swift in Sources */,
 				4E0180221E1D94B600BA8301 /* Game.swift in Sources */,
 				4E1194CE1E3E742D00E6E8FE /* IntroScene.swift in Sources */,
 				4E0180191E1D8DDA00BA8301 /* PlusAction.swift in Sources */,
-				4E1C6FD91E50DD8B00D2BF08 /* ResultScene.swift in Sources */,
-				3A690C941DE75044005D9A64 /* GameViewController.swift in Sources */,
+				4E8024CA1E6362020056CC24 /* LoginController.swift in Sources */,
+				4EF086381E5B57E400E92BB0 /* ResultScene.swift in Sources */,
+				3A690C941DE75044005D9A64 /* StartController.swift in Sources */,
 				4E01801B1E1D8E0400BA8301 /* MinusAction.swift in Sources */,
 				3A690C8C1DE75044005D9A64 /* AppDelegate.swift in Sources */,
 				4E33C34B1E4E3FF6007665BA /* Reach.swift in Sources */,
@@ -369,6 +464,7 @@
 		};
 		3A690CA11DE75044005D9A64 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DC6A8FB13C33A42606947CEB /* Pods-NumbersInTime.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 9JARSYXCR4;
@@ -378,11 +474,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.salvamac.NumbersInTime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		3A690CA21DE75044005D9A64 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0634827D12968F0255409928 /* Pods-NumbersInTime.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 9JARSYXCR4;
@@ -392,6 +490,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.salvamac.NumbersInTime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

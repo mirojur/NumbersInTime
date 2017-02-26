@@ -88,8 +88,35 @@ class GameScene: SKScene {
         }else{
             gameTimer.invalidate()
             
+            print("Game is over. Calling Result Scene")
+            
+            let openScorePageNotification = Notification.Name.init(rawValue: "OpenScorePage")
+            NotificationCenter.default.post(name: openScorePageNotification, object: nil)
+            //switchToResultScene()
+            
+           
         }
         
+    }
+    
+    
+    func switchToResultScene(){
+        
+        let gameScene = GKScene(fileNamed: "ResultScene")!
+        let sceneNode = gameScene.rootNode as! ResultScene
+        // Set the scale mode to scale to fit the window
+        sceneNode.scaleMode = .aspectFill
+        
+        // Present the scene
+        if let view = self.view {
+            view.presentScene(sceneNode)
+            
+            view.ignoresSiblingOrder = true
+            
+            view.showsFPS = true
+            view.showsNodeCount = true
+        }
+     
     }
     
     //check if selected number intersect with some other shape..
@@ -131,9 +158,15 @@ class GameScene: SKScene {
                     selectedNumber2?.run(SKAction.move(to: secondNumPos, duration: 0.5))
                     
                     self.addChild(modalView)
-                    self.addChild(divAction)
+                    
+                    
+                    if ( (selectedNumber1?.value)! % (selectedNumber2?.value)! == 0) {
+                        self.addChild(divAction)
+                    }
                     self.addChild(multiAction)
                     self.addChild(addAction)
+                    
+                    
                     self.addChild(minusAction)
                     
                     return
@@ -160,7 +193,7 @@ class GameScene: SKScene {
         
         
         modalView = SKShapeNode(path: modalPath.cgPath)
-        modalView.fillColor = SKColor(red: 48/255, green: 100/255, blue: 111/255, alpha:0.97)
+        modalView.fillColor = UIColor(hex: "#30646f")
         modalView.lineWidth = 5
         modalView.zPosition = 100
         
@@ -250,6 +283,20 @@ class GameScene: SKScene {
         removeModalDialog()
         
         addChild(result)
+        
+        //if result is the target number game over ...
+        if(result.value == targetNumber.value){
+            
+            targetNumber.removeFromParent()
+            result.run(SKAction.move(to: targetNumber.position, duration: 0.1))
+            result.run(SKAction.rotate(byAngle: CGFloat(2*M_PI), duration: 1.0))
+            result.run(SKAction.scale(by: 1.4, duration: 1.0))
+            
+            result.run(SKAction.wait(forDuration: 2.1))
+
+            switchToResultScene()
+           
+        }
         
         
     }

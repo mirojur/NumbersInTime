@@ -17,10 +17,10 @@ class GameAction: SKShapeNode {
         super.init()
         self.symbol = symbol
         
-        let path = UIBezierPath(roundedRect: CGRect(origin: position, size: CGSize(width: width, height: width)), byRoundingCorners: [.allCorners], cornerRadii: CGSize(width: 4.0, height: 4.0))
+        let path = UIBezierPath(roundedRect: CGRect(origin: position, size: CGSize(width: width, height: width)), byRoundingCorners: [.allCorners], cornerRadii: CGSize(width: 2.0, height: 2.0))
         
         self.path = path.cgPath
-        self.fillColor = UIColor.blue
+        self.fillColor = UIColor(hex: "#dd4f53")
         self.lineWidth = 7
         
         let numLabelNode: SKLabelNode  = SKLabelNode(text: symbol)
