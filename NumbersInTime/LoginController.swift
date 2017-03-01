@@ -7,19 +7,78 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginController: UIViewController {
+    @IBOutlet weak var nickname: UITextField!
+    @IBOutlet weak var eMail: UITextField!
+    @IBOutlet weak var password: UITextField!
 
+    @IBAction func signInAction(_ sender: Any) {
+        
+        FIRAuth.auth()?.createUser(withEmail: eMail.text!, password: password.text!, completion: {
+            
+            user,error in
+            
+            if error != nil {
+                
+                self.login()
+                
+            }
+            else {
+                
+                print ("neuer User erfolgreich angelegt..")
+                
+            }
+            
+            
+        })
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.backgroundColor = UIColor(hex: "#ff0000")
 
-        // Do any additional setup after loading the view.
-        view.backgroundColor = UIColor(hex: "#ff0000")
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
+    
+    
+    func login()  {
+        
+        FIRAuth.auth()?.signIn(withEmail: eMail.text!, password: password.text!, completion: {
+            user, error in
+            
+            if error != nil{
+                
+                print("login passt nicht, der user ist aber bekannt..")
+                self.handleWrongPassword()
+                
+            }
+            else {
+                
+                print("hurraaaa, login erfolgreich")
+                
+            }
+            
+        })
+        
+    }
+    
+    
+    
+    func handleWrongPassword() {
+        let alert = UIAlertController(title: "", message: "wrong user/password", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Try again", style: .default, handler: nil))
+         alert.addAction(UIAlertAction(title: "Reset password", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
 }
 
 
