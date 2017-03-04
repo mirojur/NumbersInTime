@@ -55,8 +55,10 @@ class LoginController: UIViewController {
             
             if error != nil{
                 
-                print("login passt nicht, der user ist aber bekannt..")
-                self.handleWrongPassword()
+                let alert = UIAlertController(title: "", message: "wrong user/password", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Try again", style: .default, handler: nil))
+                alert.addAction(UIAlertAction(title: "Reset password", style: .default, handler: {(action) in self.handleResetPassword()}))
+                self.present(alert, animated: true, completion: nil)
                 
             }
             else {
@@ -71,11 +73,28 @@ class LoginController: UIViewController {
     
     
     
-    func handleWrongPassword() {
-        let alert = UIAlertController(title: "", message: "wrong user/password", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Try again", style: .default, handler: nil))
-         alert.addAction(UIAlertAction(title: "Reset password", style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+    func handleResetPassword() {
+        
+        FIRAuth.auth()?.sendPasswordReset(withEmail: eMail.text!, completion:{
+            
+            error in
+            
+            if error != nil {
+                
+                
+            }
+            else
+            {
+                
+                let message = "reset password email sent to: " + self.eMail.text!
+                let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "ok", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                
+            }
+            
+        })
+        
     }
     
     
