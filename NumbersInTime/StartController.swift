@@ -44,6 +44,8 @@ class StartController: UIViewController {
     
     func showScorePage() {
         print("Game is over. Calling Result Scene")
+        let scoreViewController:ScoreController = ScoreController()
+        self.present(scoreViewController, animated: true, completion: nil)
     }
 
     override var shouldAutorotate: Bool {

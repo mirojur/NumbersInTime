@@ -18,15 +18,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         
-        // Override point for customization after application launch.
+        // connecting to the cloud...
         FIRApp.configure()
         
-        //window = UIWindow(frame: UIScreen.main.bounds)
-        //window?.makeKeyAndVisible()
-        
-        //window?.rootViewController = UINavigationController(rootViewController: StartController())
         
         
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        
+        var initialViewController:UIViewController? = nil
+            
+        let uDefaults = UserDefaults.standard
+        
+        if(uDefaults.object(forKey: "myID") != nil){
+            
+           initialViewController = storyboard.instantiateViewController(withIdentifier: "StartController")
+            
+            
+        }else {
+        
+           initialViewController = storyboard.instantiateViewController(withIdentifier: "LoginController")
+            
+            
+        }
+        
+        
+        self.window?.rootViewController = initialViewController
+        self.window?.makeKeyAndVisible()
+        
+         
         return true
     }
 

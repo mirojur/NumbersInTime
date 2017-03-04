@@ -39,10 +39,17 @@ class IntroScene: SKScene {
         settingsMode.fontColor = fontColor
         
         
+        let logout: SKLabelNode = SKLabelNode(text: "logout")
+        logout.position = myAddVector(point1: settingsMode.position, point2: CGPoint(x:0,y:-height))
+        logout.horizontalAlignmentMode = .center
+        logout.fontSize = fontSize
+        logout.fontColor = fontColor
+        
         
         self.addChild(localMode)
         self.addChild(serverMode)
         self.addChild(settingsMode)
+        self.addChild(logout)
         
         
         
@@ -107,6 +114,9 @@ class IntroScene: SKScene {
                     view.showsNodeCount = true
                 }
 
+            case "logout":
+                print("Action is logout")
+                
                 
             default:
                 print("Type is unknown")
