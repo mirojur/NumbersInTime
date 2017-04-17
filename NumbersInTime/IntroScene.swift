@@ -9,6 +9,15 @@
 import SpriteKit
 import GameplayKit
 
+
+
+enum GameError: String, Error {
+    case LogoutError   = "User Logout error"
+    case NoLastNameProvided = "Please insert your last name."
+    case NoAgeProvided = "Please insert your age."
+    case NoEmailProvided = "Please insert your email."
+}
+
 class IntroScene: SKScene {
     
     override func sceneDidLoad() {
@@ -92,10 +101,8 @@ class IntroScene: SKScene {
                 
                 }
                 
-
-                
-                Game.sharedInstance.setOnlineMode()
                 print("Type is community mode")
+                
             case "settings":
                 print("Type is settings")
                 
@@ -117,6 +124,20 @@ class IntroScene: SKScene {
             case "logout":
                 print("Action is logout")
                 
+                do {
+                    try Game.sharedInstance.signOut()
+                    print(Game.sharedInstance.isUserLoggedIn())
+                    
+                    let openScorePageNotification = Notification.Name.init(rawValue: "OpenLoginPage")
+                    NotificationCenter.default.post(name: openScorePageNotification, object: nil)                                       
+                    
+                    
+                } catch GameError.LogoutError {
+                    
+                } catch{
+                    print("some error")
+                }
+             
                 
             default:
                 print("Type is unknown")

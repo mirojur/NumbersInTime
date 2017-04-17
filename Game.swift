@@ -9,33 +9,58 @@
 import UIKit
 import SystemConfiguration
 import Foundation
+import Firebase
+import FirebaseAuth
+
+
 
 class Game {
     
-    let defaults = UserDefaults.standard
+     
     
-    static let ONLINE_MODE: Int = 3
-    static let OFFLINE_MODE: Int = 2
-    
-    var gameModus:Int = 0{
-        didSet {
-               defaults.set(gameModus, forKey: "gameModus")
+    public static var userName:String!{
+        get {
+            return UserDefaults.standard.string(forKey: "userName")
         }
-    }
-    
-    var userName:String = ""{
-        didSet {
-            defaults.set(userName, forKey: "userName")
+        set(newValue) {
+            print("Saving userName flag which is now \(userName)")
+            UserDefaults.standard.set(newValue, forKey: "userName")
+            UserDefaults.standard.synchronize()
         }
     }
   
+    public static var userEmail:String!{
+        get {
+            return UserDefaults.standard.string(forKey: "userEmail")
+        }
+        set(newValue) {
+            print("Saving userEmail flag which is now \(userEmail)")
+            UserDefaults.standard.set(newValue, forKey: "userEmail")
+            UserDefaults.standard.synchronize()
+        }
+    }
     
     static let sharedInstance: Game = Game()
     
     var gameStringsArray : [String] = []
 
-    func setOnlineMode(){
-        self.gameModus = Game.ONLINE_MODE
+    
+    func isUserLoggedIn()-> Bool {
+      return Game.userName != nil
+    }
+    
+    func signOut() throws {
+        
+        do {
+            
+            try FIRAuth.auth()?.signOut()
+            Game.userName = nil
+            Game.userEmail = nil 
+            
+        } catch _ as NSError {
+            throw GameError.LogoutError
+        }
+        
     }
     
     func getGamesFromServer(){

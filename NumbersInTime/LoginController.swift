@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import SpriteKit
+import GameplayKit
 import Firebase
 import FirebaseAuth
-import SwiftValidator // framework
 
 class LoginController: UIViewController {
     
@@ -56,50 +57,14 @@ class LoginController: UIViewController {
     }
     
     
-    let validator = Validator()
-    
+      
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        validator.styleTransformers(success:{ (validationRule) -> Void in
-            print("here")
-            // clear error label
-            validationRule.errorLabel?.isHidden = true
-            validationRule.errorLabel?.text = ""
-            if let textField = validationRule.field as? UITextField {
-                textField.layer.borderColor = UIColor.green.cgColor
-                textField.layer.borderWidth = 0.5
-                
-            }
-        }, error:{ (validationError) -> Void in
-            print("error")
-            validationError.errorLabel?.isHidden = false
-            validationError.errorLabel?.text = validationError.errorMessage
-            if let textField = validationError.field as? UITextField {
-                textField.layer.borderColor = UIColor.red.cgColor
-                textField.layer.borderWidth = 1.0
-            }
-        })
        
-        validator.registerField(eMail,errorLabel: emailErrorLabel, rules: [RequiredRule(), EmailRule()])
     }
     
-    func validationSuccessful() {
-        // submit the form
-    }
-    
-    func validationFailed(errors:[(Validatable ,ValidationError)]) {
-        // turn the fields to red
-        for (field, error) in errors {
-            if let field = field as? UITextField {
-                field.layer.borderColor = UIColor.red.cgColor
-                field.layer.borderWidth = 1.0
-            }
-            error.errorLabel?.text = error.errorMessage // works if you added labels
-            error.errorLabel?.isHidden = false
-        }
-    }
-
+   
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
@@ -120,20 +85,23 @@ class LoginController: UIViewController {
             }
             else {
                 
-                print("hurraaaa, login erfolgreich")
+                print("login erfolgreich")
                 
                 let user = FIRAuth.auth()?.currentUser
                 print("user email:" + (user?.email)!)
                 print("user ID:" + (user?.uid)!)
                 
+                Game.userName = user?.email
+                Game.userEmail = user?.email
                 
+                                
             }
             
         })
         
     }
     
-    
+   
     
     func handleResetPassword() {
         

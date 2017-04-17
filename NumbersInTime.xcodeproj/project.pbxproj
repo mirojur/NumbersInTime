@@ -105,18 +105,13 @@
 		3A690C8A1DE75044005D9A64 /* NumbersInTime */ = {
 			isa = PBXGroup;
 			children = (
+				4E07C6751E75E20200A962F5 /* scenes */,
 				4E8024C81E6361680056CC24 /* controller */,
 				4E33C3491E4E3FD0007665BA /* helper */,
 				4E08A7F41E1EB62000994810 /* objects */,
 				4E08A7F31E1EB5ED00994810 /* game */,
 				4E01801C1E1D8E1000BA8301 /* actions */,
 				3A690C8B1DE75044005D9A64 /* AppDelegate.swift */,
-				3A690C8D1DE75044005D9A64 /* GameScene.sks */,
-				3A690C911DE75044005D9A64 /* GameScene.swift */,
-				4E1194CB1E3E736A00E6E8FE /* IntroScene.sks */,
-				4E1194CD1E3E742D00E6E8FE /* IntroScene.swift */,
-				4EF086371E5B57E400E92BB0 /* ResultScene.swift */,
-				4EF086351E5B57C200E92BB0 /* ResultScene.sks */,
 				3A690C8F1DE75044005D9A64 /* Actions.sks */,
 				3A690C951DE75044005D9A64 /* Main.storyboard */,
 				3A690C981DE75044005D9A64 /* Assets.xcassets */,
@@ -137,6 +132,19 @@
 				4E01801F1E1D8F2D00BA8301 /* DivisionAction.swift */,
 			);
 			name = actions;
+			sourceTree = "<group>";
+		};
+		4E07C6751E75E20200A962F5 /* scenes */ = {
+			isa = PBXGroup;
+			children = (
+				3A690C8D1DE75044005D9A64 /* GameScene.sks */,
+				3A690C911DE75044005D9A64 /* GameScene.swift */,
+				4E1194CB1E3E736A00E6E8FE /* IntroScene.sks */,
+				4E1194CD1E3E742D00E6E8FE /* IntroScene.swift */,
+				4EF086371E5B57E400E92BB0 /* ResultScene.swift */,
+				4EF086351E5B57C200E92BB0 /* ResultScene.sks */,
+			);
+			name = scenes;
 			sourceTree = "<group>";
 		};
 		4E08A7F31E1EB5ED00994810 /* game */ = {
@@ -171,8 +179,8 @@
 			isa = PBXGroup;
 			children = (
 				4E8024C91E6362020056CC24 /* LoginController.swift */,
-				4EF4F3CA1E61F3A700FC9921 /* ScoreController.swift */,
 				3A690C931DE75044005D9A64 /* StartController.swift */,
+				4EF4F3CA1E61F3A700FC9921 /* ScoreController.swift */,
 			);
 			name = controller;
 			sourceTree = "<group>";

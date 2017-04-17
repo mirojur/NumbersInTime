@@ -13,6 +13,7 @@ import GameplayKit
 class StartController: UIViewController {
     
     let openScorePageNotification = Notification.Name.init(rawValue: "OpenScorePage")
+    let openLoginPageNotification = Notification.Name.init(rawValue: "OpenLoginPage")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +33,11 @@ class StartController: UIViewController {
                                                            name: openScorePageNotification,
                                                            object: nil)
                     
+                    NotificationCenter.default.addObserver(self,
+                                                           selector: #selector(StartController.showLoginPage),
+                                                           name: openLoginPageNotification,
+                                                           object: nil)
+                    
                     
                     view.ignoresSiblingOrder = true
                     view.showsFPS = true
@@ -46,6 +52,12 @@ class StartController: UIViewController {
         print("Game is over. Calling Result Scene")
         let scoreViewController:ScoreController = ScoreController()
         self.present(scoreViewController, animated: true, completion: nil)
+    }
+    
+    func showLoginPage() {
+        print("User logged out. Calling Login Scene")
+        let loginViewController:LoginController = LoginController()
+        self.present(loginViewController, animated: true, completion: nil)
     }
 
     override var shouldAutorotate: Bool {

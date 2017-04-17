@@ -30,9 +30,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         var initialViewController:UIViewController? = nil
             
-        let uDefaults = UserDefaults.standard
         
-        if(uDefaults.object(forKey: "myID") != nil){
+        
+        if(Game.sharedInstance.isUserLoggedIn()){
             
            initialViewController = storyboard.instantiateViewController(withIdentifier: "StartController")
             

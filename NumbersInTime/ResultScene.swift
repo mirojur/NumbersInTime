@@ -46,8 +46,8 @@ class ResultScene: SKScene {
         
         let scaleOut = SKAction.scale(by: 1.1, duration: 0.1)
         let scaleIn  = SKAction.scale(by: 0.9, duration: 0.3)
-        let rotateUZ  = SKAction.rotate(byAngle: CGFloat(M_PI/4), duration: 0.4)
-        let rotateGUZ  = SKAction.rotate(byAngle: CGFloat(-M_PI/4), duration: 0.2)
+        let rotateUZ  = SKAction.rotate(byAngle: CGFloat(Double.pi/4), duration: 0.4)
+        let rotateGUZ  = SKAction.rotate(byAngle: CGFloat(-Double.pi/4), duration: 0.2)
 
         let sequence = SKAction.sequence([scaleOut,scaleIn,rotateUZ,rotateGUZ])
         

@@ -1,7 +1,13 @@
-- Position der Zahlen
-  - gleiche Anzeige bei unterschiedlichen Auflösungen und Display Grössen
 
-- Zeit Anzeige in der Zielzahl
-  - 1 minute Timer wird bei start des Spiels angezeigt
-  - jede Sekunde wird ein Tick weniger angezeigt
-  - nach 1 min wird das Spiel beendet
+- Logo Fehlt
+
+
+
+- Zeit läuft weiter bei Unterbrechung/ Spiel endet nach 60 Sekunden
+
+
+- ScoreController:
+	- Zelle für das letzte Spiel Inch. aktuelle Position auf der Rangliste
+	- alle Spiele Spiele detailliert dargestellt werden ( Ablauf des Spiels
+		- Spieler und Gegner
+	- 

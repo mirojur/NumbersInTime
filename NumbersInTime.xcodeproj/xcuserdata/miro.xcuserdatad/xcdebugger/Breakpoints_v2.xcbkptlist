@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NumbersInTime/IntroScene.swift"
-            timestampString = "509727249.95015"
+            timestampString = "511045215.641322"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
             landmarkName = "sceneDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NumbersInTime/IntroScene.swift"
-            timestampString = "510354179.543195"
+            timestampString = "511045215.641322"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
             landmarkName = "touchesBegan(_:with:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -106,61 +106,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NumbersInTime/IntroScene.swift"
-            timestampString = "510354179.543195"
+            timestampString = "511045215.641322"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
             landmarkName = "touchesBegan(_:with:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Game.swift"
-            timestampString = "508358941.91138"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
-            landmarkName = "Game"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "globalinit_33_A28B62409D1BB005D76395920C6A3CC6_func1"
-                  moduleName = "NumbersInTime"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/miro/Desktop/NumbersInTime/Game.swift"
-                  timestampString = "510356334.996279"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "18"
-                  endingLineNumber = "18"
-                  offsetFromSymbolStart = "4">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static NumbersInTime.Game.OFFLINE_MODE.getter : Swift.Int"
-                  moduleName = "NumbersInTime"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/miro/Desktop/NumbersInTime/Game.swift"
-                  timestampString = "510356334.998735"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "18"
-                  endingLineNumber = "18"
-                  offsetFromSymbolStart = "20">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
