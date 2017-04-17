@@ -39,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         }else {
         
-           initialViewController = storyboard.instantiateViewController(withIdentifier: "LoginController")
+           initialViewController = storyboard.instantiateViewController(withIdentifier: "StartController")
             
             
         }

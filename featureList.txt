@@ -1,13 +1,13 @@
 
-- Logo Fehlt
+wenn nicht eingelogt, dann prüfe: 
 
+	- Login or Join or Trainigsmode
+	
 
-
-- Zeit läuft weiter bei Unterbrechung/ Spiel endet nach 60 Sekunden
-
-
-- ScoreController:
-	- Zelle für das letzte Spiel Inch. aktuelle Position auf der Rangliste
-	- alle Spiele Spiele detailliert dargestellt werden ( Ablauf des Spiels
-		- Spieler und Gegner
+	- Join Controller 
+		- User, password, 
 	- 
+
+
+wenn eingelogt: 
+ 

@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A2EC6EF1EA53DCC00FB1B9F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A2EC6EE1EA53DCC00FB1B9F /* Images.xcassets */; };
+		3A602BEA1EA522D100B44FF6 /* StartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A602BE91EA522D100B44FF6 /* StartController.swift */; };
 		3A690C8C1DE75044005D9A64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A690C8B1DE75044005D9A64 /* AppDelegate.swift */; };
 		3A690C8E1DE75044005D9A64 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3A690C8D1DE75044005D9A64 /* GameScene.sks */; };
 		3A690C901DE75044005D9A64 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3A690C8F1DE75044005D9A64 /* Actions.sks */; };
 		3A690C921DE75044005D9A64 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A690C911DE75044005D9A64 /* GameScene.swift */; };
-		3A690C941DE75044005D9A64 /* StartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A690C931DE75044005D9A64 /* StartController.swift */; };
+		3A690C941DE75044005D9A64 /* StartControllerOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A690C931DE75044005D9A64 /* StartControllerOld.swift */; };
 		3A690C971DE75044005D9A64 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A690C951DE75044005D9A64 /* Main.storyboard */; };
-		3A690C991DE75044005D9A64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A690C981DE75044005D9A64 /* Assets.xcassets */; };
 		3A690C9C1DE75044005D9A64 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A690C9A1DE75044005D9A64 /* LaunchScreen.storyboard */; };
 		3A690CA41DE75604005D9A64 /* Number.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A690CA31DE75604005D9A64 /* Number.swift */; };
 		3AD488741DE8C9E0009CF85D /* TargetNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD488731DE8C9E0009CF85D /* TargetNumber.swift */; };
@@ -39,14 +40,15 @@
 
 /* Begin PBXFileReference section */
 		0634827D12968F0255409928 /* Pods-NumbersInTime.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NumbersInTime.release.xcconfig"; path = "Pods/Target Support Files/Pods-NumbersInTime/Pods-NumbersInTime.release.xcconfig"; sourceTree = "<group>"; };
+		3A2EC6EE1EA53DCC00FB1B9F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		3A602BE91EA522D100B44FF6 /* StartController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartController.swift; sourceTree = "<group>"; };
 		3A690C881DE75044005D9A64 /* NumbersInTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NumbersInTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A690C8B1DE75044005D9A64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A690C8D1DE75044005D9A64 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		3A690C8F1DE75044005D9A64 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		3A690C911DE75044005D9A64 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
-		3A690C931DE75044005D9A64 /* StartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartController.swift; sourceTree = "<group>"; };
+		3A690C931DE75044005D9A64 /* StartControllerOld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartControllerOld.swift; sourceTree = "<group>"; };
 		3A690C961DE75044005D9A64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		3A690C981DE75044005D9A64 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3A690C9B1DE75044005D9A64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A690C9D1DE75044005D9A64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A690CA31DE75604005D9A64 /* Number.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Number.swift; sourceTree = "<group>"; };
@@ -114,10 +116,10 @@
 				3A690C8B1DE75044005D9A64 /* AppDelegate.swift */,
 				3A690C8F1DE75044005D9A64 /* Actions.sks */,
 				3A690C951DE75044005D9A64 /* Main.storyboard */,
-				3A690C981DE75044005D9A64 /* Assets.xcassets */,
 				3A690C9A1DE75044005D9A64 /* LaunchScreen.storyboard */,
 				3A690C9D1DE75044005D9A64 /* Info.plist */,
 				4E6923501E6347B500676DCE /* GoogleService-Info.plist */,
+				3A2EC6EE1EA53DCC00FB1B9F /* Images.xcassets */,
 			);
 			path = NumbersInTime;
 			sourceTree = "<group>";
@@ -178,9 +180,10 @@
 		4E8024C81E6361680056CC24 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				3A690C931DE75044005D9A64 /* StartControllerOld.swift */,
 				4E8024C91E6362020056CC24 /* LoginController.swift */,
-				3A690C931DE75044005D9A64 /* StartController.swift */,
 				4EF4F3CA1E61F3A700FC9921 /* ScoreController.swift */,
+				3A602BE91EA522D100B44FF6 /* StartController.swift */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -265,11 +268,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A2EC6EF1EA53DCC00FB1B9F /* Images.xcassets in Resources */,
 				4EF086361E5B57C200E92BB0 /* ResultScene.sks in Resources */,
 				4E6923511E6347B500676DCE /* GoogleService-Info.plist in Resources */,
 				3A690C971DE75044005D9A64 /* Main.storyboard in Resources */,
 				3A690C8E1DE75044005D9A64 /* GameScene.sks in Resources */,
-				3A690C991DE75044005D9A64 /* Assets.xcassets in Resources */,
 				4E1194CC1E3E736A00E6E8FE /* IntroScene.sks in Resources */,
 				3A690C9C1DE75044005D9A64 /* LaunchScreen.storyboard in Resources */,
 				3A690C901DE75044005D9A64 /* Actions.sks in Resources */,
@@ -333,6 +336,7 @@
 			files = (
 				3A690CA41DE75604005D9A64 /* Number.swift in Sources */,
 				4E0180201E1D8F2D00BA8301 /* DivisionAction.swift in Sources */,
+				3A602BEA1EA522D100B44FF6 /* StartController.swift in Sources */,
 				3AD488761DE8CCDF009CF85D /* SceneObject.swift in Sources */,
 				4E0180171E1D8CED00BA8301 /* GameAction.swift in Sources */,
 				4EBC4CFD1E3D236C000842EA /* Result.swift in Sources */,
@@ -346,7 +350,7 @@
 				4E0180191E1D8DDA00BA8301 /* PlusAction.swift in Sources */,
 				4E8024CA1E6362020056CC24 /* LoginController.swift in Sources */,
 				4EF086381E5B57E400E92BB0 /* ResultScene.swift in Sources */,
-				3A690C941DE75044005D9A64 /* StartController.swift in Sources */,
+				3A690C941DE75044005D9A64 /* StartControllerOld.swift in Sources */,
 				4E01801B1E1D8E0400BA8301 /* MinusAction.swift in Sources */,
 				3A690C8C1DE75044005D9A64 /* AppDelegate.swift in Sources */,
 				4E33C34B1E4E3FF6007665BA /* Reach.swift in Sources */,
@@ -475,6 +479,7 @@
 			baseConfigurationReference = DC6A8FB13C33A42606947CEB /* Pods-NumbersInTime.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = 9JARSYXCR4;
 				INFOPLIST_FILE = NumbersInTime/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
@@ -491,6 +496,7 @@
 			baseConfigurationReference = 0634827D12968F0255409928 /* Pods-NumbersInTime.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = 9JARSYXCR4;
 				INFOPLIST_FILE = NumbersInTime/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
