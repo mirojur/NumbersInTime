@@ -1,4 +1,4 @@
-//
+   //
 //  AppDelegate.swift
 //  NumbersInTime
 //
@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if(Game.sharedInstance.isUserLoggedIn()){
             
-           initialViewController = storyboard.instantiateViewController(withIdentifier: "StartController")
+           initialViewController = storyboard.instantiateViewController(withIdentifier: "GameConfigController")
             
             
         }else {

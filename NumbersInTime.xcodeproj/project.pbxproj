@@ -35,6 +35,7 @@
 		4EF086361E5B57C200E92BB0 /* ResultScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4EF086351E5B57C200E92BB0 /* ResultScene.sks */; };
 		4EF086381E5B57E400E92BB0 /* ResultScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF086371E5B57E400E92BB0 /* ResultScene.swift */; };
 		4EF4F3CB1E61F3A700FC9921 /* ScoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF4F3CA1E61F3A700FC9921 /* ScoreController.swift */; };
+		4EFCF9EB1EABC8B1009D0A14 /* GameConfigController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFCF9EA1EABC8B1009D0A14 /* GameConfigController.swift */; };
 		62050402435F3A0130E26177 /* Pods_NumbersInTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BFD14081AA310BAD1EA08C2 /* Pods_NumbersInTime.framework */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +72,7 @@
 		4EF086351E5B57C200E92BB0 /* ResultScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ResultScene.sks; sourceTree = "<group>"; };
 		4EF086371E5B57E400E92BB0 /* ResultScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultScene.swift; sourceTree = "<group>"; };
 		4EF4F3CA1E61F3A700FC9921 /* ScoreController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreController.swift; sourceTree = "<group>"; };
+		4EFCF9EA1EABC8B1009D0A14 /* GameConfigController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameConfigController.swift; sourceTree = "<group>"; };
 		DC6A8FB13C33A42606947CEB /* Pods-NumbersInTime.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NumbersInTime.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NumbersInTime/Pods-NumbersInTime.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -184,6 +186,7 @@
 				4E8024C91E6362020056CC24 /* LoginController.swift */,
 				4EF4F3CA1E61F3A700FC9921 /* ScoreController.swift */,
 				3A602BE91EA522D100B44FF6 /* StartController.swift */,
+				4EFCF9EA1EABC8B1009D0A14 /* GameConfigController.swift */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 			files = (
 				3A690CA41DE75604005D9A64 /* Number.swift in Sources */,
 				4E0180201E1D8F2D00BA8301 /* DivisionAction.swift in Sources */,
+				4EFCF9EB1EABC8B1009D0A14 /* GameConfigController.swift in Sources */,
 				3A602BEA1EA522D100B44FF6 /* StartController.swift in Sources */,
 				3AD488761DE8CCDF009CF85D /* SceneObject.swift in Sources */,
 				4E0180171E1D8CED00BA8301 /* GameAction.swift in Sources */,

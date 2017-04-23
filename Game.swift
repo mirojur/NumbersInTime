@@ -23,7 +23,6 @@ class Game {
             return UserDefaults.standard.string(forKey: "userName")
         }
         set(newValue) {
-            print("Saving userName flag which is now \(userName)")
             UserDefaults.standard.set(newValue, forKey: "userName")
             UserDefaults.standard.synchronize()
         }
@@ -34,11 +33,21 @@ class Game {
             return UserDefaults.standard.string(forKey: "userEmail")
         }
         set(newValue) {
-            print("Saving userEmail flag which is now \(userEmail)")
             UserDefaults.standard.set(newValue, forKey: "userEmail")
             UserDefaults.standard.synchronize()
         }
     }
+    
+    public static var userID:String!{
+        get {
+            return UserDefaults.standard.string(forKey: "userID")
+        }
+        set(newValue) {
+            UserDefaults.standard.set(newValue, forKey: "userID")
+            UserDefaults.standard.synchronize()
+        }
+    }
+
     
     static let sharedInstance: Game = Game()
     
