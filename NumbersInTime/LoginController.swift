@@ -94,6 +94,12 @@ class LoginController: UIViewController {
                 Game.userName = user?.email
                 Game.userEmail = user?.email
                 
+                
+                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+                let gameConfigController = storyBoard.instantiateViewController(withIdentifier: "GameConfigController") as! GameConfigController
+                self.present(gameConfigController, animated:true, completion:nil)
+                
+                
                                 
             }
             

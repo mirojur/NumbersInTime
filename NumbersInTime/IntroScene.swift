@@ -125,7 +125,7 @@ class IntroScene: SKScene {
                 print("Action is logout")
                 
                 do {
-                    try Game.sharedInstance.signOut()
+                    try Game.sharedInstance.logout()
                     print(Game.sharedInstance.isUserLoggedIn())
                     
                     let openScorePageNotification = Notification.Name.init(rawValue: "OpenLoginPage")

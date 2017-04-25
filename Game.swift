@@ -58,7 +58,7 @@ class Game {
       return Game.userName != nil
     }
     
-    func signOut() throws {
+    func logout() throws {
         
         do {
             
