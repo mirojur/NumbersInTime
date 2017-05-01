@@ -32,7 +32,7 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WOY-BR-rIJ">
                                 <rect key="frame" x="16" y="290" width="322" height="29"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <state key="normal" title="Login">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -199,7 +199,7 @@
                                             <constraint firstAttribute="height" constant="60" id="di4-CH-4K0"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <state key="normal" title="Join" backgroundImage="grey">
+                                        <state key="normal" title="Sign In" backgroundImage="grey">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -247,10 +247,10 @@
             </objects>
             <point key="canvasLocation" x="-324" y="34.632683658170919"/>
         </scene>
-        <!--Join Controller-->
+        <!--Sign In Controller-->
         <scene sceneID="mcv-S5-YRO">
             <objects>
-                <viewController storyboardIdentifier="JoinController" id="oGi-LA-TED" customClass="JoinController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="JoinController" id="oGi-LA-TED" customClass="SignInController" customModule="NumbersInTime" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="THJ-AW-juY"/>
                         <viewControllerLayoutGuide type="bottom" id="WRf-vL-DK4"/>
@@ -298,6 +298,9 @@
                                 <state key="normal" title="Login">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="signInAction:" destination="oGi-LA-TED" eventType="touchUpInside" id="yyx-Do-esQ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6n7-LP-xLv">
                                 <rect key="frame" x="134" y="540" width="106" height="73"/>
@@ -329,6 +332,11 @@
                             <constraint firstItem="dpR-cP-IFz" firstAttribute="centerX" secondItem="CfV-T6-dDB" secondAttribute="centerX" id="yMS-9h-VUE"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="confirmPassword" destination="dpR-cP-IFz" id="i9y-LJ-nnw"/>
+                        <outlet property="email" destination="ryE-r5-aqr" id="GVq-84-QRV"/>
+                        <outlet property="password" destination="fkE-2e-eGe" id="5Wj-qH-1PL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BF2-oD-FRM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -20,94 +20,76 @@ class LoginController: UIViewController {
     @IBOutlet weak var nickname: UITextField!
     @IBOutlet weak var eMail: UITextField!
     @IBOutlet weak var password: UITextField!
-
+    
     @IBAction func signInAction(_ sender: Any) {
         
         
+        let username = self.eMail.text!
+        let password = self.password.text!
         
-        FIRAuth.auth()?.createUser(withEmail: eMail.text!, password: password.text!, completion: {
+        FIRAuth.auth()?.signIn(withEmail: username, password: password, completion: {
+            (user, error) in
             
-            user,error in
-            
-            if error != nil {
+            if error != nil{
                 
-                self.login()
+                
+               if let errCode = FIRAuthErrorCode(rawValue: error!._code) {
+                    
+                    switch errCode {
+                    case .errorCodeUserDisabled:
+                        self.alertDefault(title: "Error", message: "your account is disabled")
+                    case .errorCodeWrongPassword:
+                        self.alertDefault(title: "Error", message: "incorrect password")
+                    case .errorCodeInvalidEmail:
+                        self.alertDefault(title: "Error", message: "your email address is malformed")
+                    case .errorCodeUserNotFound:
+                        self.alertDefault(title: "Error", message: "no user for this email found")
+                    default:
+                        self.alertDefault(title: "Error", message: "Login Error: \(error!)")                    }
+                }
+
+                return
                 
             }
             else {
                 
-                print ("neuer User erfolgreich angelegt..")
-                
-                let uDefaults = UserDefaults.standard
-                
                 let user = FIRAuth.auth()?.currentUser
-                print("user email:" + (user?.email)!)
-                print("user ID:" + (user?.uid)!)
                 
-                uDefaults.set(user?.email, forKey: "myEMAIL")
-                uDefaults.set(user?.uid, forKey: "myID")
-                uDefaults.synchronize()
+                Game.sharedInstance.userName = user?.email
+                Game.sharedInstance.userEmail = user?.email
+                Game.sharedInstance.userID = user?.uid
                 
+                
+                self.showGameConfig()
                 
             }
             
-            
         })
-        
+               
     }
     
     
-      
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
+        
     }
     
-   
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
     
     
-    func login()  {
-        
-        FIRAuth.auth()?.signIn(withEmail: eMail.text!, password: password.text!, completion: {
-            user, error in
-            
-            if error != nil{
-                
-                let alert = UIAlertController(title: "", message: "wrong user/password", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Try again", style: .default, handler: nil))
-                alert.addAction(UIAlertAction(title: "Reset password", style: .default, handler: {(action) in self.handleResetPassword()}))
-                self.present(alert, animated: true, completion: nil)
-                
-            }
-            else {
-                
-                print("login erfolgreich")
-                
-                let user = FIRAuth.auth()?.currentUser
-                print("user email:" + (user?.email)!)
-                print("user ID:" + (user?.uid)!)
-                
-                Game.userName = user?.email
-                Game.userEmail = user?.email
-                
-                
-                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-                let gameConfigController = storyBoard.instantiateViewController(withIdentifier: "GameConfigController") as! GameConfigController
-                self.present(gameConfigController, animated:true, completion:nil)
-                
-                
-                                
-            }
-            
-        })
-        
+    func showGameConfig() {
+        print("User logged in. Calling Game Config Scene")
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let gameConfigController = storyBoard.instantiateViewController(withIdentifier: "GameConfigController") as! GameConfigController
+        self.present(gameConfigController, animated:true, completion:nil)
     }
+
     
-   
     
     func handleResetPassword() {
         
@@ -122,7 +104,8 @@ class LoginController: UIViewController {
             else
             {
                 
-                _ = "reset password email sent to: " + self.eMail.text!
+                let message = "reset password email sent to: " + self.eMail.text!
+                self.alertDefault(title: "Info", message: message)
                 
             }
             
@@ -185,7 +168,27 @@ extension UIColor{
             blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
             alpha: CGFloat(1.0)
         )
+        
+    }
+    
+}
 
+extension String {
+    
+    func isValidateEmail() -> Bool {
+        
+        let emailFormat = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailFormat)
+        return emailPredicate.evaluate(with: self)
+        
+    }
+    
+    func isEqualToString(find: String) -> Bool {
+        return String(format: self) == find
+    }
+    
+    var length: Int {
+        return characters.count
     }
     
 }

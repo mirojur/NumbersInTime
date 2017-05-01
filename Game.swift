@@ -13,12 +13,24 @@ import Firebase
 import FirebaseAuth
 
 
+//Game errors
+enum GameError: String, Error {
+    case LogoutError   = "User Logout error"
+    case LoginError   = "User Login error"
+    case NoLastNameProvided = "Please insert your last name."
+    case NoAgeProvided = "Please insert your age."
+    case NoEmailProvided = "Please insert your email."
+}
+
+
+//Singleton Game class with all game relevant data
 
 class Game {
     
-     
+    static let sharedInstance: Game = Game()
     
-    public static var userName:String!{
+    
+    public var userName:String!{
         get {
             return UserDefaults.standard.string(forKey: "userName")
         }
@@ -27,8 +39,8 @@ class Game {
             UserDefaults.standard.synchronize()
         }
     }
-  
-    public static var userEmail:String!{
+    
+    public var userEmail:String!{
         get {
             return UserDefaults.standard.string(forKey: "userEmail")
         }
@@ -38,7 +50,7 @@ class Game {
         }
     }
     
-    public static var userID:String!{
+    public var userID:String!{
         get {
             return UserDefaults.standard.string(forKey: "userID")
         }
@@ -47,24 +59,26 @@ class Game {
             UserDefaults.standard.synchronize()
         }
     }
-
     
-    static let sharedInstance: Game = Game()
     
-    var gameStringsArray : [String] = []
-
     
+    
+    // Check if User is logged in
     func isUserLoggedIn()-> Bool {
-      return Game.userName != nil
+        return Game.sharedInstance.userName != nil
     }
     
+    
+    // Logout user
     func logout() throws {
         
         do {
             
             try FIRAuth.auth()?.signOut()
-            Game.userName = nil
-            Game.userEmail = nil 
+            
+            Game.sharedInstance.userName = nil
+            Game.sharedInstance.userEmail = nil
+            Game.sharedInstance.userID = nil
             
         } catch _ as NSError {
             throw GameError.LogoutError
@@ -72,12 +86,5 @@ class Game {
         
     }
     
-    func getGamesFromServer(){
         
-        
-    }
-    
-    
-    
-       
 }

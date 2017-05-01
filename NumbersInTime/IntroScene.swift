@@ -11,12 +11,7 @@ import GameplayKit
 
 
 
-enum GameError: String, Error {
-    case LogoutError   = "User Logout error"
-    case NoLastNameProvided = "Please insert your last name."
-    case NoAgeProvided = "Please insert your age."
-    case NoEmailProvided = "Please insert your email."
-}
+
 
 class IntroScene: SKScene {
     

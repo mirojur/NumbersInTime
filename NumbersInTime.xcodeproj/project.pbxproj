@@ -32,6 +32,7 @@
 		4E8024CA1E6362020056CC24 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8024C91E6362020056CC24 /* LoginController.swift */; };
 		4EBC4CFD1E3D236C000842EA /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBC4CFC1E3D236C000842EA /* Result.swift */; };
 		4EBC4CFF1E3D24E6000842EA /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBC4CFE1E3D24E6000842EA /* Operation.swift */; };
+		4EEED7261EB7A1F6008C0206 /* SignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEED7251EB7A1F6008C0206 /* SignInController.swift */; };
 		4EF086361E5B57C200E92BB0 /* ResultScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4EF086351E5B57C200E92BB0 /* ResultScene.sks */; };
 		4EF086381E5B57E400E92BB0 /* ResultScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF086371E5B57E400E92BB0 /* ResultScene.swift */; };
 		4EF4F3CB1E61F3A700FC9921 /* ScoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF4F3CA1E61F3A700FC9921 /* ScoreController.swift */; };
@@ -69,6 +70,7 @@
 		4E8024C91E6362020056CC24 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		4EBC4CFC1E3D236C000842EA /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		4EBC4CFE1E3D24E6000842EA /* Operation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
+		4EEED7251EB7A1F6008C0206 /* SignInController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInController.swift; sourceTree = "<group>"; };
 		4EF086351E5B57C200E92BB0 /* ResultScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ResultScene.sks; sourceTree = "<group>"; };
 		4EF086371E5B57E400E92BB0 /* ResultScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultScene.swift; sourceTree = "<group>"; };
 		4EF4F3CA1E61F3A700FC9921 /* ScoreController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreController.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				4EF4F3CA1E61F3A700FC9921 /* ScoreController.swift */,
 				3A602BE91EA522D100B44FF6 /* StartController.swift */,
 				4EFCF9EA1EABC8B1009D0A14 /* GameConfigController.swift */,
+				4EEED7251EB7A1F6008C0206 /* SignInController.swift */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				4E01801B1E1D8E0400BA8301 /* MinusAction.swift in Sources */,
 				3A690C8C1DE75044005D9A64 /* AppDelegate.swift in Sources */,
 				4E33C34B1E4E3FF6007665BA /* Reach.swift in Sources */,
+				4EEED7261EB7A1F6008C0206 /* SignInController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
