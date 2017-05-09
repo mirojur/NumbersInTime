@@ -32,6 +32,8 @@
 		4E8024CA1E6362020056CC24 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8024C91E6362020056CC24 /* LoginController.swift */; };
 		4EBC4CFD1E3D236C000842EA /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBC4CFC1E3D236C000842EA /* Result.swift */; };
 		4EBC4CFF1E3D24E6000842EA /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBC4CFE1E3D24E6000842EA /* Operation.swift */; };
+		4EDCE7BB1EBF9122003CC8E4 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDCE7B91EBF9122003CC8E4 /* HeaderCell.swift */; };
+		4EDCE7C01EBFB83D003CC8E4 /* UserResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDCE7BF1EBFB83D003CC8E4 /* UserResultCell.swift */; };
 		4EEED7261EB7A1F6008C0206 /* SignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEED7251EB7A1F6008C0206 /* SignInController.swift */; };
 		4EF086361E5B57C200E92BB0 /* ResultScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4EF086351E5B57C200E92BB0 /* ResultScene.sks */; };
 		4EF086381E5B57E400E92BB0 /* ResultScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF086371E5B57E400E92BB0 /* ResultScene.swift */; };
@@ -70,6 +72,8 @@
 		4E8024C91E6362020056CC24 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		4EBC4CFC1E3D236C000842EA /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		4EBC4CFE1E3D24E6000842EA /* Operation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
+		4EDCE7B91EBF9122003CC8E4 /* HeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
+		4EDCE7BF1EBFB83D003CC8E4 /* UserResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserResultCell.swift; sourceTree = "<group>"; };
 		4EEED7251EB7A1F6008C0206 /* SignInController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInController.swift; sourceTree = "<group>"; };
 		4EF086351E5B57C200E92BB0 /* ResultScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ResultScene.sks; sourceTree = "<group>"; };
 		4EF086371E5B57E400E92BB0 /* ResultScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultScene.swift; sourceTree = "<group>"; };
@@ -111,6 +115,7 @@
 		3A690C8A1DE75044005D9A64 /* NumbersInTime */ = {
 			isa = PBXGroup;
 			children = (
+				4EDCE7B81EBF90EE003CC8E4 /* cells */,
 				4E07C6751E75E20200A962F5 /* scenes */,
 				4E8024C81E6361680056CC24 /* controller */,
 				4E33C3491E4E3FD0007665BA /* helper */,
@@ -192,6 +197,15 @@
 				4EEED7251EB7A1F6008C0206 /* SignInController.swift */,
 			);
 			name = controller;
+			sourceTree = "<group>";
+		};
+		4EDCE7B81EBF90EE003CC8E4 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				4EDCE7B91EBF9122003CC8E4 /* HeaderCell.swift */,
+				4EDCE7BF1EBFB83D003CC8E4 /* UserResultCell.swift */,
+			);
+			name = cells;
 			sourceTree = "<group>";
 		};
 		822789A93261D970A464EB47 /* Pods */ = {
@@ -345,8 +359,10 @@
 				4EFCF9EB1EABC8B1009D0A14 /* GameConfigController.swift in Sources */,
 				3A602BEA1EA522D100B44FF6 /* StartController.swift in Sources */,
 				3AD488761DE8CCDF009CF85D /* SceneObject.swift in Sources */,
+				4EDCE7C01EBFB83D003CC8E4 /* UserResultCell.swift in Sources */,
 				4E0180171E1D8CED00BA8301 /* GameAction.swift in Sources */,
 				4EBC4CFD1E3D236C000842EA /* Result.swift in Sources */,
+				4EDCE7BB1EBF9122003CC8E4 /* HeaderCell.swift in Sources */,
 				3AD488741DE8C9E0009CF85D /* TargetNumber.swift in Sources */,
 				4EF4F3CB1E61F3A700FC9921 /* ScoreController.swift in Sources */,
 				3A690C921DE75044005D9A64 /* GameScene.swift in Sources */,

@@ -39,7 +39,7 @@ class LoginController: UIViewController {
                     case .errorCodeUserDisabled:
                         self.alertDefault(title: "Error", message: "your account is disabled")
                     case .errorCodeWrongPassword:
-                        self.alertDefault(title: "Error", message: "incorrect password")
+                        self.alertPassword(title: "Error", message: "incorrect password")
                     case .errorCodeInvalidEmail:
                         self.alertDefault(title: "Error", message: "your email address is malformed")
                     case .errorCodeUserNotFound:
@@ -145,6 +145,17 @@ class LoginController: UIViewController {
         alert.addAction(UIAlertAction(title: "ok", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
+    
+    func alertPassword(title:String, message : String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "try again", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "reset my password please..", style: .default, handler: { action in
+            self.handleResetPassword()
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+
     
     
 }
