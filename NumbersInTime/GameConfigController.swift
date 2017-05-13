@@ -69,7 +69,7 @@ class GameConfigController: UITableViewController {
         case 1:
             let cell : UserResultCell = tableView.dequeueReusableCell(withIdentifier:"userResultCell", for: indexPath) as! UserResultCell
             
-            cell.currentPlacement.text = "2566"
+           
             return cell
 
             
