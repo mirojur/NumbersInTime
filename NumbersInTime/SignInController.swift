@@ -54,19 +54,19 @@ class SignInController: UIViewController {
         }
         
         
-        FIRAuth.auth()?.createUser(withEmail: email.text!, password: password.text!, completion: {
+        Auth.auth().createUser(withEmail: email.text!, password: password.text!, completion: {
             
             user,error in
             
             if error != nil {
                 
                 
-                if let errCode = FIRAuthErrorCode(rawValue: error!._code) {
+                if let errCode = AuthErrorCode(rawValue: error!._code) {
                     
                     switch errCode {
-                    case .errorCodeInvalidEmail:
+                    case .invalidEmail:
                         self.alertDefault(title: "Error", message: "invalid email")
-                    case .errorCodeEmailAlreadyInUse:
+                    case .emailAlreadyInUse:
                         self.alertDefault(title: "Error", message: "email in use")
                     default:
                         self.alertDefault(title: "Error", message: "Create User Error: \(error!)")                    }
@@ -79,7 +79,7 @@ class SignInController: UIViewController {
                 
                 print ("neuer User erfolgreich angelegt..")
                 
-                let user = FIRAuth.auth()?.currentUser
+                let user = Auth.auth().currentUser
                 
                 Game.sharedInstance.userName = user?.email
                 Game.sharedInstance.userEmail = user?.email

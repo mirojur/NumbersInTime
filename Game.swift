@@ -74,7 +74,7 @@ class Game {
         
         do {
             
-            try FIRAuth.auth()?.signOut()
+            try Auth.auth().signOut()
             
             Game.sharedInstance.userName = nil
             Game.sharedInstance.userEmail = nil

@@ -27,22 +27,22 @@ class LoginController: UIViewController {
         let username = self.eMail.text!
         let password = self.password.text!
         
-        FIRAuth.auth()?.signIn(withEmail: username, password: password, completion: {
+        Auth.auth().signIn(withEmail: username, password: password, completion: {
             (user, error) in
             
             if error != nil{
                 
                 
-               if let errCode = FIRAuthErrorCode(rawValue: error!._code) {
+               if let errCode = AuthErrorCode(rawValue: error!._code) {
                     
                     switch errCode {
-                    case .errorCodeUserDisabled:
+                    case .userDisabled:
                         self.alertDefault(title: "Error", message: "your account is disabled")
-                    case .errorCodeWrongPassword:
+                    case .wrongPassword:
                         self.alertPassword(title: "Error", message: "incorrect password")
-                    case .errorCodeInvalidEmail:
+                    case .invalidEmail:
                         self.alertDefault(title: "Error", message: "your email address is malformed")
-                    case .errorCodeUserNotFound:
+                    case .userNotFound:
                         self.alertDefault(title: "Error", message: "no user for this email found")
                     default:
                         self.alertDefault(title: "Error", message: "Login Error: \(error!)")                    }
@@ -53,7 +53,7 @@ class LoginController: UIViewController {
             }
             else {
                 
-                let user = FIRAuth.auth()?.currentUser
+                let user = Auth.auth().currentUser
                 
                 Game.sharedInstance.userName = user?.email
                 Game.sharedInstance.userEmail = user?.email
@@ -93,7 +93,7 @@ class LoginController: UIViewController {
     
     func handleResetPassword() {
         
-        FIRAuth.auth()?.sendPasswordReset(withEmail: eMail.text!, completion:{
+        Auth.auth().sendPasswordReset(withEmail: eMail.text!, completion:{
             
             error in
             
@@ -115,7 +115,7 @@ class LoginController: UIViewController {
     
     func changeUserNickname(){
         
-        let changeRequest = FIRAuth.auth()?.currentUser?.profileChangeRequest()
+        let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
         
         changeRequest?.displayName = nickname.text
         changeRequest?.commitChanges() {

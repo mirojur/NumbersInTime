@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         // connecting to the cloud...
-        FIRApp.configure()
+        FirebaseApp.configure()
         
         
         

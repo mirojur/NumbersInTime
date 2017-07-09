@@ -12,33 +12,20 @@ import GameplayKit
 
 class StartControllerOld: UIViewController {
     
-    let openScorePageNotification = Notification.Name.init(rawValue: "OpenScorePage")
-    let openLoginPageNotification = Notification.Name.init(rawValue: "OpenLoginPage")
-
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Load 'GameScene.sks' as a GKScene. This provides gameplay related content
         // including entities and graphs.
-        let scene = GKScene(fileNamed: "IntroScene")!
-        let sceneNode = scene.rootNode as! IntroScene
+        let scene = GKScene(fileNamed: "GameScene")!
+        let sceneNode = scene.rootNode as! GameScene
                // Set the scale mode to scale to fit the window
                 sceneNode.scaleMode = .aspectFill
                 
                 // Present the scene
                 if let view = self.view as! SKView? {
-                    
-                    NotificationCenter.default.addObserver(self,
-                                                           selector: #selector(StartControllerOld.showScorePage),
-                                                           name: openScorePageNotification,
-                                                           object: nil)
-                    
-                    NotificationCenter.default.addObserver(self,
-                                                           selector: #selector(StartControllerOld.showLoginPage),
-                                                           name: openLoginPageNotification,
-                                                           object: nil)
-                    
-                    
+                          
                     view.ignoresSiblingOrder = true
                     view.showsFPS = true
                     view.showsNodeCount = true

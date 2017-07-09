@@ -25,8 +25,6 @@
 		4E01801E1E1D8EF800BA8301 /* MultiAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E01801D1E1D8EF800BA8301 /* MultiAction.swift */; };
 		4E0180201E1D8F2D00BA8301 /* DivisionAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E01801F1E1D8F2D00BA8301 /* DivisionAction.swift */; };
 		4E0180221E1D94B600BA8301 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0180211E1D94B600BA8301 /* Game.swift */; };
-		4E1194CC1E3E736A00E6E8FE /* IntroScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4E1194CB1E3E736A00E6E8FE /* IntroScene.sks */; };
-		4E1194CE1E3E742D00E6E8FE /* IntroScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1194CD1E3E742D00E6E8FE /* IntroScene.swift */; };
 		4E33C34B1E4E3FF6007665BA /* Reach.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E33C34A1E4E3FF6007665BA /* Reach.swift */; };
 		4E6923511E6347B500676DCE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4E6923501E6347B500676DCE /* GoogleService-Info.plist */; };
 		4E8024CA1E6362020056CC24 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8024C91E6362020056CC24 /* LoginController.swift */; };
@@ -65,8 +63,6 @@
 		4E01801D1E1D8EF800BA8301 /* MultiAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiAction.swift; sourceTree = "<group>"; };
 		4E01801F1E1D8F2D00BA8301 /* DivisionAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DivisionAction.swift; sourceTree = "<group>"; };
 		4E0180211E1D94B600BA8301 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Game.swift; path = ../Game.swift; sourceTree = "<group>"; };
-		4E1194CB1E3E736A00E6E8FE /* IntroScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = IntroScene.sks; sourceTree = "<group>"; };
-		4E1194CD1E3E742D00E6E8FE /* IntroScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroScene.swift; sourceTree = "<group>"; };
 		4E33C34A1E4E3FF6007665BA /* Reach.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reach.swift; sourceTree = "<group>"; };
 		4E6923501E6347B500676DCE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4E8024C91E6362020056CC24 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
@@ -150,8 +146,6 @@
 			children = (
 				3A690C8D1DE75044005D9A64 /* GameScene.sks */,
 				3A690C911DE75044005D9A64 /* GameScene.swift */,
-				4E1194CB1E3E736A00E6E8FE /* IntroScene.sks */,
-				4E1194CD1E3E742D00E6E8FE /* IntroScene.swift */,
 				4EF086371E5B57E400E92BB0 /* ResultScene.swift */,
 				4EF086351E5B57C200E92BB0 /* ResultScene.sks */,
 			);
@@ -293,7 +287,6 @@
 				4E6923511E6347B500676DCE /* GoogleService-Info.plist in Resources */,
 				3A690C971DE75044005D9A64 /* Main.storyboard in Resources */,
 				3A690C8E1DE75044005D9A64 /* GameScene.sks in Resources */,
-				4E1194CC1E3E736A00E6E8FE /* IntroScene.sks in Resources */,
 				3A690C9C1DE75044005D9A64 /* LaunchScreen.storyboard in Resources */,
 				3A690C901DE75044005D9A64 /* Actions.sks in Resources */,
 			);
@@ -369,7 +362,6 @@
 				4E01801E1E1D8EF800BA8301 /* MultiAction.swift in Sources */,
 				4EBC4CFF1E3D24E6000842EA /* Operation.swift in Sources */,
 				4E0180221E1D94B600BA8301 /* Game.swift in Sources */,
-				4E1194CE1E3E742D00E6E8FE /* IntroScene.swift in Sources */,
 				4E0180191E1D8DDA00BA8301 /* PlusAction.swift in Sources */,
 				4E8024CA1E6362020056CC24 /* LoginController.swift in Sources */,
 				4EF086381E5B57E400E92BB0 /* ResultScene.swift in Sources */,
