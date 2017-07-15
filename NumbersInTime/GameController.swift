@@ -10,7 +10,7 @@ import UIKit
 import SpriteKit
 import GameplayKit
 
-class StartControllerOld: UIViewController {
+class GameController: UIViewController {
     
   
     override func viewDidLoad() {

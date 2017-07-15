@@ -423,12 +423,9 @@ class GameScene: SKScene {
     
     //add the target number to the scene
     func addTargetNumber(value : Int){
-        
         let targetNumberPosition : CGPoint = CGPoint(x:0.0 , y: CGFloat(self.size.height * 0.3))
         targetNumber = TargetNumber(value: 255, radius: 150.0, position: targetNumberPosition)
-        
         self.addChild(targetNumber)
-        
     }
     
     
