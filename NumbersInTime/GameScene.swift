@@ -41,7 +41,17 @@ class GameScene: SKScene {
         }
         
         
-        addTargetNumber(value: 100)
+        
+        do {
+                var myGame  = try Game.sharedInstance.createGame()
+            
+        } catch {
+            
+            
+        }
+        
+        
+        
         
         addNumbers(numbersString: "25;4;2;1;22;50")
         

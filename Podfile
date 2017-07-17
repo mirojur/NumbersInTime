@@ -8,6 +8,7 @@ target 'NumbersInTime' do
   # Pods for NumbersInTime
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
+  pod 'Firebase/Database'
   pod 'SwiftValidator', :git => 'https://github.com/jpotts18/SwiftValidator.git', :branch => 'master'
 
 
