@@ -182,11 +182,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NumbersInTime/SignInController.swift"
-            timestampString = "515360242.961621"
+            timestampString = "526666598.42088"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
             landmarkName = "signInAction(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -293,12 +293,28 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Game.swift"
-            timestampString = "521926839.650523"
+            filePath = "NumbersInTime/GameScene.swift"
+            timestampString = "526760716.069796"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "sceneDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Game.swift"
+            timestampString = "526758619.180492"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
             landmarkName = "createGame()"
             landmarkType = "7">
          </BreakpointContent>
@@ -309,93 +325,46 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NumbersInTime/GameScene.swift"
-            timestampString = "521928904.202175"
+            filePath = "Game.swift"
+            timestampString = "526669456.6385"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
-            landmarkName = "sceneDidLoad()"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
+            landmarkName = "createGame()"
             landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "NumbersInTime.GameScene.sceneDidLoad () -&gt; ()"
+                  symbolName = "NumbersInTime.Game.createGame () throws -&gt; Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;"
                   moduleName = "NumbersInTime"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/miro/Desktop/NumbersInTime/NumbersInTime/GameScene.swift"
-                  timestampString = "521929440.947667"
+                  urlString = "file:///Users/miro/Desktop/NumbersInTime/Game.swift"
+                  timestampString = "526840243.664479"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "48"
-                  endingLineNumber = "48"
-                  offsetFromSymbolStart = "144">
+                  startingLineNumber = "117"
+                  endingLineNumber = "117"
+                  offsetFromSymbolStart = "1020">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "NumbersInTime.GameScene.sceneDidLoad () -&gt; ()"
+                  symbolName = "NumbersInTime.Game.(createGame () throws -&gt; Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;).(implicit closure #1)"
                   moduleName = "NumbersInTime"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/miro/Desktop/NumbersInTime/NumbersInTime/GameScene.swift"
-                  timestampString = "521929440.948826"
+                  urlString = "file:///Users/miro/Desktop/NumbersInTime/Game.swift"
+                  timestampString = "526840243.665674"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "48"
-                  endingLineNumber = "48"
-                  offsetFromSymbolStart = "320">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "NumbersInTime.GameScene.sceneDidLoad () -&gt; ()"
-                  moduleName = "NumbersInTime"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/miro/Desktop/NumbersInTime/NumbersInTime/GameScene.swift"
-                  timestampString = "521929440.950044"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "48"
-                  endingLineNumber = "48"
-                  offsetFromSymbolStart = "333">
+                  startingLineNumber = "117"
+                  endingLineNumber = "117"
+                  offsetFromSymbolStart = "12">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Game.swift"
-            timestampString = "521926754.175749"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
-            landmarkName = "createGame()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Game.swift"
-            timestampString = "521929456.77587"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
-            landmarkName = "createGame()"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

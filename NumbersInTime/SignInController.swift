@@ -81,11 +81,9 @@ class SignInController: UIViewController {
                 
                 let user = Auth.auth().currentUser
                 
-                Game.sharedInstance.userName = user?.email
-                Game.sharedInstance.userEmail = user?.email
-                Game.sharedInstance.userID = user?.uid
                 
-                let message = "user " + String(Game.sharedInstance.userName) + " created"
+                
+                let message = "user " + (user?.email)! + " created"
                 self.alertDefault(title: "Welcome", message: message)
                 
                 

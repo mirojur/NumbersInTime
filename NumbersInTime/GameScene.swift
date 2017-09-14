@@ -22,7 +22,7 @@ class GameScene: SKScene {
     var counter: Int = 0
     
     var isInModalMode : Bool = false
-
+    
     
     var selectedNumber1 : Number?
     var selectedNumber2 : Number?
@@ -43,8 +43,19 @@ class GameScene: SKScene {
         
         
         do {
-                var myGame  = try Game.sharedInstance.createGame()
+            let myGame = try Game.sharedInstance.createGame()
+            addNumbers(numbersString: myGame["numbers"] as! String)
+            addTargetNumber(value: myGame["targetNumber"] as! Int)
             
+            initializeModalDialog()
+            
+            setupTimer()
+            
+            
+            self.firstInit = true
+
+            
+            print(myGame)
         } catch {
             
             
@@ -53,15 +64,7 @@ class GameScene: SKScene {
         
         
         
-        addNumbers(numbersString: "25;4;2;1;22;50")
         
-        initializeModalDialog()
-        
-        setupTimer()
-        
-        
-        self.firstInit = true
- 
     }
     
     override func didMove(to view: SKView) {
@@ -74,7 +77,7 @@ class GameScene: SKScene {
     
     //rollback operation
     func handleDoubleTap(){
-    
+        
         if(selectedNumber1 != nil){
             selectedNumber1?.handleDoubleTap(scene: self)
             if(selectedNumber1 is Result){
@@ -86,7 +89,7 @@ class GameScene: SKScene {
             }
             selectedNumber1 = nil
             selectedNumber2 = nil
-           
+            
         }
     }
     
@@ -104,7 +107,7 @@ class GameScene: SKScene {
             NotificationCenter.default.post(name: openScorePageNotification, object: nil)
             //switchToResultScene()
             
-           
+            
         }
         
     }
@@ -126,7 +129,7 @@ class GameScene: SKScene {
             view.showsFPS = true
             view.showsNodeCount = true
         }
-     
+        
     }
     
     //check if selected number intersect with some other shape..
@@ -225,7 +228,7 @@ class GameScene: SKScene {
         let minusPoint = myAddVector(point1: addPoint, point2: CGPoint(x:125, y:0))
         minusAction = MinusAction(position: minusPoint)
         minusAction.zPosition = 101
-       
+        
     }
     
     
@@ -233,7 +236,7 @@ class GameScene: SKScene {
     
     
     func handleAction(node : SKNode){
-     
+        
         
         var op : Int = Operation.NO_OPERATION
         
@@ -275,7 +278,7 @@ class GameScene: SKScene {
             return
             
         }
-
+        
         
         
         let result: Result = Result(num1: selectedNumber1!, num2: selectedNumber2!, operation: op, radius: 120.0, position: (selectedNumber1?.startPoint)!)
@@ -303,9 +306,9 @@ class GameScene: SKScene {
             result.run(SKAction.scale(by: 1.4, duration: 1.0))
             
             result.run(SKAction.wait(forDuration: 2.1))
-
+            
             switchToResultScene()
-           
+            
         }
         
         
@@ -358,7 +361,7 @@ class GameScene: SKScene {
         
         
         if (selectedNumber1 != nil && !isInModalMode) {
-        
+            
             let currentRadius = (selectedNumber1?.radius)!
             var newPosition : CGPoint = touchLocation!
             
@@ -381,7 +384,7 @@ class GameScene: SKScene {
             selectedNumber1?.position = newPosition
             
         }
-      
+        
     }
     
     
@@ -389,21 +392,21 @@ class GameScene: SKScene {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         if(selectedNumber1 != nil && !isInModalMode){
-           checkIntersection()
+            checkIntersection()
         }
-
-         print("touchesEnded")
+        
+        print("touchesEnded")
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         print("touchesCancelled")
-
+        
     }
     
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
-       
+        
     }
     
     private func myAddVector(point1: CGPoint, point2: CGPoint) -> CGPoint{
@@ -411,20 +414,20 @@ class GameScene: SKScene {
         return CGPoint(x: (point1.x + point2.x) , y: (point1.y + point2.y))
         
     }
-
+    
     func touchDown(atPoint pos : CGPoint) {
         print("touchDown")
-
+        
     }
     
     func touchMoved(toPoint pos : CGPoint) {
         print("touchMoved")
-
+        
     }
     
     func touchUp(atPoint pos : CGPoint) {
         print("touchUp")
-
+        
     }
     
     func setupTimer(){
@@ -470,7 +473,7 @@ class GameScene: SKScene {
         
     }
     
-
-
+    
+    
     
 }

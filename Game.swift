@@ -114,22 +114,22 @@ class Game {
             
         }
         
-        let userId = Game.sharedInstance.userID ?? "noUser"
+        let userId = Auth.auth().currentUser?.email ?? "noUser"
         
+        
+        
+        let ref = Database.database().reference(fromURL: "https://numbersintime-1fcc3.firebaseio.com/")
+        
+        let key = ref.child("games").childByAutoId().key
         
         let theGame : [String : AnyObject] = [
+            "key": key as AnyObject,
             "player": userId as AnyObject,
             "numbers": numbersString as AnyObject,
             "targetNumber": targetNumber as AnyObject
         ]
-        
-        let firebaseRef = Database.database().reference()
-        
-        let key = firebaseRef.child("games").childByAutoId().key
-        
-        let childUpdates = ["/games/\(key)": theGame]
-       
-        firebaseRef.updateChildValues(childUpdates)
+
+        ref.child("games").child(userId).setValue(theGame)
         
         return theGame
         
