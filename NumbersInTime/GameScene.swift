@@ -8,6 +8,9 @@
 
 import SpriteKit
 import GameplayKit
+import Firebase
+import FirebaseAuth
+import FirebaseDatabase
 
 class GameScene: SKScene {
     
@@ -15,6 +18,8 @@ class GameScene: SKScene {
     var gameTimer: Timer!
     
     var numbers = [Number]()
+    var currentGame = [String : AnyObject]()
+    
     var firstInit : Bool = false
     
     var targetNumber : TargetNumber!
@@ -43,9 +48,9 @@ class GameScene: SKScene {
         
         
         do {
-            let myGame = try Game.sharedInstance.createGame()
-            addNumbers(numbersString: myGame["numbers"] as! String)
-            addTargetNumber(value: myGame["targetNumber"] as! Int)
+            currentGame = try Game.sharedInstance.createGame()
+            addNumbers(numbersString: currentGame["numbers"] as! String)
+            addTargetNumber(value: currentGame["targetNumber"] as! Int)
             
             initializeModalDialog()
             
@@ -55,7 +60,7 @@ class GameScene: SKScene {
             self.firstInit = true
 
             
-            print(myGame)
+            print(currentGame)
         } catch {
             
             
@@ -103,9 +108,31 @@ class GameScene: SKScene {
             
             print("Game is over. Calling Result Scene")
             
-            let openScorePageNotification = Notification.Name.init(rawValue: "OpenScorePage")
-            NotificationCenter.default.post(name: openScorePageNotification, object: nil)
-            //switchToResultScene()
+            //let openScorePageNotification = Notification.Name.init(rawValue: "OpenScorePage")
+            //NotificationCenter.default.post(name: openScorePageNotification, object: nil)
+            
+            let gameId = currentGame["gameId"]
+            let gameHistory = "2+2=4;4x14=64;19-5=4;4+64=68"
+            let player = Auth.auth().currentUser?.email ?? "noUser"
+            
+            //save result
+            let ref = Database.database().reference(fromURL: "https://numbersintime-1fcc3.firebaseio.com/")
+            
+            let key = ref.child("gamehistory").childByAutoId().key
+            
+            let gameResult : [String : AnyObject] = [
+                "gameId": gameId as AnyObject,
+                "gameHistory": gameHistory as AnyObject,
+                "result": targetNumber.value as AnyObject,
+                "playerId": player as AnyObject,
+                "timestamp": ServerValue.timestamp() as AnyObject
+            ]
+            
+            let childUpdates = ["/gamehistory/\(key)": gameResult]
+            ref.updateChildValues(childUpdates)
+
+            
+            switchToResultScene()
             
             
         }

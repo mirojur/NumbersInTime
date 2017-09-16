@@ -114,7 +114,6 @@ class Game {
             
         }
         
-        let userId = Auth.auth().currentUser?.email ?? "noUser"
         
         
         
@@ -123,13 +122,15 @@ class Game {
         let key = ref.child("games").childByAutoId().key
         
         let theGame : [String : AnyObject] = [
-            "key": key as AnyObject,
-            "player": userId as AnyObject,
+            "gameId": key as AnyObject,
             "numbers": numbersString as AnyObject,
-            "targetNumber": targetNumber as AnyObject
+            "targetNumber": targetNumber as AnyObject,
+            "timestamp": ServerValue.timestamp() as AnyObject
         ]
 
-        ref.child("games").child(userId).setValue(theGame)
+        let childUpdates = ["/games/\(key)": theGame]
+        ref.updateChildValues(childUpdates)
+        
         
         return theGame
         
