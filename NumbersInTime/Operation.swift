@@ -33,4 +33,22 @@ class Operation {
            
         }
     }
+    
+    static func getOperationSymbol(opValue: Int) -> String {
+        switch opValue {
+        case PLU:
+            return "+"
+        case MIN:
+            return "-"
+        case DIV:
+            return "\u{00F7}"
+        case MUL:
+            return "\u{00D7}"
+            
+        default:
+            return ""
+            
+        }
+    }
+
 }

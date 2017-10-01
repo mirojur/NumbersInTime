@@ -26,7 +26,7 @@ class GameConfigController: UITableViewController {
         
     }
  
-   func logut() {
+   @objc func logut() {
        
         do {
             try Game.sharedInstance.logout()

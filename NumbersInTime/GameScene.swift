@@ -12,12 +12,12 @@ import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 
-class GameScene: SKScene {
-    
+class GameScene: SKScene {  
     
     var gameTimer: Timer!
     
     var numbers = [Number]()
+    var gameHistory = [String]()
     var currentGame = [String : AnyObject]()
     
     var firstInit : Bool = false
@@ -58,7 +58,7 @@ class GameScene: SKScene {
             
             
             self.firstInit = true
-
+            
             
             print(currentGame)
         } catch {
@@ -81,12 +81,15 @@ class GameScene: SKScene {
     }
     
     //rollback operation
-    func handleDoubleTap(){
+    @objc func handleDoubleTap(){
         
         if(selectedNumber1 != nil){
             selectedNumber1?.handleDoubleTap(scene: self)
             if(selectedNumber1 is Result){
                 let selResult : Result = selectedNumber1 as! Result
+                
+                let resString = selResult.toString()
+                gameHistory.remove(at: gameHistory.index(of: resString)!)
                 
                 numbers.remove(at: (numbers.index(of: selResult))!)
                 numbers.append(selResult.number1)
@@ -98,46 +101,103 @@ class GameScene: SKScene {
         }
     }
     
+    //gamehistory to string for database
+    func gameHistoryToString() -> String {
+        var result : String = ""
+        for gameSeq in gameHistory {
+            result.append(gameSeq)
+            result.append(";")
+        }
+        return result
+    }
+    
+    
+    func getGameResult() -> Int {
+        
+        var result : Int = 0
+        var diff : Int = 1000
+        
+        for res in numbers {
+            if( (targetNumber.value - res.value)<diff){
+                diff = targetNumber.value - res.value
+                result = res.value
+            }
+        }
+        
+        return result
+        
+    }
+    
     //Timer
     @objc func runTimedCode() {
         
         if(targetNumber.isRunning()){
             targetNumber.tick()
         }else{
-            gameTimer.invalidate()
+            
             
             print("Game is over. Calling Result Scene")
             
-            //let openScorePageNotification = Notification.Name.init(rawValue: "OpenScorePage")
-            //NotificationCenter.default.post(name: openScorePageNotification, object: nil)
-            
-            let gameId = currentGame["gameId"]
-            let gameHistory = "2+2=4;4x14=64;19-5=4;4+64=68"
-            let player = Auth.auth().currentUser?.email ?? "noUser"
-            
-            //save result
-            let ref = Database.database().reference(fromURL: "https://numbersintime-1fcc3.firebaseio.com/")
-            
-            let key = ref.child("gamehistory").childByAutoId().key
-            
-            let gameResult : [String : AnyObject] = [
-                "gameId": gameId as AnyObject,
-                "gameHistory": gameHistory as AnyObject,
-                "result": targetNumber.value as AnyObject,
-                "playerId": player as AnyObject,
-                "timestamp": ServerValue.timestamp() as AnyObject
-            ]
-            
-            let childUpdates = ["/gamehistory/\(key)": gameResult]
-            ref.updateChildValues(childUpdates)
-
-            
-            switchToResultScene()
+            gameTimer.invalidate()
+            saveGameResult()
+            showResultView()
             
             
         }
         
     }
+    
+    func saveGameResult(){
+        let gameId = currentGame["gameId"]
+        let gameHistory = gameHistoryToString()
+        let player = Auth.auth().currentUser?.email ?? "noUser"
+        
+        //save result
+        let ref = Database.database().reference(fromURL: "https://numbersintime-1fcc3.firebaseio.com/")
+        
+        let key = ref.child("gamehistory").childByAutoId().key
+        
+        let gameResult : [String : AnyObject] = [
+            "gameId": gameId as AnyObject,
+            "gameHistory": gameHistory as AnyObject,
+            "targerNumber": targetNumber.value as AnyObject,
+            "result": getGameResult() as AnyObject,
+            "resultDiff": abs(targetNumber.value - getGameResult()) as AnyObject,
+            "playerId": player as AnyObject,
+            "timestamp": ServerValue.timestamp() as AnyObject
+        ]
+        
+        let childUpdates = ["/gamehistory/\(key)": gameResult]
+        ref.updateChildValues(childUpdates)
+        
+        //update local var
+        currentGame = gameResult
+        
+    }
+    
+    func showResultView() {
+        
+        print("Calling Result View")
+        
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let resultController = storyBoard.instantiateViewController(withIdentifier: "ResultController") as! ResultController
+        
+        resultController.gameResult = currentGame
+    
+        if var topController = UIApplication.shared.keyWindow?.rootViewController
+        {
+            while (topController.presentedViewController != nil)
+            {
+                topController = topController.presentedViewController!
+            }
+            
+            topController.present(resultController, animated: true, completion: nil)
+
+        }       
+        
+    }
+    
+    
     
     
     func switchToResultScene(){
@@ -323,6 +383,7 @@ class GameScene: SKScene {
         removeModalDialog()
         
         addChild(result)
+        gameHistory.append(result.toString())
         
         //if result is the target number game over ...
         if(result.value == targetNumber.value){
@@ -464,7 +525,7 @@ class GameScene: SKScene {
     //add the target number to the scene
     func addTargetNumber(value : Int){
         let targetNumberPosition : CGPoint = CGPoint(x:0.0 , y: CGFloat(self.size.height * 0.3))
-        targetNumber = TargetNumber(value: 255, radius: 150.0, position: targetNumberPosition)
+        targetNumber = TargetNumber(value: value, radius: 150.0, position: targetNumberPosition)
         self.addChild(targetNumber)
     }
     

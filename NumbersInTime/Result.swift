@@ -46,5 +46,19 @@ class Result: Number {
         number1.goBackToStart()
         number2.goBackToStart()
     }
+    
+    func toString() -> String {
+        
+        var result : String = ""
+        
+        result.append(String(number1.value))
+        result.append(Operation.getOperationSymbol(opValue: operation))
+        result.append(String(number2.value))
+        result.append("=")
+        result.append(String(value))
+        
+        return result
+        
+    }
 
 }

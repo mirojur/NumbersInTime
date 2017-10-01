@@ -80,8 +80,7 @@ class SignInController: UIViewController {
                 print ("neuer User erfolgreich angelegt..")
                 
                 let user = Auth.auth().currentUser
-                
-                
+                              
                 
                 let message = "user " + (user?.email)! + " created"
                 self.alertDefault(title: "Welcome", message: message)
