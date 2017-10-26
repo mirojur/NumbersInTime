@@ -20,23 +20,20 @@ class ResultController: UIViewController {
     
     }
     
+    
     @IBAction func logout(_ sender: Any) {
-        
         if(Auth.auth().currentUser != nil){
-            
             do{
                 try Auth.auth().signOut()
-                
-                print("User logged out. Calling start Scene")
-                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-                let startController = storyBoard.instantiateViewController(withIdentifier: "StartController") as! StartController
-                self.present(startController, animated:true, completion:nil)
-                
-                
             } catch {
                 print("error in singout process..")
             }
         }
+        
+        print("User logged out. Calling start Scene")
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let startController = storyBoard.instantiateViewController(withIdentifier: "StartController") as! StartController
+        self.present(startController, animated:true, completion:nil)
         
     }
     

@@ -110,13 +110,10 @@
                         <viewControllerLayoutGuide type="top" id="npv-4g-jT7"/>
                         <viewControllerLayoutGuide type="bottom" id="GPO-Ys-K22"/>
                     </layoutGuides>
-                    <view key="view" userInteractionEnabled="NO" contentMode="scaleToFill" id="IP9-hH-RNf">
+                    <view key="view" contentMode="scaleToFill" id="IP9-hH-RNf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="resultBackground" translatesAutoresizingMaskIntoConstraints="NO" id="MXj-MF-Ic9">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.75" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="sddd" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RgA-3C-QoB">
                                 <rect key="frame" x="0.0" y="100" width="375" height="150"/>
                                 <color key="backgroundColor" red="0.6009605953303141" green="1" blue="0.81385453718241252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -144,22 +141,21 @@
                                 <rect key="frame" x="-0.5" y="484" width="375" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="logout:" destination="Jng-zQ-Jc3" eventType="touchUpInside" id="hSN-px-59t"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="is9-fu-Wwe" firstAttribute="width" secondItem="IP9-hH-RNf" secondAttribute="width" id="1nb-dR-jYP"/>
                             <constraint firstItem="blj-WS-ya2" firstAttribute="width" secondItem="IP9-hH-RNf" secondAttribute="width" id="2Hq-pi-vLK"/>
-                            <constraint firstItem="MXj-MF-Ic9" firstAttribute="centerX" secondItem="IP9-hH-RNf" secondAttribute="centerX" id="45c-bY-nNF"/>
                             <constraint firstItem="is9-fu-Wwe" firstAttribute="top" secondItem="WBi-oE-bNj" secondAttribute="bottom" constant="20" id="5QB-oM-odU"/>
                             <constraint firstItem="blj-WS-ya2" firstAttribute="top" secondItem="RgA-3C-QoB" secondAttribute="bottom" constant="100" id="7gx-aO-uCM"/>
                             <constraint firstItem="WBi-oE-bNj" firstAttribute="top" secondItem="blj-WS-ya2" secondAttribute="bottom" constant="25" id="8A8-MK-cfF"/>
                             <constraint firstItem="blj-WS-ya2" firstAttribute="centerX" secondItem="IP9-hH-RNf" secondAttribute="centerX" id="9rw-31-gZI"/>
-                            <constraint firstItem="MXj-MF-Ic9" firstAttribute="width" secondItem="IP9-hH-RNf" secondAttribute="width" id="Awz-u1-eIC"/>
                             <constraint firstItem="RgA-3C-QoB" firstAttribute="width" secondItem="IP9-hH-RNf" secondAttribute="width" id="Ddh-jY-mjZ"/>
                             <constraint firstItem="is9-fu-Wwe" firstAttribute="centerX" secondItem="IP9-hH-RNf" secondAttribute="centerX" id="GN4-ui-aWd"/>
-                            <constraint firstItem="MXj-MF-Ic9" firstAttribute="centerY" secondItem="IP9-hH-RNf" secondAttribute="centerY" id="Zeo-05-vDS"/>
-                            <constraint firstItem="MXj-MF-Ic9" firstAttribute="height" secondItem="IP9-hH-RNf" secondAttribute="height" id="gyK-2E-rNV"/>
                             <constraint firstItem="WBi-oE-bNj" firstAttribute="width" secondItem="IP9-hH-RNf" secondAttribute="width" id="kkS-qa-13h"/>
                             <constraint firstItem="WBi-oE-bNj" firstAttribute="centerX" secondItem="IP9-hH-RNf" secondAttribute="centerX" id="mEO-Iw-sK3"/>
                             <constraint firstItem="RgA-3C-QoB" firstAttribute="top" secondItem="IP9-hH-RNf" secondAttribute="top" constant="100" id="qkx-hC-LpD"/>
@@ -167,7 +163,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="imageView" destination="MXj-MF-Ic9" id="4qF-B9-Uzl"/>
                         <outlet property="textView" destination="RgA-3C-QoB" id="TUI-pj-ZTz"/>
                     </connections>
                 </viewController>
@@ -456,7 +451,6 @@
         <image name="grey" width="1600" height="820"/>
         <image name="logout" width="50" height="50"/>
         <image name="orange" width="1600" height="820"/>
-        <image name="resultBackground" width="544" height="960"/>
         <image name="title" width="300" height="333"/>
     </resources>
     <inferredMetricsTieBreakers>
