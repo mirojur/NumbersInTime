@@ -10,9 +10,10 @@ import UIKit
 
 class MinusAction: GameAction {
 
-    init(position: CGPoint) {
-        super.init(symbol: "-", position: position)
+    init(radius: CGFloat) {
+        super.init(symbol: "-", radius: radius)
     }
+    
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

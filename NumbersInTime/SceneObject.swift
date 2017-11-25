@@ -27,7 +27,7 @@ class SceneObject: SKShapeNode {
         
         let mypath = UIBezierPath(arcCenter: CGPoint.zero, radius: radius, startAngle: 0, endAngle: CGFloat(2*Double.pi), clockwise: true)
         
-        self.lineWidth = 15
+        //self.lineWidth = 15
         self.lineCap = .round
         
         self.path = mypath.cgPath

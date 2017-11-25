@@ -5,11 +5,12 @@ target 'NumbersInTime' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
+  pod 'VideoSplashKit'
+
   # Pods for NumbersInTime
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
-  pod 'SwiftValidator', :git => 'https://github.com/jpotts18/SwiftValidator.git', :branch => 'master'
-
+  
 
 end

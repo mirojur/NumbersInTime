@@ -14,11 +14,8 @@ class ResultController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var textView: UITextView!
     
+    @IBOutlet weak var logoutButton: UIButton!
     
-    @IBAction func gameConfiguration(_ sender: Any) {
-   
-    
-    }
     
     
     @IBAction func logout(_ sender: Any) {
@@ -34,7 +31,7 @@ class ResultController: UIViewController {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let startController = storyBoard.instantiateViewController(withIdentifier: "StartController") as! StartController
         self.present(startController, animated:true, completion:nil)
-        
+       
     }
     
     var gameResult :  [String : AnyObject]  = [:]
@@ -44,7 +41,7 @@ class ResultController: UIViewController {
         
         
         if(Auth.auth().currentUser==nil){
-           // logoutButton.isEnabled = false
+           logoutButton.setTitle("Back", for: UIControlState.normal)
         }
         
         
@@ -55,12 +52,21 @@ class ResultController: UIViewController {
             
             // Do any additional setup after loading the view.
             
+            let targetNumber: String =  String(gameResult["targerNumber"] as! Int)
+            let myResult: String = String(gameResult["result"] as! Int)
+            
+            textView.text.append("target number: " + targetNumber + "\n")
+            textView.text.append("your way:\n")
             
             for index in 0...gameSeq.capacity-1{
                 let gameSeqText = gameSeq[index]
                 textView.text.append(gameSeqText)
                 textView.text.append("\n")
             }
+            
+            textView.text.append("your result: " + myResult)
+            
+            
         }else {
             textView.text.append("no data")
         }

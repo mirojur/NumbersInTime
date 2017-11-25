@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Jng-zQ-Jc3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="rCi-AJ-9ba">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -100,7 +100,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="906" y="-428"/>
+            <point key="canvasLocation" x="1255" y="-1191"/>
         </scene>
         <!--Result Controller-->
         <scene sceneID="Sd3-1V-an5">
@@ -114,33 +114,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.75" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="sddd" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RgA-3C-QoB">
-                                <rect key="frame" x="0.0" y="100" width="375" height="150"/>
-                                <color key="backgroundColor" red="0.6009605953303141" green="1" blue="0.81385453718241252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.75" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RgA-3C-QoB">
+                                <rect key="frame" x="0.0" y="50" width="375" height="200"/>
+                                <color key="backgroundColor" red="1" green="0.58823529409999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="ic4-Fm-eP2"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="cYI-jI-1zo"/>
+                                    <constraint firstAttribute="width" constant="450" id="ro3-VQ-7IO"/>
                                 </constraints>
-                                <color key="textColor" red="1" green="0.28818858540033354" blue="0.38122163656047214" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="blj-WS-ya2">
                                 <rect key="frame" x="0.0" y="350" width="375" height="53"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
-                                <state key="normal" title="Play again"/>
+                                <state key="normal" title="Play again">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <segue destination="0oa-3I-8Sc" kind="show" id="a4W-bJ-Ki4"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WBi-oE-bNj">
-                                <rect key="frame" x="0.0" y="428" width="375" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Game configuration"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="is9-fu-Wwe">
                                 <rect key="frame" x="-0.5" y="484" width="375" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Logout"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" red="1" green="0.58823529411764708" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="logout:" destination="Jng-zQ-Jc3" eventType="touchUpInside" id="hSN-px-59t"/>
                                 </connections>
@@ -150,25 +150,41 @@
                         <constraints>
                             <constraint firstItem="is9-fu-Wwe" firstAttribute="width" secondItem="IP9-hH-RNf" secondAttribute="width" id="1nb-dR-jYP"/>
                             <constraint firstItem="blj-WS-ya2" firstAttribute="width" secondItem="IP9-hH-RNf" secondAttribute="width" id="2Hq-pi-vLK"/>
-                            <constraint firstItem="is9-fu-Wwe" firstAttribute="top" secondItem="WBi-oE-bNj" secondAttribute="bottom" constant="20" id="5QB-oM-odU"/>
                             <constraint firstItem="blj-WS-ya2" firstAttribute="top" secondItem="RgA-3C-QoB" secondAttribute="bottom" constant="100" id="7gx-aO-uCM"/>
-                            <constraint firstItem="WBi-oE-bNj" firstAttribute="top" secondItem="blj-WS-ya2" secondAttribute="bottom" constant="25" id="8A8-MK-cfF"/>
                             <constraint firstItem="blj-WS-ya2" firstAttribute="centerX" secondItem="IP9-hH-RNf" secondAttribute="centerX" id="9rw-31-gZI"/>
                             <constraint firstItem="RgA-3C-QoB" firstAttribute="width" secondItem="IP9-hH-RNf" secondAttribute="width" id="Ddh-jY-mjZ"/>
                             <constraint firstItem="is9-fu-Wwe" firstAttribute="centerX" secondItem="IP9-hH-RNf" secondAttribute="centerX" id="GN4-ui-aWd"/>
-                            <constraint firstItem="WBi-oE-bNj" firstAttribute="width" secondItem="IP9-hH-RNf" secondAttribute="width" id="kkS-qa-13h"/>
-                            <constraint firstItem="WBi-oE-bNj" firstAttribute="centerX" secondItem="IP9-hH-RNf" secondAttribute="centerX" id="mEO-Iw-sK3"/>
-                            <constraint firstItem="RgA-3C-QoB" firstAttribute="top" secondItem="IP9-hH-RNf" secondAttribute="top" constant="100" id="qkx-hC-LpD"/>
+                            <constraint firstItem="RgA-3C-QoB" firstAttribute="top" secondItem="IP9-hH-RNf" secondAttribute="top" constant="50" id="qkx-hC-LpD"/>
+                            <constraint firstItem="is9-fu-Wwe" firstAttribute="top" secondItem="blj-WS-ya2" secondAttribute="bottom" constant="81" id="uuS-lT-zDT"/>
                             <constraint firstItem="RgA-3C-QoB" firstAttribute="centerX" secondItem="IP9-hH-RNf" secondAttribute="centerX" id="xsr-1H-Wzu"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="logoutButton" destination="is9-fu-Wwe" id="6eS-gf-28F"/>
                         <outlet property="textView" destination="RgA-3C-QoB" id="TUI-pj-ZTz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iuw-3N-52O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1840.8" y="-124.58770614692655"/>
+            <point key="canvasLocation" x="2045.5999999999999" y="-324.28785607196403"/>
+        </scene>
+        <!--Intro Video Controller-->
+        <scene sceneID="Wwe-hZ-PJe">
+            <objects>
+                <viewController id="DMo-b7-lZU" customClass="IntroVideoController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XB0-yb-2Sy"/>
+                        <viewControllerLayoutGuide type="bottom" id="nw3-mx-CbV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AhP-mu-RD0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mB0-T8-3mC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="306" y="868"/>
         </scene>
         <!--Game Controller-->
         <scene sceneID="IL6-H9-3XY">
@@ -186,7 +202,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IHn-Un-0EQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="575" y="626"/>
+            <point key="canvasLocation" x="1143" y="626"/>
         </scene>
         <!--Game Config Controller-->
         <scene sceneID="Nzf-Wc-Exx">
@@ -205,19 +221,19 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome player" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nEE-9d-NTA">
-                                            <rect key="frame" x="80" y="47" width="214" height="29"/>
+                                            <rect key="frame" x="80" y="50" width="214" height="29"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hA4-de-HNA">
-                                            <rect key="frame" x="166" y="95" width="42" height="21"/>
+                                            <rect key="frame" x="166" y="98" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qk7-XG-9pO">
-                                            <rect key="frame" x="327" y="33" width="25" height="25"/>
+                                            <rect key="frame" x="319" y="36" width="25" height="25"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="25" id="Pc6-r3-SMF"/>
                                                 <constraint firstAttribute="height" constant="25" id="ge8-ph-ktI"/>
@@ -263,7 +279,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0gD-tI-qlq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1927" y="626"/>
+            <point key="canvasLocation" x="2226" y="626"/>
         </scene>
         <!--Start Controller-->
         <scene sceneID="pey-WT-Tf5">
@@ -443,7 +459,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BF2-oD-FRM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-324" y="926.98650674662679"/>
+            <point key="canvasLocation" x="441" y="-1191"/>
         </scene>
     </scenes>
     <resources>

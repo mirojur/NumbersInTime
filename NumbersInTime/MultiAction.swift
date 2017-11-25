@@ -10,8 +10,9 @@ import UIKit
 
 class MultiAction: GameAction {
 
-    init(position: CGPoint) {
-        super.init(symbol: "\u{00D7}", position: position)
+   
+    init(radius: CGFloat) {
+        super.init(symbol: "\u{00D7}", radius: radius)
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -67,7 +67,7 @@ class SignInController: UIViewController {
                     case .invalidEmail:
                         self.alertDefault(title: "Error", message: "invalid email")
                     case .emailAlreadyInUse:
-                        self.alertDefault(title: "Error", message: "email in use")
+                        self.alertDefault(title: "Error", message: "username in use")
                     default:
                         self.alertDefault(title: "Error", message: "Create User Error: \(error!)")                    }
                 }

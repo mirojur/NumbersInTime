@@ -1,78 +1,67 @@
 PODS:
-  - Firebase/Auth (4.2.0):
+  - Firebase/Auth (4.6.0):
     - Firebase/Core
-    - FirebaseAuth (= 4.2.0)
-  - Firebase/Core (4.2.0):
-    - FirebaseAnalytics (= 4.0.3)
-    - FirebaseCore (= 4.0.7)
-  - Firebase/Database (4.2.0):
+    - FirebaseAuth (= 4.3.2)
+  - Firebase/Core (4.6.0):
+    - FirebaseAnalytics (= 4.0.5)
+    - FirebaseCore (= 4.0.11)
+  - Firebase/Database (4.6.0):
     - Firebase/Core
-    - FirebaseDatabase (= 4.0.3)
-  - FirebaseAnalytics (4.0.3):
+    - FirebaseDatabase (= 4.1.1)
+  - FirebaseAnalytics (4.0.5):
     - FirebaseCore (~> 4.0)
     - FirebaseInstanceID (~> 2.0)
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
     - nanopb (~> 0.3)
-  - FirebaseAuth (4.2.0):
+  - FirebaseAuth (4.3.2):
     - FirebaseAnalytics (~> 4.0)
     - GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)
     - GTMSessionFetcher/Core (~> 1.1)
-  - FirebaseCore (4.0.7):
+  - FirebaseCore (4.0.11):
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-    - nanopb (~> 0.3)
-  - FirebaseDatabase (4.0.3):
+  - FirebaseDatabase (4.1.1):
     - FirebaseAnalytics (~> 4.0)
     - FirebaseCore (~> 4.0)
     - leveldb-library (~> 1.18)
-  - FirebaseInstanceID (2.0.3)
-  - GoogleToolboxForMac/DebugUtils (2.1.1):
-    - GoogleToolboxForMac/Defines (= 2.1.1)
-  - GoogleToolboxForMac/Defines (2.1.1)
-  - GoogleToolboxForMac/NSData+zlib (2.1.1):
-    - GoogleToolboxForMac/Defines (= 2.1.1)
-  - GoogleToolboxForMac/NSDictionary+URLArguments (2.1.1):
-    - GoogleToolboxForMac/DebugUtils (= 2.1.1)
-    - GoogleToolboxForMac/Defines (= 2.1.1)
-    - GoogleToolboxForMac/NSString+URLArguments (= 2.1.1)
-  - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
-  - GTMSessionFetcher/Core (1.1.11)
-  - leveldb-library (1.18.3)
+  - FirebaseInstanceID (2.0.6)
+  - GoogleToolboxForMac/DebugUtils (2.1.3):
+    - GoogleToolboxForMac/Defines (= 2.1.3)
+  - GoogleToolboxForMac/Defines (2.1.3)
+  - GoogleToolboxForMac/NSData+zlib (2.1.3):
+    - GoogleToolboxForMac/Defines (= 2.1.3)
+  - GoogleToolboxForMac/NSDictionary+URLArguments (2.1.3):
+    - GoogleToolboxForMac/DebugUtils (= 2.1.3)
+    - GoogleToolboxForMac/Defines (= 2.1.3)
+    - GoogleToolboxForMac/NSString+URLArguments (= 2.1.3)
+  - GoogleToolboxForMac/NSString+URLArguments (2.1.3)
+  - GTMSessionFetcher/Core (1.1.12)
+  - leveldb-library (1.20)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
-  - SwiftValidator (4.0.0)
+  - VideoSplashKit (1.2.1)
 
 DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
-  - SwiftValidator (from `https://github.com/jpotts18/SwiftValidator.git`, branch `master`)
-
-EXTERNAL SOURCES:
-  SwiftValidator:
-    :branch: master
-    :git: https://github.com/jpotts18/SwiftValidator.git
-
-CHECKOUT OPTIONS:
-  SwiftValidator:
-    :commit: 6cff6cac3e02a617f7cf11323e18526a117d5673
-    :git: https://github.com/jpotts18/SwiftValidator.git
+  - VideoSplashKit
 
 SPEC CHECKSUMS:
-  Firebase: 9548cae14d69718add12d75a5b312893f7ef89c7
-  FirebaseAnalytics: 76f754d37ca5b04f36856729b6af3ca0152d1069
-  FirebaseAuth: 22f8a5170f31d1f111141950590f071f35df3229
-  FirebaseCore: 9a6cc1e3eaf75905390f9220596ad4fd8f92faee
-  FirebaseDatabase: 03940adcac54ce30db06f1fc2136f8581734ce2c
-  FirebaseInstanceID: a4fc702b5a026f7322964376047f1a3f1f7cc6ff
-  GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
-  GTMSessionFetcher: 5ad62e8200fa00ed011fe5e08d27fef72c5b1429
-  leveldb-library: 10fb39c39e243db4af1828441162405bbcec1404
+  Firebase: 27321a925aa85520618255a7c630859e0502ccbd
+  FirebaseAnalytics: 5b02a63ead2c3f0259cfc7f15e053e440587ecf8
+  FirebaseAuth: e58563adb207a43910a2ed87fecb9fa7d556df5a
+  FirebaseCore: 2a946ece8fbe3ce1fdeeb55324f273caade22df9
+  FirebaseDatabase: 2e6e8e110b93b9a6e7aac71774c769a363035cb1
+  FirebaseInstanceID: 24958382a1011bba5aaff37e334e7a650b9118f5
+  GoogleToolboxForMac: 2501e2ad72a52eb3dfe7bd9aee7dad11b858bd20
+  GTMSessionFetcher: ebaa1f79a5366922c1735f1566901f50beba23b7
+  leveldb-library: 4f9eedf84ab46b4fa3b7893bf30714b2a1a74022
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
-  SwiftValidator: 25ded5ca1f10c05adf57f6ac82a72d28ac8d91af
+  VideoSplashKit: 9d5670948cfb0be15262d973cedbfd3faecddcad
 
-PODFILE CHECKSUM: 944d369e4b21853b5b9f5d553c0127e1b213fc60
+PODFILE CHECKSUM: 73912d81fcc5f9d239dfb406fcb187919cd4ee7a
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.3.1

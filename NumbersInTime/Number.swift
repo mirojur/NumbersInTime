@@ -15,8 +15,8 @@ class Number: SceneObject {
     init( value : Int , radius : CGFloat , position : CGPoint) {
         super.init(number: value , radius: radius, position: position)        
         self.startPoint = position
-        self.lineWidth = 10
-        self.fillColor = UIColor(hex: "#ff5218")
+        self.lineWidth = 0
+        self.fillColor = UIColor(hex: "#333333")
     }
     
        

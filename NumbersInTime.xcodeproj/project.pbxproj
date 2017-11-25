@@ -26,6 +26,7 @@
 		4E0180201E1D8F2D00BA8301 /* DivisionAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E01801F1E1D8F2D00BA8301 /* DivisionAction.swift */; };
 		4E0180221E1D94B600BA8301 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0180211E1D94B600BA8301 /* Game.swift */; };
 		4E1F4B571F6ED60E005FCAC9 /* ResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1F4B561F6ED60E005FCAC9 /* ResultController.swift */; };
+		4E2032CA1FC4BB59004BB117 /* IntroVideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2032C91FC4BB59004BB117 /* IntroVideoController.swift */; };
 		4E33C34B1E4E3FF6007665BA /* Reach.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E33C34A1E4E3FF6007665BA /* Reach.swift */; };
 		4E6923511E6347B500676DCE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4E6923501E6347B500676DCE /* GoogleService-Info.plist */; };
 		4E8024CA1E6362020056CC24 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8024C91E6362020056CC24 /* LoginController.swift */; };
@@ -65,6 +66,7 @@
 		4E01801F1E1D8F2D00BA8301 /* DivisionAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DivisionAction.swift; sourceTree = "<group>"; };
 		4E0180211E1D94B600BA8301 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Game.swift; path = ../Game.swift; sourceTree = "<group>"; };
 		4E1F4B561F6ED60E005FCAC9 /* ResultController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultController.swift; sourceTree = "<group>"; };
+		4E2032C91FC4BB59004BB117 /* IntroVideoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroVideoController.swift; sourceTree = "<group>"; };
 		4E33C34A1E4E3FF6007665BA /* Reach.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reach.swift; sourceTree = "<group>"; };
 		4E6923501E6347B500676DCE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4E8024C91E6362020056CC24 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				3A690C931DE75044005D9A64 /* GameController.swift */,
 				4EF4F3CA1E61F3A700FC9921 /* ScoreController.swift */,
 				4EFCF9EA1EABC8B1009D0A14 /* GameConfigController.swift */,
+				4E2032C91FC4BB59004BB117 /* IntroVideoController.swift */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -305,13 +308,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NumbersInTime-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9C79F210487F896A8B881526 /* [CP] Embed Pods Frameworks */ = {
@@ -320,9 +326,20 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-NumbersInTime/Pods-NumbersInTime-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/VideoSplashKit/VideoSplashKit.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VideoSplashKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -366,6 +383,7 @@
 				4E01801E1E1D8EF800BA8301 /* MultiAction.swift in Sources */,
 				4EBC4CFF1E3D24E6000842EA /* Operation.swift in Sources */,
 				4E0180221E1D94B600BA8301 /* Game.swift in Sources */,
+				4E2032CA1FC4BB59004BB117 /* IntroVideoController.swift in Sources */,
 				4E0180191E1D8DDA00BA8301 /* PlusAction.swift in Sources */,
 				4E8024CA1E6362020056CC24 /* LoginController.swift in Sources */,
 				4E1F4B571F6ED60E005FCAC9 /* ResultController.swift in Sources */,

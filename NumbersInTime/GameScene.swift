@@ -45,30 +45,20 @@ class GameScene: SKScene {
             return
         }
         
-        
-        
         do {
+            
             currentGame = try Game.sharedInstance.createGame()
             addNumbers(numbersString: currentGame["numbers"] as! String)
             addTargetNumber(value: currentGame["targetNumber"] as! Int)
             
             initializeModalDialog()
-            
             setupTimer()
-            
-            
             self.firstInit = true
-            
-            
-            print(currentGame)
+          
         } catch {
             
             
         }
-        
-        
-        
-        
         
     }
     
@@ -123,39 +113,27 @@ class GameScene: SKScene {
                 result = res.value
             }
         }
-        
         return result
         
     }
     
     //Timer
     @objc func runTimedCode() {
-        
         if(targetNumber.isRunning()){
             targetNumber.tick()
         }else{
-            
-            
-            print("Game is over. Calling Result Scene")
-            
-            gameTimer.invalidate()
-            saveGameResult()
-            showResultView()
-            
-            
+            gameOver()
         }
-        
     }
     
-    func saveGameResult(){
+    
+    func gameOver(){
+        gameTimer.invalidate()
+        
         let gameId = currentGame["gameId"]
         let gameHistory = gameHistoryToString()
         let player = Auth.auth().currentUser?.email ?? "noUser"
         
-        //save result
-        let ref = Database.database().reference(fromURL: "https://numbersintime-1fcc3.firebaseio.com/")
-        
-        let key = ref.child("gamehistory").childByAutoId().key
         
         let gameResult : [String : AnyObject] = [
             "gameId": gameId as AnyObject,
@@ -167,17 +145,21 @@ class GameScene: SKScene {
             "timestamp": ServerValue.timestamp() as AnyObject
         ]
         
-        let childUpdates = ["/gamehistory/\(key)": gameResult]
-        ref.updateChildValues(childUpdates)
-        
         //update local var
         currentGame = gameResult
         
+        showResultView()
+    }
+    
+    func saveGameResult(){
+        //save result
+        let ref = Database.database().reference(fromURL: "https://numbersintime-1fcc3.firebaseio.com/")
+        let key = ref.child("gamehistory").childByAutoId().key
+        let childUpdates = ["/gamehistory/\(key)": currentGame]
+        ref.updateChildValues(childUpdates)
     }
     
     func showResultView() {
-        
-        print("Calling Result View")
         
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let resultController = storyBoard.instantiateViewController(withIdentifier: "ResultController") as! ResultController
@@ -190,34 +172,10 @@ class GameScene: SKScene {
             {
                 topController = topController.presentedViewController!
             }
-            
             topController.present(resultController, animated: true, completion: nil)
-
-        }       
-        
-    }
-    
-    
-    
-    
-    func switchToResultScene(){
-        
-        let gameScene = GKScene(fileNamed: "ResultScene")!
-        let sceneNode = gameScene.rootNode as! ResultScene
-        // Set the scale mode to scale to fit the window
-        sceneNode.scaleMode = .aspectFill
-        
-        // Present the scene
-        if let view = self.view {
-            view.presentScene(sceneNode)
-            
-            view.ignoresSiblingOrder = true
-            
-            view.showsFPS = true
-            view.showsNodeCount = true
         }
-        
     }
+    
     
     //check if selected number intersect with some other shape..
     private func checkIntersection(){
@@ -240,7 +198,7 @@ class GameScene: SKScene {
                     let height  = 0.4*self.size.height
                     let startPoint = CGPoint(x:-width,y:-height)
                     
-                    let firstNumPos: CGPoint = myAddVector(point1: startPoint, point2: CGPoint(x:(width/2.0),y:(0.75*height)))
+                    let firstNumPos: CGPoint = myAddVector(point1: startPoint, point2: CGPoint(x:(width/2.0),y:(1.02*height)))
                     let secondNumPos: CGPoint = myAddVector(point1: firstNumPos, point2: CGPoint(x:(width),y:0))
                     
                     
@@ -286,34 +244,41 @@ class GameScene: SKScene {
     func initializeModalDialog(){
         
         let width  = 0.4*self.size.width
-        let height  = 0.4*self.size.height
-        let startPoint = CGPoint(x:-width,y:-height)
+        let height  = 0.46*self.size.height
+        let radius = width/2.8
         
-        let modalPath = UIBezierPath(roundedRect: CGRect(origin: startPoint, size: CGSize(width: 2*width, height: 2*width)), byRoundingCorners: [.allCorners], cornerRadii: CGSize(width: 12.0, height: 12.0))
+        let startPoint = CGPoint(x:-width,y:-height)
+        let operationStartPoint = CGPoint(x:0,y:-height+10)
+        
+        let modalPath = UIBezierPath(rect: CGRect(origin: startPoint, size: CGSize(width: 2*width, height: 1.3*height)))
         
         
         modalView = SKShapeNode(path: modalPath.cgPath)
-        modalView.fillColor = UIColor(hex: "#30646f")
-        modalView.lineWidth = 5
+        modalView.fillColor = UIColor(hex: "#202020")
+        modalView.lineWidth = 1
         modalView.zPosition = 100
         
         
         
         //add Actions to the screen
-        let divPoint = myAddVector(point1: startPoint, point2: CGPoint(x:(width/4),y:(width/4)))
-        divAction = DivisionAction(position: divPoint)
+        let divPoint = myAddVector(point1: operationStartPoint, point2: CGPoint(x: (radius + 10),y:radius))
+        divAction = DivisionAction(radius: radius)
+        divAction.position = divPoint
         divAction.zPosition = 101
         
-        let multiPoint = myAddVector(point1: divPoint, point2: CGPoint(x:125,y:(0)))
-        multiAction = MultiAction(position: multiPoint)
+        let multiPoint = myAddVector(point1: divPoint, point2: CGPoint(x: -(2*radius+10),y:0))
+        multiAction = MultiAction(radius: radius)
+        multiAction.position = multiPoint
         multiAction.zPosition = 101
         
-        let addPoint = myAddVector(point1: multiPoint, point2: CGPoint(x:125,y:(0)))
-        addAction = PlusAction(position: addPoint)
+        let addPoint = myAddVector(point1: multiPoint, point2: CGPoint(x: 0,y: ((2*radius) + 20)))
+        addAction = PlusAction(radius: radius)
+        addAction.position = addPoint
         addAction.zPosition = 101
         
-        let minusPoint = myAddVector(point1: addPoint, point2: CGPoint(x:125, y:0))
-        minusAction = MinusAction(position: minusPoint)
+        let minusPoint = myAddVector(point1: addPoint, point2: CGPoint(x: (2*radius + 10),y:0))
+        minusAction = MinusAction(radius: radius)
+        minusAction.position = minusPoint
         minusAction.zPosition = 101
         
     }
@@ -387,16 +352,14 @@ class GameScene: SKScene {
         
         //if result is the target number game over ...
         if(result.value == targetNumber.value){
-            
             targetNumber.removeFromParent()
             result.run(SKAction.move(to: targetNumber.position, duration: 0.1))
             result.run(SKAction.rotate(byAngle: CGFloat(2*Double.pi), duration: 1.0))
             result.run(SKAction.scale(by: 1.4, duration: 1.0))
-            
             result.run(SKAction.wait(forDuration: 2.1))
             
-            switchToResultScene()
-            
+            gameOver()
+            saveGameResult()
         }
         
         
@@ -420,7 +383,6 @@ class GameScene: SKScene {
         let touchedNode = self.atPoint(touchLocation!)
         
         
-        
         // no move on numbers when in modal mode
         if(isInModalMode){
             handleAction(node: touchedNode)
@@ -429,14 +391,12 @@ class GameScene: SKScene {
         
         if let a = touchedNode as? Number {
             selectedNumber1 = a
-            
         }
         
         if touchedNode is SKLabelNode && touchedNode.parent is Number{
             selectedNumber1 = touchedNode.parent as! Number?
-            
         }
-        print("touchesBegan")
+        
         
     }
     

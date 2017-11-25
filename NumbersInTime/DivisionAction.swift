@@ -10,8 +10,8 @@ import UIKit
 
 class DivisionAction: GameAction {
 
-    init(position: CGPoint) {
-        super.init(symbol: "\u{00F7}", position: position)
+    init(radius: CGFloat) {
+        super.init(symbol: "\u{00F7}", radius: radius)
     }
     
     required init?(coder aDecoder: NSCoder) {

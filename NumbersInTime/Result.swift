@@ -25,7 +25,7 @@ class Result: Number {
         
         super.init(value:val , radius: radius, position: position)
         
-        self.fillColor = SKColor(red: 154/255, green: 176/255, blue: 49/255, alpha:0.85)
+        self.fillColor = UIColor(hex: "#a6a6a6")
        
         
     }
