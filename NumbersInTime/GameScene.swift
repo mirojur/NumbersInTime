@@ -352,11 +352,8 @@ class GameScene: SKScene {
         
         //if result is the target number game over ...
         if(result.value == targetNumber.value){
-            targetNumber.removeFromParent()
-            result.run(SKAction.move(to: targetNumber.position, duration: 0.1))
-            result.run(SKAction.rotate(byAngle: CGFloat(2*Double.pi), duration: 1.0))
-            result.run(SKAction.scale(by: 1.4, duration: 1.0))
-            result.run(SKAction.wait(forDuration: 2.1))
+            //targetNumber.removeFromParent()
+           
             
             gameOver()
             saveGameResult()

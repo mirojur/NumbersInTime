@@ -12,6 +12,7 @@ import FirebaseAuth
 
 class SignInController: UIViewController {
 
+    @IBOutlet weak var nickname: UITextField!
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var confirmPassword: UITextField!
@@ -80,7 +81,26 @@ class SignInController: UIViewController {
                 print ("neuer User erfolgreich angelegt..")
                 
                 let user = Auth.auth().currentUser
-                              
+                
+                
+                // save the nickname, if set..
+                if((self.nickname.text?.isEmpty)!){
+                   
+                    let changeRequest : UserProfileChangeRequest = (user?.createProfileChangeRequest())!
+                    changeRequest.displayName = self.nickname.text
+                    
+                    
+                    changeRequest.commitChanges(completion: {
+                        
+                        error in
+                        
+                        if let error = error {
+                            self.alertDefault(title: "Error", message: "\(error)")
+                        }
+                        
+                    } )
+                    
+                }
                 
                 let message = "user " + (user?.email)! + " created"
                 self.alertDefault(title: "Welcome", message: message)
@@ -96,14 +116,23 @@ class SignInController: UIViewController {
     
     }
     
-    
     func showGameConfig() {
-        print("User signed/logged in. Calling Game Config Scene")
+        
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let gameConfigController = storyBoard.instantiateViewController(withIdentifier: "GameConfigController") as! GameConfigController
-        self.present(gameConfigController, animated:true, completion:nil)        
+        let resultController = storyBoard.instantiateViewController(withIdentifier: "GameConfigController") as! GameConfigController
+        
+        
+        if var topController = UIApplication.shared.keyWindow?.rootViewController
+        {
+            while (topController.presentedViewController != nil)
+            {
+                topController = topController.presentedViewController!
+            }
+            topController.present(resultController, animated: true, completion: nil)
+        }
     }
-
+    
+    
 
 
     override func viewDidLoad() {

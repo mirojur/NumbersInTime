@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class HeaderCell: UITableViewCell {
 
@@ -23,6 +25,12 @@ class HeaderCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        if ( Auth.auth().currentUser?.displayName != nil ) {
+            self.playerName.text = Auth.auth().currentUser?.displayName
+        }else {
+            self.playerName.text = Auth.auth().currentUser?.email
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

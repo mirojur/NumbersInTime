@@ -31,7 +31,7 @@
         var initialViewController:UIViewController? = nil
         
         
-        initialViewController = storyboard.instantiateViewController(withIdentifier: "StartController")
+        initialViewController = storyboard.instantiateViewController(withIdentifier: "ResultController")
         
         self.window?.rootViewController = initialViewController
         self.window?.makeKeyAndVisible()

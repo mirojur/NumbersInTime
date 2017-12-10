@@ -28,6 +28,7 @@
 		4E1F4B571F6ED60E005FCAC9 /* ResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1F4B561F6ED60E005FCAC9 /* ResultController.swift */; };
 		4E2032CA1FC4BB59004BB117 /* IntroVideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2032C91FC4BB59004BB117 /* IntroVideoController.swift */; };
 		4E33C34B1E4E3FF6007665BA /* Reach.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E33C34A1E4E3FF6007665BA /* Reach.swift */; };
+		4E5567381FDDB02E00B84188 /* UIColor+colorFromHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5567371FDDB02E00B84188 /* UIColor+colorFromHex.swift */; };
 		4E6923511E6347B500676DCE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4E6923501E6347B500676DCE /* GoogleService-Info.plist */; };
 		4E8024CA1E6362020056CC24 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8024C91E6362020056CC24 /* LoginController.swift */; };
 		4EBC4CFD1E3D236C000842EA /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBC4CFC1E3D236C000842EA /* Result.swift */; };
@@ -68,6 +69,7 @@
 		4E1F4B561F6ED60E005FCAC9 /* ResultController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultController.swift; sourceTree = "<group>"; };
 		4E2032C91FC4BB59004BB117 /* IntroVideoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroVideoController.swift; sourceTree = "<group>"; };
 		4E33C34A1E4E3FF6007665BA /* Reach.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reach.swift; sourceTree = "<group>"; };
+		4E5567371FDDB02E00B84188 /* UIColor+colorFromHex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+colorFromHex.swift"; sourceTree = "<group>"; };
 		4E6923501E6347B500676DCE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4E8024C91E6362020056CC24 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		4EBC4CFC1E3D236C000842EA /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 		4E8024C81E6361680056CC24 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				4E5567371FDDB02E00B84188 /* UIColor+colorFromHex.swift */,
 				3A602BE91EA522D100B44FF6 /* StartController.swift */,
 				4E1F4B561F6ED60E005FCAC9 /* ResultController.swift */,
 				4EEED7251EB7A1F6008C0206 /* SignInController.swift */,
@@ -329,6 +332,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-NumbersInTime/Pods-NumbersInTime-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/ScrollableGraphView/ScrollableGraphView.framework",
 				"${BUILT_PRODUCTS_DIR}/VideoSplashKit/VideoSplashKit.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -337,6 +341,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ScrollableGraphView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VideoSplashKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -389,6 +394,7 @@
 				4E1F4B571F6ED60E005FCAC9 /* ResultController.swift in Sources */,
 				4EF086381E5B57E400E92BB0 /* ResultScene.swift in Sources */,
 				3A690C941DE75044005D9A64 /* GameController.swift in Sources */,
+				4E5567381FDDB02E00B84188 /* UIColor+colorFromHex.swift in Sources */,
 				4E01801B1E1D8E0400BA8301 /* MinusAction.swift in Sources */,
 				3A690C8C1DE75044005D9A64 /* AppDelegate.swift in Sources */,
 				4E33C34B1E4E3FF6007665BA /* Reach.swift in Sources */,

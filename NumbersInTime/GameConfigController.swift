@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class GameConfigController: UITableViewController {
 
     let logoutNotification = Notification.Name.init(rawValue: "logoutAction")
     
+    @IBOutlet weak var playerName: UILabel!
     
     
     override func viewDidLoad() {
@@ -22,6 +25,8 @@ class GameConfigController: UITableViewController {
                                                selector: #selector(GameConfigController.logut),
                                                name: logoutNotification,
                                                object: nil)
+       
+        
         
         
     }
@@ -29,7 +34,9 @@ class GameConfigController: UITableViewController {
    @objc func logut() {
        
         do {
-            try Game.sharedInstance.logout()
+            try Auth.auth().signOut()
+            
+            
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
             let startViewController = storyBoard.instantiateViewController(withIdentifier: "StartController") as! StartController
             self.present(startViewController, animated:true, completion:nil)            
