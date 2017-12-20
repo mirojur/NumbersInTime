@@ -20,7 +20,7 @@
         
         // connecting to the cloud...
         FirebaseApp.configure()
-        
+        Database.database().isPersistenceEnabled = true
         
         
         self.window = UIWindow(frame: UIScreen.main.bounds)

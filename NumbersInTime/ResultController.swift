@@ -11,30 +11,32 @@ import Firebase
 import FirebaseAuth
 import ScrollableGraphView
 
-class ResultController: UIViewController, ScrollableGraphViewDataSource{
+class ResultController: UIViewController, ScrollableGraphViewDataSource, UIImagePickerControllerDelegate,UINavigationControllerDelegate{
     
+    @IBOutlet weak var score: UILabel!
     @IBOutlet weak var avatar: UIImageView!
+    @IBOutlet weak var ratio: UILabel!
     
     @IBOutlet weak var graphSubView: ScrollableGraphView!
     
     
     var gameResult :  [String : AnyObject]  = [:]
-    
-   
     var lastResults : [Bool] = []
 
+    let gameHistoryKey = "gamehistory"
+    
+    lazy var ref: DatabaseReference = Database.database().reference()
+    var gamesRef: DatabaseReference!
+   
     
    
     
    
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-        
-        self.getLastResults()
-        
-        graphSubView.dataSource = self
-        setupGraph(graphView: graphSubView)
+        gamesRef = ref.child(gameHistoryKey)
         
         avatar.layer.borderWidth = 1
         avatar.layer.masksToBounds = false
@@ -42,45 +44,67 @@ class ResultController: UIViewController, ScrollableGraphViewDataSource{
         avatar.layer.cornerRadius = avatar.frame.height/2
         avatar.clipsToBounds = true
         
-        
-        if(Auth.auth().currentUser==nil){
-          
-        }
+        avatar.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSelectProfileImage)))
         
         
-        if(gameResult["gameHistory"] != nil){
         
-            let gameHistory:String = gameResult["gameHistory"] as! String
-            let gameSeq = gameHistory.components(separatedBy: ";")
-            
-            // Do any additional setup after loading the view.
-            
-            let targetNumber: String =  String(gameResult["targerNumber"] as! Int)
-            let myResult: String = String(gameResult["result"] as! Int)
-          
-            for index in 0...gameSeq.capacity-1{
-                let gameSeqText = gameSeq[index]
-            }
-            
-            
-            
-        }else {
-          
-        }
-        
+        self.graphSubView.dataSource = self
+        self.setupGraph(graphView: self.graphSubView)
     }
     
-    func getLastResults(){
-        var won : Bool = false
-        for index in 1...10 {
-            let randomIndex : Int = Int(arc4random_uniform(UInt32(300)))
-            if(randomIndex < 150 ){
-                won = true
-            } else {
-                won = false
-            }
-            lastResults.append(won)
+   
+    
+    func getUsersLastResults(){
+    
+        var userId = "noUser"
+        
+        
+        if(Auth.auth().currentUser != nil){
+            userId = (Auth.auth().currentUser?.email)!
         }
+        
+       
+        
+        gamesRef.queryOrdered(byChild: "playerId").queryEqual(toValue: userId).observe(.value, with: {
+            
+            snapshot in
+           
+            self.lastResults = []
+            var score = 0
+            var count = 0
+            var rat: Double = 0.0
+            
+            if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
+                
+                for snap in snapshots
+                {
+                    let resultDiff = snap.childSnapshot(forPath: "resultDiff").value! as! Int
+                    
+                    if(resultDiff == 0){
+                        self.lastResults.append(true)
+                        score = score + 10
+                        count = count + 1
+                    } else {
+                        self.lastResults.append(false)
+                    }
+                   
+                }
+                
+               self.lastResults = self.lastResults.reversed()
+               
+               
+               rat = Double(count) / Double(self.lastResults.count)
+               self.score.text = "\(score) points"
+               self.ratio.text = String.localizedStringWithFormat("%.4f %@", rat, "ratio")
+               self.graphSubView.reload()
+            }
+        })
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getUsersLastResults()
+        
     }
     
     
@@ -107,11 +131,16 @@ class ResultController: UIViewController, ScrollableGraphViewDataSource{
     }
     
     func label(atIndex pointIndex: Int) -> String {
-        return "game \(pointIndex)"
+        if(pointIndex == 0){
+            return "last game"
+        } else {
+            return "\(pointIndex)"
+        }
     }
     
     func numberOfPoints() -> Int {
-        return 10
+        print("numberOfPoints \(self.lastResults.count)")
+        return self.lastResults.count
     }
     
     func setupGraph(graphView: ScrollableGraphView) {
@@ -120,14 +149,14 @@ class ResultController: UIViewController, ScrollableGraphViewDataSource{
         let dotPlot = DotPlot(identifier: "one")
         
         dotPlot.dataPointType = ScrollableGraphViewDataPointType.circle
-        dotPlot.dataPointSize = 8.0
+        dotPlot.dataPointSize = 6.0
         dotPlot.dataPointFillColor = UIColor.green.withAlphaComponent(0.9)
         
         
         let dotPlot2 = DotPlot(identifier: "two")
         
         dotPlot2.dataPointType = ScrollableGraphViewDataPointType.circle
-        dotPlot2.dataPointSize = 8.0
+        dotPlot2.dataPointSize = 6.0
         dotPlot2.dataPointFillColor = UIColor.red.withAlphaComponent(0.9)
        
         
@@ -135,10 +164,10 @@ class ResultController: UIViewController, ScrollableGraphViewDataSource{
         // Customise the reference lines.
         let referenceLines = ReferenceLines()
         
-        referenceLines.referenceLineLabelFont = UIFont.boldSystemFont(ofSize: 10)
+        referenceLines.referenceLineLabelFont = UIFont.boldSystemFont(ofSize: 6)
         referenceLines.referenceLineColor = UIColor.white.withAlphaComponent(0.0)
         referenceLines.referenceLineLabelColor = UIColor.red
-        referenceLines.dataPointLabelColor = UIColor.white.withAlphaComponent(0.0)
+        referenceLines.dataPointLabelColor = UIColor.red.withAlphaComponent(0.8)
         
         //referenceLines.absolutePositions = [0, 10]
         

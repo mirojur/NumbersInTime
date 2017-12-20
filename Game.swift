@@ -101,7 +101,7 @@ class Game {
         
         
         let targetNumber: Int = Int(arc4random_uniform(999))
-        let numbersArray: [Int] = [1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,10,15,10,15,20,20,20,25,50]
+        let numbersArray: [Int] = [1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,10,1,2,3,4,5,6,7,8,9,15,1,2,3,4,5,6,7,8,9,10,15,20,20,20,25,50]
         var numbersString: String = ""
         
         

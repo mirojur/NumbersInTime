@@ -35,6 +35,10 @@ class GameController: UIViewController {
                 }
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+    }
+    
     func showScorePage() {
         print("Game is over. Calling Result Scene")
         let scoreViewController:ScoreController = ScoreController()

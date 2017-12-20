@@ -50,6 +50,15 @@ class TargetNumber: SceneObject {
         
     }
     
+    func tickToEnd(){
+        
+        while (seconds < 60 ) {
+            tick()
+        }
+        
+        
+    }
+    
    
     func getSegmentPath(endAngle : CGFloat) -> UIBezierPath {
         let newPath = UIBezierPath()

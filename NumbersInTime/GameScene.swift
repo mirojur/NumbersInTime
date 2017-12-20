@@ -26,6 +26,8 @@ class GameScene: SKScene {
     
     var counter: Int = 0
     
+    var userForcedResult: Int? = nil
+    
     var isInModalMode : Bool = false
     
     
@@ -46,13 +48,12 @@ class GameScene: SKScene {
         }
         
         do {
-            
             currentGame = try Game.sharedInstance.createGame()
             addNumbers(numbersString: currentGame["numbers"] as! String)
             addTargetNumber(value: currentGame["targetNumber"] as! Int)
-            
             initializeModalDialog()
             setupTimer()
+            self.userForcedResult = nil
             self.firstInit = true
           
         } catch {
@@ -63,11 +64,9 @@ class GameScene: SKScene {
     }
     
     override func didMove(to view: SKView) {
-        
         let doubleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(GameScene.handleDoubleTap))
         doubleTap.numberOfTapsRequired = 2
-        view.addGestureRecognizer(doubleTap)
-        
+        view.addGestureRecognizer(doubleTap)        
     }
     
     //rollback operation
@@ -106,6 +105,11 @@ class GameScene: SKScene {
         
         var result : Int = 0
         var diff : Int = 1000
+        
+        
+        if ( self.userForcedResult != nil){
+            return self.userForcedResult!
+        }
         
         for res in numbers {
             if( (targetNumber.value - res.value)<diff){
@@ -147,6 +151,8 @@ class GameScene: SKScene {
         
         //update local var
         currentGame = gameResult
+
+        saveGameResult()
         
         showResultView()
     }
@@ -161,7 +167,7 @@ class GameScene: SKScene {
     
     func showResultView() {
         
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let resultController = storyBoard.instantiateViewController(withIdentifier: "ResultController") as! ResultController
         
         resultController.gameResult = currentGame
@@ -179,6 +185,23 @@ class GameScene: SKScene {
     
     //check if selected number intersect with some other shape..
     private func checkIntersection(){
+        
+        
+        // end of the game
+        if( selectedNumber1?.intersects(targetNumber) )! {
+            let xDist = ((selectedNumber1?.position.x)! - targetNumber.position.x)
+            let yDist = ((selectedNumber1?.position.y)! - targetNumber.position.y)
+            let distance = sqrt((xDist * xDist) + (yDist * yDist))
+            
+            if(distance < (targetNumber?.radius)!){
+                print("ending game")
+                targetNumber.tickToEnd()
+                self.userForcedResult = (selectedNumber1?.value)!
+                gameOver()
+                return
+            }
+            
+        }
         
         
         for node: Number in numbers {
@@ -212,12 +235,17 @@ class GameScene: SKScene {
                         selectedNumber2 = tmpNumber
                     }
                     
-                    selectedNumber1?.run(SKAction.move(to: firstNumPos, duration: 0.5))
-                    selectedNumber2?.run(SKAction.move(to: secondNumPos, duration: 0.5))
                     
+                    
+                    selectedNumber1?.run(SKAction.move(to: firstNumPos, duration: 0.1))
+                    selectedNumber2?.run(SKAction.move(to: secondNumPos, duration: 0.1))
+                    
+                    
+                    //add modal dialog
                     self.addChild(modalView)
                     
                     
+                    // add actions
                     if ( (selectedNumber1?.value)! % (selectedNumber2?.value)! == 0) {
                         self.addChild(divAction)
                     }
@@ -353,10 +381,8 @@ class GameScene: SKScene {
         //if result is the target number game over ...
         if(result.value == targetNumber.value){
             //targetNumber.removeFromParent()
-           
-            
             gameOver()
-            saveGameResult()
+            
         }
         
         

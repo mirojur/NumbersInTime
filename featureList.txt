@@ -1,13 +1,3 @@
-
-wenn nicht eingelogt, dann prüfe: 
-
-	- Login or Join or Trainigsmode
-	
-
-	- Join Controller 
-		- User, password, 
-	- 
-
-
-wenn eingelogt: 
+- save user image 
+- video aufnehmen -> Aktionen erläutern 
  

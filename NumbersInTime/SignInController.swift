@@ -119,7 +119,7 @@ class SignInController: UIViewController {
     func showGameConfig() {
         
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let resultController = storyBoard.instantiateViewController(withIdentifier: "GameConfigController") as! GameConfigController
+        let resultController = storyBoard.instantiateViewController(withIdentifier: "ResultController") as! ResultController
         
         
         if var topController = UIApplication.shared.keyWindow?.rootViewController

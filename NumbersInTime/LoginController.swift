@@ -53,15 +53,7 @@ class LoginController: UIViewController {
             }
             else {
                 
-                let user = Auth.auth().currentUser
-                
-                Game.sharedInstance.userName = user?.email
-                Game.sharedInstance.userEmail = user?.email
-                Game.sharedInstance.userID = user?.uid
-                
-                
-                self.showGameConfig()
-                
+               self.showResultPage()
             }
             
         })
@@ -82,11 +74,11 @@ class LoginController: UIViewController {
     }
     
     
-    func showGameConfig() {
+    func showResultPage() {
         print("User logged in. Calling Game Config Scene")
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let gameConfigController = storyBoard.instantiateViewController(withIdentifier: "GameConfigController") as! GameConfigController
-        self.present(gameConfigController, animated:true, completion:nil)
+        let gameResultController = storyBoard.instantiateViewController(withIdentifier: "ResultController") as! ResultController
+        self.present(gameResultController, animated:true, completion:nil)
     }
 
     
