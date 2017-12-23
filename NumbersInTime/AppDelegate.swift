@@ -31,31 +31,16 @@
         var initialViewController:UIViewController? = nil
         
         
-        initialViewController = storyboard.instantiateViewController(withIdentifier: "ResultController")
+        if(( Auth.auth().currentUser ) != nil){
+            initialViewController = storyboard.instantiateViewController(withIdentifier: "ResultController")
+        }else {
+            initialViewController = storyboard.instantiateViewController(withIdentifier: "StartController")
+        }
         
         self.window?.rootViewController = initialViewController
         self.window?.makeKeyAndVisible()
         
-        
         return true
-        
-        
-        if(Game.sharedInstance.isUserLoggedIn()){
-            
-            initialViewController = storyboard.instantiateViewController(withIdentifier: "GameConfigController")
-            
-            
-        }else {
-            
-            initialViewController = storyboard.instantiateViewController(withIdentifier: "StartController")
-            
-            
-        }
-        
-        
-        
-        
-        
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
