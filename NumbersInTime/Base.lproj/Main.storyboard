@@ -183,9 +183,6 @@
                                 <state key="normal" title="Play in community">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <connections>
-                                    <segue destination="gyX-yg-c84" kind="show" id="9FB-1l-nG8"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="no user" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VPl-Ah-K4M">
                                 <rect key="frame" x="0.0" y="254" width="375" height="21"/>
@@ -272,43 +269,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IHn-Un-0EQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1143" y="626"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="0SI-wE-q4Z">
-            <objects>
-                <viewController id="gyX-yg-c84" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="iiN-Zu-wga"/>
-                        <viewControllerLayoutGuide type="bottom" id="Eki-0q-N48"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="CnP-QU-BwK">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xxp-iC-JhI">
-                                <rect key="frame" x="-0.66666666666665719" y="0.0" width="375.33333333333326" height="812"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P2Y-En-XT6">
-                                <rect key="frame" x="-0.66666666666665719" y="193" width="375.33333333333326" height="38"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="P2Y-En-XT6" firstAttribute="width" secondItem="xxp-iC-JhI" secondAttribute="width" id="2w8-HO-kTz"/>
-                            <constraint firstItem="xxp-iC-JhI" firstAttribute="height" secondItem="CnP-QU-BwK" secondAttribute="height" id="64L-Py-rPX"/>
-                            <constraint firstItem="xxp-iC-JhI" firstAttribute="centerY" secondItem="CnP-QU-BwK" secondAttribute="centerY" id="Bin-ui-ax6"/>
-                            <constraint firstItem="xxp-iC-JhI" firstAttribute="width" secondItem="CnP-QU-BwK" secondAttribute="width" id="F1u-ZG-MdO"/>
-                            <constraint firstItem="P2Y-En-XT6" firstAttribute="centerX" secondItem="xxp-iC-JhI" secondAttribute="centerX" id="QU9-S9-cIx"/>
-                            <constraint firstItem="xxp-iC-JhI" firstAttribute="centerX" secondItem="CnP-QU-BwK" secondAttribute="centerX" id="Ucr-Gm-cUa"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="A1N-da-gGg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3104.8000000000002" y="626.60098522167493"/>
         </scene>
         <!--Start Controller-->
         <scene sceneID="pey-WT-Tf5">
@@ -506,24 +466,6 @@
             </objects>
             <point key="canvasLocation" x="440.80000000000001" y="-1191.4542728635683"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="mde-Ip-7Ad">
-            <objects>
-                <viewController id="cHT-g8-e71" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="3ge-Ca-FiM"/>
-                        <viewControllerLayoutGuide type="bottom" id="F0Z-Sw-XPD"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="gqT-DV-TVb">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FdR-vl-jDx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1358" y="867"/>
-        </scene>
     </scenes>
     <resources>
         <image name="avatar" width="200" height="200"/>
@@ -537,6 +479,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="6Gk-g9-WZq"/>
-        <segue reference="5bG-7v-kQf"/>
+        <segue reference="cn6-XW-svh"/>
     </inferredMetricsTieBreakers>
 </document>

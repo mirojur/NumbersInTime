@@ -41,6 +41,7 @@
 		4EF086381E5B57E400E92BB0 /* ResultScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF086371E5B57E400E92BB0 /* ResultScene.swift */; };
 		4EF4F3CB1E61F3A700FC9921 /* ScoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF4F3CA1E61F3A700FC9921 /* ScoreController.swift */; };
 		62050402435F3A0130E26177 /* Pods_NumbersInTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BFD14081AA310BAD1EA08C2 /* Pods_NumbersInTime.framework */; };
+		B28FF3061FF3E6AF0056C4F4 /* test.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B2EAAF1A1FEEF4EB00FC5E36 /* test.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -302,6 +303,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B28FF3061FF3E6AF0056C4F4 /* test.mp4 in Resources */,
 				3A2EC6EF1EA53DCC00FB1B9F /* Images.xcassets in Resources */,
 				4EF086361E5B57C200E92BB0 /* ResultScene.sks in Resources */,
 				4E6923511E6347B500676DCE /* GoogleService-Info.plist in Resources */,

@@ -21,8 +21,8 @@ class IntroVideoController: VideoSplashViewController {
             fillMode = .resizeAspectFill
             alwaysRepeat = true
             sound = true
-            startTime = 0.0
-            duration = 4.0
+            startTime = 1.0
+            duration = 15.0
             alpha = 0.7
             backgroundColor = UIColor.black
             contentURL = url
