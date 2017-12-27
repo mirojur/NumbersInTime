@@ -101,7 +101,7 @@
 		3A690C7F1DE75043005D9A64 = {
 			isa = PBXGroup;
 			children = (
-				B22E44561FF3F83000FC48C4 /* test.mp4 */,
+				B22E44581FF403FA00FC48C4 /* resources */,
 				3A690C8A1DE75044005D9A64 /* NumbersInTime */,
 				3A690C891DE75044005D9A64 /* Products */,
 				822789A93261D970A464EB47 /* Pods */,
@@ -221,6 +221,14 @@
 				0634827D12968F0255409928 /* Pods-NumbersInTime.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		B22E44581FF403FA00FC48C4 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				B22E44561FF3F83000FC48C4 /* test.mp4 */,
+			);
+			path = resources;
 			sourceTree = "<group>";
 		};
 		FEA2281A8775BE944E8209B9 /* Frameworks */ = {

@@ -32,7 +32,7 @@
         
         
         if(( Auth.auth().currentUser ) != nil){
-            initialViewController = storyboard.instantiateViewController(withIdentifier: "IntroVideoController")
+            initialViewController = storyboard.instantiateViewController(withIdentifier: "ResultController")
         }else {
             initialViewController = storyboard.instantiateViewController(withIdentifier: "StartController")
         }

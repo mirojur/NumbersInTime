@@ -57,13 +57,21 @@ class Game {
         
         let key = ref.child("games").childByAutoId().key
         
-        let theGame : [String : AnyObject] = [
+       /* let theGame : [String : AnyObject] = [
             "gameId": key as AnyObject,
             "numbers": numbersString as AnyObject,
             "targetNumber": targetNumber as AnyObject,
             "timestamp": ServerValue.timestamp() as AnyObject
-        ]
+        ]*/
 
+        
+        let theGame : [String : AnyObject] = [
+            "gameId": key as AnyObject,
+            "numbers": "1;1;1;1;1;1;" as AnyObject,
+            "targetNumber": 6 as AnyObject,
+            "timestamp": ServerValue.timestamp() as AnyObject
+        ]
+        
         let childUpdates = ["/games/\(key)": theGame]
         ref.updateChildValues(childUpdates)
         
