@@ -81,6 +81,7 @@
 		4EF086351E5B57C200E92BB0 /* ResultScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ResultScene.sks; sourceTree = "<group>"; };
 		4EF086371E5B57E400E92BB0 /* ResultScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultScene.swift; sourceTree = "<group>"; };
 		4EF4F3CA1E61F3A700FC9921 /* ScoreController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreController.swift; sourceTree = "<group>"; };
+		B2EAAF1A1FEEF4EB00FC5E36 /* test.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = test.mp4; path = ../../../Downloads/test.mp4; sourceTree = "<group>"; };
 		DC6A8FB13C33A42606947CEB /* Pods-NumbersInTime.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NumbersInTime.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NumbersInTime/Pods-NumbersInTime.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,6 +118,7 @@
 		3A690C8A1DE75044005D9A64 /* NumbersInTime */ = {
 			isa = PBXGroup;
 			children = (
+				B2EAAF191FEEF4C800FC5E36 /* resources */,
 				4EDCE7B81EBF90EE003CC8E4 /* cells */,
 				4E07C6751E75E20200A962F5 /* scenes */,
 				4E8024C81E6361680056CC24 /* controller */,
@@ -218,6 +220,14 @@
 				0634827D12968F0255409928 /* Pods-NumbersInTime.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		B2EAAF191FEEF4C800FC5E36 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				B2EAAF1A1FEEF4EB00FC5E36 /* test.mp4 */,
+			);
+			name = resources;
 			sourceTree = "<group>";
 		};
 		FEA2281A8775BE944E8209B9 /* Frameworks */ = {

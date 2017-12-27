@@ -141,26 +141,26 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H8d-GU-Muf" userLabel="points">
-                                <rect key="frame" x="179" y="274" width="17" height="30"/>
+                                <rect key="frame" x="179" y="285" width="17" height="30"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ratio: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eSH-Na-hlA">
-                                <rect key="frame" x="160.33333333333334" y="314" width="54.666666666666657" height="24"/>
+                                <rect key="frame" x="160.33333333333334" y="325" width="54.666666666666657" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KEA-53-edn" userLabel="graphSubView" customClass="ScrollableGraphView" customModule="ScrollableGraphView">
-                                <rect key="frame" x="0.0" y="348" width="375" height="150"/>
+                                <rect key="frame" x="0.0" y="359" width="375" height="150"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="VMj-yo-dhS"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZhC-Qo-xeh">
-                                <rect key="frame" x="0.33333333333334281" y="528" width="375" height="50"/>
+                                <rect key="frame" x="0.33333333333334281" y="539" width="375" height="50"/>
                                 <color key="backgroundColor" red="1" green="0.58654993769999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="lMN-O6-etH"/>
@@ -174,7 +174,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wEY-cE-YeX">
-                                <rect key="frame" x="-0.66666666666665719" y="598" width="375.33333333333326" height="50"/>
+                                <rect key="frame" x="-0.66666666666665719" y="609" width="375.33333333333326" height="50"/>
                                 <color key="backgroundColor" red="1" green="0.58654993769999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="rOw-CK-vfg"/>
@@ -187,6 +187,12 @@
                                     <segue destination="gyX-yg-c84" kind="show" id="9FB-1l-nG8"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="no user" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VPl-Ah-K4M">
+                                <rect key="frame" x="0.0" y="254" width="375" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -202,14 +208,17 @@
                             <constraint firstItem="xXp-OC-9iw" firstAttribute="centerX" secondItem="IP9-hH-RNf" secondAttribute="centerX" id="J9c-iI-FQY"/>
                             <constraint firstItem="wEY-cE-YeX" firstAttribute="centerX" secondItem="IP9-hH-RNf" secondAttribute="centerX" id="M8X-v6-44r"/>
                             <constraint firstItem="eSH-Na-hlA" firstAttribute="centerX" secondItem="IP9-hH-RNf" secondAttribute="centerX" id="NEb-vf-6al"/>
+                            <constraint firstItem="H8d-GU-Muf" firstAttribute="top" secondItem="VPl-Ah-K4M" secondAttribute="bottom" constant="10" id="OGh-FF-O0D"/>
                             <constraint firstItem="ZhC-Qo-xeh" firstAttribute="top" secondItem="KEA-53-edn" secondAttribute="bottom" constant="30" id="PRZ-WG-6NN"/>
+                            <constraint firstItem="VPl-Ah-K4M" firstAttribute="width" secondItem="IP9-hH-RNf" secondAttribute="width" id="Pkh-iT-2n1"/>
                             <constraint firstAttribute="trailing" secondItem="xXp-OC-9iw" secondAttribute="trailing" id="R4Q-cS-hhY"/>
                             <constraint firstItem="xXp-OC-9iw" firstAttribute="top" secondItem="IP9-hH-RNf" secondAttribute="top" id="RUn-7g-EcA"/>
                             <constraint firstItem="l6F-aj-q01" firstAttribute="centerX" secondItem="IP9-hH-RNf" secondAttribute="centerX" id="RWc-Os-MDB"/>
+                            <constraint firstItem="VPl-Ah-K4M" firstAttribute="top" secondItem="l6F-aj-q01" secondAttribute="bottom" constant="10" id="WR2-ly-ULx"/>
                             <constraint firstItem="wEY-cE-YeX" firstAttribute="top" secondItem="ZhC-Qo-xeh" secondAttribute="bottom" constant="20" id="fJs-si-keK"/>
                             <constraint firstItem="eSH-Na-hlA" firstAttribute="top" secondItem="H8d-GU-Muf" secondAttribute="bottom" constant="10" id="h8e-Cj-0Qb"/>
                             <constraint firstItem="ZhC-Qo-xeh" firstAttribute="width" secondItem="IP9-hH-RNf" secondAttribute="width" id="hVo-lH-EZc"/>
-                            <constraint firstItem="H8d-GU-Muf" firstAttribute="top" secondItem="l6F-aj-q01" secondAttribute="bottom" constant="30" id="lgy-ej-TIz"/>
+                            <constraint firstItem="VPl-Ah-K4M" firstAttribute="centerX" secondItem="IP9-hH-RNf" secondAttribute="centerX" id="hWe-yj-BOx"/>
                             <constraint firstItem="xXp-OC-9iw" firstAttribute="width" secondItem="IP9-hH-RNf" secondAttribute="width" id="sxr-rw-OGG"/>
                             <constraint firstItem="GbH-Yi-Bex" firstAttribute="top" secondItem="npv-4g-jT7" secondAttribute="bottom" constant="10" id="vn5-nx-82P"/>
                             <constraint firstItem="H8d-GU-Muf" firstAttribute="centerX" secondItem="IP9-hH-RNf" secondAttribute="centerX" id="yM3-tU-cX9"/>
@@ -221,6 +230,7 @@
                         <outlet property="graphSubView" destination="KEA-53-edn" id="WEE-A8-KjA"/>
                         <outlet property="ratio" destination="eSH-Na-hlA" id="byk-ES-rFa"/>
                         <outlet property="score" destination="H8d-GU-Muf" id="WZn-4u-krn"/>
+                        <outlet property="userDisplayName" destination="VPl-Ah-K4M" id="DdN-iX-M9b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iuw-3N-52O" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -230,7 +240,7 @@
         <!--Intro Video Controller-->
         <scene sceneID="Wwe-hZ-PJe">
             <objects>
-                <viewController id="DMo-b7-lZU" customClass="IntroVideoController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="IntroVideoController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="DMo-b7-lZU" customClass="IntroVideoController" customModule="NumbersInTime" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XB0-yb-2Sy"/>
                         <viewControllerLayoutGuide type="bottom" id="nw3-mx-CbV"/>
@@ -243,7 +253,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mB0-T8-3mC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="306" y="868"/>
+            <point key="canvasLocation" x="-458" y="867"/>
         </scene>
         <!--Game Controller-->
         <scene sceneID="IL6-H9-3XY">
@@ -383,7 +393,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hOM-Ua-DXR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-324" y="34.632683658170919"/>
+            <point key="canvasLocation" x="-1870" y="-1048"/>
         </scene>
         <!--Sign In Controller-->
         <scene sceneID="mcv-S5-YRO">
@@ -512,6 +522,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FdR-vl-jDx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-1358" y="867"/>
         </scene>
     </scenes>
     <resources>

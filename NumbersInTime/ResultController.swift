@@ -16,22 +16,23 @@ class ResultController: UIViewController, ScrollableGraphViewDataSource, UIImage
     @IBOutlet weak var score: UILabel!
     @IBOutlet weak var avatar: UIImageView!
     @IBOutlet weak var ratio: UILabel!
+    @IBOutlet weak var userDisplayName: UILabel!
     
     @IBOutlet weak var graphSubView: ScrollableGraphView!
     
     
     var gameResult :  [String : AnyObject]  = [:]
     var lastResults : [Bool] = []
-
+    
     let gameHistoryKey = "gamehistory"
     
     lazy var ref: DatabaseReference = Database.database().reference()
     var gamesRef: DatabaseReference!
-   
     
-   
     
-   
+    
+    
+    
     
     override func viewDidLoad() {
         
@@ -47,15 +48,20 @@ class ResultController: UIViewController, ScrollableGraphViewDataSource, UIImage
         avatar.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSelectProfileImage)))
         
         
+        if(Auth.auth().currentUser != nil){
+            userDisplayName.text = Auth.auth().currentUser?.displayName
+        }else {
+            userDisplayName.text = "no user logged in"
+        }
         
         self.graphSubView.dataSource = self
         self.setupGraph(graphView: self.graphSubView)
     }
     
-   
+    
     
     func getUsersLastResults(){
-    
+        
         var userId = "noUser"
         
         
@@ -63,12 +69,12 @@ class ResultController: UIViewController, ScrollableGraphViewDataSource, UIImage
             userId = (Auth.auth().currentUser?.email)!
         }
         
-       
+        
         
         gamesRef.queryOrdered(byChild: "playerId").queryEqual(toValue: userId).observe(.value, with: {
             
             snapshot in
-           
+            
             self.lastResults = []
             var score = 0
             var count = 0
@@ -87,16 +93,17 @@ class ResultController: UIViewController, ScrollableGraphViewDataSource, UIImage
                     } else {
                         self.lastResults.append(false)
                     }
-                   
+                    
                 }
                 
-               self.lastResults = self.lastResults.reversed()
-               
-               
-               rat = Double(count) / Double(self.lastResults.count)
-               self.score.text = "\(score) points"
-               self.ratio.text = String.localizedStringWithFormat("%.4f %@", rat, "ratio")
-               self.graphSubView.reload()
+                self.lastResults = self.lastResults.reversed()
+                
+                if( self.lastResults.count > 0 ){
+                    rat = Double(count) / Double(self.lastResults.count)
+                }
+                self.score.text = "\(score) points"
+                self.ratio.text = String.localizedStringWithFormat("%.4f %@", rat, "ratio")
+                self.graphSubView.reload()
             }
         })
     }
@@ -119,11 +126,11 @@ class ResultController: UIViewController, ScrollableGraphViewDataSource, UIImage
         let won : Bool = lastResults[pointIndex]
         
         if( won && plot.identifier == "one"){
-               return 10.00
+            return 10.00
         }
         
         if( !won && plot.identifier == "two" ){
-                return 0.00
+            return 0.00
         }
         
         return -100.00
@@ -150,7 +157,7 @@ class ResultController: UIViewController, ScrollableGraphViewDataSource, UIImage
         
         dotPlot.dataPointType = ScrollableGraphViewDataPointType.circle
         dotPlot.dataPointSize = 6.0
-        dotPlot.dataPointFillColor = UIColor.green.withAlphaComponent(0.9)
+        dotPlot.dataPointFillColor = UIColor.green.withAlphaComponent(0.95)
         
         
         let dotPlot2 = DotPlot(identifier: "two")
@@ -158,7 +165,7 @@ class ResultController: UIViewController, ScrollableGraphViewDataSource, UIImage
         dotPlot2.dataPointType = ScrollableGraphViewDataPointType.circle
         dotPlot2.dataPointSize = 6.0
         dotPlot2.dataPointFillColor = UIColor.red.withAlphaComponent(0.9)
-       
+        
         
         
         // Customise the reference lines.
@@ -174,7 +181,7 @@ class ResultController: UIViewController, ScrollableGraphViewDataSource, UIImage
         graphView.topMargin = 30.0
         graphView.bottomMargin = 10.0
         graphView.rangeMax = 10.0
-       
+        
         
         
         
@@ -191,7 +198,7 @@ class ResultController: UIViewController, ScrollableGraphViewDataSource, UIImage
         graphView.addReferenceLines(referenceLines: referenceLines)
         graphView.addPlot(plot: dotPlot)
         graphView.addPlot(plot: dotPlot2)
-       
+        
     }
     
     

@@ -54,6 +54,7 @@ class SignInController: UIViewController {
             
         }
         
+        print("nickname: " + self.nickname.text!)
         
         Auth.auth().createUser(withEmail: email.text!, password: password.text!, completion: {
             
@@ -80,15 +81,10 @@ class SignInController: UIViewController {
                 
                 print ("neuer User erfolgreich angelegt..")
                 
-                let user = Auth.auth().currentUser
-                
-                
-                // save the nickname, if set..
-                if((self.nickname.text?.isEmpty)!){
+    
                    
                     let changeRequest : UserProfileChangeRequest = (user?.createProfileChangeRequest())!
                     changeRequest.displayName = self.nickname.text
-                    
                     
                     changeRequest.commitChanges(completion: {
                         
@@ -99,8 +95,7 @@ class SignInController: UIViewController {
                         }
                         
                     } )
-                    
-                }
+    
                 
                 let message = "user " + (user?.email)! + " created"
                 self.alertDefault(title: "Welcome", message: message)

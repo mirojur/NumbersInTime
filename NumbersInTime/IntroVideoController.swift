@@ -13,8 +13,21 @@ class IntroVideoController: VideoSplashViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        
+        if let path = Bundle.main.path(forResource: "test", ofType: "mp4") {
+            let url = URL(fileURLWithPath: path)
+            videoFrame = view.frame
+            fillMode = .resizeAspectFill
+            alwaysRepeat = true
+            sound = true
+            startTime = 0.0
+            duration = 4.0
+            alpha = 0.7
+            backgroundColor = UIColor.black
+            contentURL = url
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
