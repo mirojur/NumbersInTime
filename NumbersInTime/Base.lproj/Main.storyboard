@@ -123,15 +123,6 @@
                                     <action selector="logout:" destination="Jng-zQ-Jc3" eventType="touchUpInside" id="KbS-lO-4rA"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GbH-Yi-Bex" userLabel="shareButton">
-                                <rect key="frame" x="314" y="54" width="35" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="35" id="aFd-Rr-rqT"/>
-                                    <constraint firstAttribute="height" constant="35" id="tk6-w8-Tie"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
-                                <state key="normal" backgroundImage="share"/>
-                            </button>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="l6F-aj-q01" userLabel="avatar">
                                 <rect key="frame" x="113" y="94" width="150" height="150"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -217,9 +208,7 @@
                             <constraint firstItem="ZhC-Qo-xeh" firstAttribute="width" secondItem="IP9-hH-RNf" secondAttribute="width" id="hVo-lH-EZc"/>
                             <constraint firstItem="VPl-Ah-K4M" firstAttribute="centerX" secondItem="IP9-hH-RNf" secondAttribute="centerX" id="hWe-yj-BOx"/>
                             <constraint firstItem="xXp-OC-9iw" firstAttribute="width" secondItem="IP9-hH-RNf" secondAttribute="width" id="sxr-rw-OGG"/>
-                            <constraint firstItem="GbH-Yi-Bex" firstAttribute="top" secondItem="npv-4g-jT7" secondAttribute="bottom" constant="10" id="vn5-nx-82P"/>
                             <constraint firstItem="H8d-GU-Muf" firstAttribute="centerX" secondItem="IP9-hH-RNf" secondAttribute="centerX" id="yM3-tU-cX9"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="GbH-Yi-Bex" secondAttribute="trailing" constant="10" id="zS5-di-dHv"/>
                         </constraints>
                     </view>
                     <connections>
@@ -245,7 +234,40 @@
                     <view key="view" contentMode="scaleToFill" id="AhP-mu-RD0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" alpha="0.40000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cdi-fJ-IJG">
+                                <rect key="frame" x="-0.66666666666665719" y="608" width="375.33333333333326" height="70"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="7d7-jt-Scl"/>
+                                </constraints>
+                                <color key="tintColor" red="0.75207328796386719" green="0.25612461566925049" blue="0.21966488659381866" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Skip intro"/>
+                                <connections>
+                                    <action selector="skipIntro:" destination="DMo-b7-lZU" eventType="touchUpInside" id="3Jy-66-9Ld"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" alpha="0.40000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SC0-Gm-hVZ">
+                                <rect key="frame" x="-0.66666666666665719" y="503" width="375.33333333333326" height="70"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="6Gt-fE-NOx"/>
+                                </constraints>
+                                <state key="normal" title="Dont show again"/>
+                                <connections>
+                                    <action selector="dontShowAgain:" destination="DMo-b7-lZU" eventType="touchUpInside" id="3ap-sD-v0I"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="nw3-mx-CbV" firstAttribute="top" secondItem="cdi-fJ-IJG" secondAttribute="bottom" constant="100" id="Cmo-7s-sRu"/>
+                            <constraint firstItem="SC0-Gm-hVZ" firstAttribute="width" secondItem="AhP-mu-RD0" secondAttribute="width" id="HHf-lG-1kb"/>
+                            <constraint firstItem="cdi-fJ-IJG" firstAttribute="top" secondItem="SC0-Gm-hVZ" secondAttribute="bottom" constant="35" id="Qov-0a-dT3"/>
+                            <constraint firstItem="cdi-fJ-IJG" firstAttribute="width" secondItem="AhP-mu-RD0" secondAttribute="width" id="VXa-4l-yC8"/>
+                            <constraint firstItem="cdi-fJ-IJG" firstAttribute="centerX" secondItem="AhP-mu-RD0" secondAttribute="centerX" id="khZ-IT-zg7"/>
+                            <constraint firstItem="SC0-Gm-hVZ" firstAttribute="centerX" secondItem="AhP-mu-RD0" secondAttribute="centerX" id="vHW-mu-HaE"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mB0-T8-3mC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -474,11 +496,10 @@
         <image name="logout" width="50" height="50"/>
         <image name="orange" width="1600" height="820"/>
         <image name="resultBackground" width="1000" height="1000"/>
-        <image name="share" width="50" height="50"/>
         <image name="title" width="300" height="333"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="6Gk-g9-WZq"/>
-        <segue reference="cn6-XW-svh"/>
+        <segue reference="5bG-7v-kQf"/>
     </inferredMetricsTieBreakers>
 </document>

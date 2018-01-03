@@ -16,11 +16,11 @@ class SceneObject: SKShapeNode {
     var radius : CGFloat! = 0
     var timer = Timer()
     
-   
+    
     
     init( number : Int , radius : CGFloat , position : CGPoint) {
         super.init()
-       
+        
         self.value = number
         self.radius = radius
         
@@ -32,7 +32,7 @@ class SceneObject: SKShapeNode {
         
         self.path = mypath.cgPath
         self.position = position
-                
+        
         self.addLabel()
     }
     
@@ -48,7 +48,7 @@ class SceneObject: SKShapeNode {
         numLabelNode.verticalAlignmentMode = .center
         numLabelNode.horizontalAlignmentMode = .center
         self.addChild(numLabelNode)
-
+        
     }
     
     func getColor () -> SKColor {
@@ -58,9 +58,9 @@ class SceneObject: SKShapeNode {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     func handleDoubleTap (scene:SKScene){
-                
+        
     }
-
+    
 }

@@ -1,4 +1,4 @@
-   //
+      //
    //  AppDelegate.swift
    //  NumbersInTime
    //
@@ -23,17 +23,24 @@
         Database.database().isPersistenceEnabled = true
         
         
+        //check if intro video has to be shown
+        let defaults = UserDefaults.standard
+        
+        // Store
+        //defaults.set("true", forKey: "showIntroVideo")
+        
+        
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        
         var initialViewController:UIViewController? = nil
         
         
-        if(( Auth.auth().currentUser ) != nil){
+        // Receive
+        if defaults.string(forKey: "showIntroVideo") == nil{
+            initialViewController = storyboard.instantiateViewController(withIdentifier: "IntroVideoController")
+        } else if(( Auth.auth().currentUser ) != nil){
             initialViewController = storyboard.instantiateViewController(withIdentifier: "ResultController")
-        }else {
+        } else {
             initialViewController = storyboard.instantiateViewController(withIdentifier: "StartController")
         }
         

@@ -55,7 +55,7 @@ class GameScene: SKScene {
             setupTimer()
             self.userForcedResult = nil
             self.firstInit = true
-          
+            
         } catch {
             
             
@@ -151,18 +151,68 @@ class GameScene: SKScene {
         
         //update local var
         currentGame = gameResult
-
+        
         saveGameResult()
         
         showResultView()
     }
     
     func saveGameResult(){
-        //save result
-        let ref = Database.database().reference(fromURL: "https://numbersintime-1fcc3.firebaseio.com/")
+        
+        let ref = Database.database().reference()
+        var user = "noUser"
+        var lastUserScore = 10
+        var userEmail = ""
+        
+        if(( Auth.auth().currentUser ) != nil){
+            user = (Auth.auth().currentUser?.uid)!
+            userEmail = (Auth.auth().currentUser?.email)!
+        }
+        
+        
+        
+        //update score only if user won..
+        if ( self.currentGame["resultDiff"] as! Int == 0 ){
+            
+            //get user last score from database
+            ref.child("score").observeSingleEvent(of: .value, with: {
+                
+                (snapshot) in
+                
+                if snapshot.hasChild(user){
+                    // Get user value
+                    let value = snapshot.value as? NSDictionary
+                    
+                    if( value != nil ){
+                        let userlastvalues = value?[user] as? NSDictionary
+                        lastUserScore = (userlastvalues?["points"] as? Int)! + 10
+                    }
+                    
+                }
+                
+                let scoreData : [String : AnyObject] = [
+                    "points": lastUserScore as AnyObject,
+                    "email": userEmail as AnyObject,
+                    "timestamp": ServerValue.timestamp() as AnyObject
+                ]
+                
+                let scoreHistoryUpdate = ["/score/\(user)": scoreData]
+                ref.updateChildValues(scoreHistoryUpdate)
+                
+                
+            }) { (error) in
+                print(error.localizedDescription)
+            }
+        }
+        
+        
+        
         let key = ref.child("gamehistory").childByAutoId().key
-        let childUpdates = ["/gamehistory/\(key)": currentGame]
-        ref.updateChildValues(childUpdates)
+        
+        let gameHistoryUpdate = ["/gamehistory/\(key)": currentGame]
+        ref.updateChildValues(gameHistoryUpdate)
+        
+        
     }
     
     func showResultView() {
@@ -171,7 +221,7 @@ class GameScene: SKScene {
         let resultController = storyBoard.instantiateViewController(withIdentifier: "ResultController") as! ResultController
         
         resultController.gameResult = currentGame
-    
+        
         if var topController = UIApplication.shared.keyWindow?.rootViewController
         {
             while (topController.presentedViewController != nil)
@@ -194,7 +244,6 @@ class GameScene: SKScene {
             let distance = sqrt((xDist * xDist) + (yDist * yDist))
             
             if(distance < (targetNumber?.radius)!){
-                print("ending game")
                 targetNumber.tickToEnd()
                 self.userForcedResult = (selectedNumber1?.value)!
                 gameOver()
@@ -466,12 +515,10 @@ class GameScene: SKScene {
             checkIntersection()
         }
         
-        print("touchesEnded")
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print("touchesCancelled")
-        
+       
     }
     
     
@@ -487,18 +534,15 @@ class GameScene: SKScene {
     }
     
     func touchDown(atPoint pos : CGPoint) {
-        print("touchDown")
         
     }
     
     func touchMoved(toPoint pos : CGPoint) {
-        print("touchMoved")
         
     }
     
     func touchUp(atPoint pos : CGPoint) {
-        print("touchUp")
-        
+ 
     }
     
     func setupTimer(){

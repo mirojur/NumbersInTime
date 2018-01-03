@@ -44,7 +44,7 @@ class Game {
         
         
         let targetNumber: Int = Int(arc4random_uniform(999))
-        let numbersArray: [Int] = [1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,10,1,2,3,4,5,6,7,8,9,15,1,2,3,4,5,6,7,8,9,10,15,20,20,20,25,50]
+        let numbersArray: [Int] = [1,2,3,4,5,6,7,8,9,10,15,20,25,1,2,3,4,5,6,7,8,9,10,15,20,25,1,2,3,4,5,6,7,8,9,10,15,20,25,1,2,3,4,5,6,7,8,9,10,15,20,25,1,2,3,4,5,6,7,8,9,10,15,20,25,]
         var numbersString: String = ""
         
         
@@ -68,7 +68,7 @@ class Game {
         let theGame : [String : AnyObject] = [
             "gameId": key as AnyObject,
             "numbers": "1;1;1;1;1;1;" as AnyObject,
-            "targetNumber": 6 as AnyObject,
+            "targetNumber": 1 as AnyObject,
             "timestamp": ServerValue.timestamp() as AnyObject
         ]
         
@@ -78,6 +78,18 @@ class Game {
         
         return theGame
         
+    }
+    
+    
+    func getCommunityGame() -> [String : AnyObject]{
+        
+        let theGame : [String : AnyObject]? = nil
+        
+        // hole alle spiele, die nicht von mir sind
+        //
+        
+        
+        return theGame!
     }
     
         

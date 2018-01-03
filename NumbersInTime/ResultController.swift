@@ -36,7 +36,10 @@ class ResultController: UIViewController, ScrollableGraphViewDataSource, UIImage
     
     override func viewDidLoad() {
         
+        print("viewDidLoad")
+        
         super.viewDidLoad()
+        
         gamesRef = ref.child(gameHistoryKey)
         
         avatar.layer.borderWidth = 1
@@ -54,8 +57,14 @@ class ResultController: UIViewController, ScrollableGraphViewDataSource, UIImage
             userDisplayName.text = "no user logged in"
         }
         
-        self.graphSubView.dataSource = self
+        createGraph()
+    }
+    
+    private func createGraph(){
+        //self.graphSubView =  Scroll0ableGraphView(frame: self.graphSubView.frame, dataSource: self)
         self.setupGraph(graphView: self.graphSubView)
+        self.graphSubView.dataSource = self
+        self.getUsersLastResults()
     }
     
     
@@ -75,53 +84,62 @@ class ResultController: UIViewController, ScrollableGraphViewDataSource, UIImage
             
             snapshot in
             
-            self.lastResults = []
+            print("   query games refs")
+            var newlastResults : [Bool] = []
             var score = 0
             var count = 0
             var rat: Double = 0.0
             
-            if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
+             if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
                 
                 for snap in snapshots
                 {
                     let resultDiff = snap.childSnapshot(forPath: "resultDiff").value! as! Int
                     
                     if(resultDiff == 0){
-                        self.lastResults.append(true)
+                        newlastResults.append(true)
                         score = score + 10
                         count = count + 1
                     } else {
-                        self.lastResults.append(false)
+                        newlastResults.append(false)
                     }
                     
                 }
                 
-                self.lastResults = self.lastResults.reversed()
-                
+                self.lastResults = newlastResults.reversed()
+              
                 if( self.lastResults.count > 0 ){
                     rat = Double(count) / Double(self.lastResults.count)
                 }
                 self.score.text = "\(score) points"
                 self.ratio.text = String.localizedStringWithFormat("%.4f %@", rat, "ratio")
+               
                 self.graphSubView.reload()
+                print("   exiting query games refs")
+               
             }
+            
         })
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        print("viewWillAppear")
         super.viewWillAppear(animated)
-        getUsersLastResults()
-        
+        self.getUsersLastResults()
+        print("exiting viewWillAppear")
     }
     
-    
-    override func didReceiveMemoryWarning() {
+   override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     
     func value(forPlot plot: Plot, atIndex pointIndex: Int) -> Double {
+        
+        if( pointIndex >= lastResults.count){
+            return -100.00
+        }
         
         let won : Bool = lastResults[pointIndex]
         
@@ -146,8 +164,7 @@ class ResultController: UIViewController, ScrollableGraphViewDataSource, UIImage
     }
     
     func numberOfPoints() -> Int {
-        print("numberOfPoints \(self.lastResults.count)")
-        return self.lastResults.count
+            return 5
     }
     
     func setupGraph(graphView: ScrollableGraphView) {
@@ -156,14 +173,14 @@ class ResultController: UIViewController, ScrollableGraphViewDataSource, UIImage
         let dotPlot = DotPlot(identifier: "one")
         
         dotPlot.dataPointType = ScrollableGraphViewDataPointType.circle
-        dotPlot.dataPointSize = 6.0
+        dotPlot.dataPointSize = 12.0
         dotPlot.dataPointFillColor = UIColor.green.withAlphaComponent(0.95)
         
         
         let dotPlot2 = DotPlot(identifier: "two")
         
         dotPlot2.dataPointType = ScrollableGraphViewDataPointType.circle
-        dotPlot2.dataPointSize = 6.0
+        dotPlot2.dataPointSize = 8.0
         dotPlot2.dataPointFillColor = UIColor.red.withAlphaComponent(0.9)
         
         
@@ -182,7 +199,7 @@ class ResultController: UIViewController, ScrollableGraphViewDataSource, UIImage
         graphView.bottomMargin = 10.0
         graphView.rangeMax = 10.0
         
-        
+        graphView.dataPointSpacing = graphView.frame.width / 4.5
         
         
         referenceLines.referenceLineUnits = "P"
