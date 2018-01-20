@@ -18,7 +18,7 @@ class GameScene: SKScene {
     
     var numbers = [Number]()
     var gameHistory = [String]()
-    var currentGame = [String : AnyObject]()
+    var currentGame : GameObject? = nil
     
     var firstInit : Bool = false
     
@@ -49,8 +49,8 @@ class GameScene: SKScene {
         
         do {
             currentGame = try Game.sharedInstance.createGame()
-            addNumbers(numbersString: currentGame["numbers"] as! String)
-            addTargetNumber(value: currentGame["targetNumber"] as! Int)
+            addNumbers(numbersString: (currentGame?.numbers)!)
+            addTargetNumber(value: (currentGame?.targetNumber)!)
             initializeModalDialog()
             setupTimer()
             self.userForcedResult = nil
@@ -130,33 +130,23 @@ class GameScene: SKScene {
         }
     }
     
-    
+    // game is over, save data and switch to resultview
     func gameOver(){
+        
         gameTimer.invalidate()
         
-        let gameId = currentGame["gameId"]
-        let gameHistory = gameHistoryToString()
-        let player = Auth.auth().currentUser?.email ?? "noUser"
-        
-        
-        let gameResult : [String : AnyObject] = [
-            "gameId": gameId as AnyObject,
-            "gameHistory": gameHistory as AnyObject,
-            "targerNumber": targetNumber.value as AnyObject,
-            "result": getGameResult() as AnyObject,
-            "resultDiff": abs(targetNumber.value - getGameResult()) as AnyObject,
-            "playerId": player as AnyObject,
-            "timestamp": ServerValue.timestamp() as AnyObject
-        ]
-        
-        //update local var
-        currentGame = gameResult
+       
+        self.currentGame?.gameHistory =  gameHistoryToString()
+        self.currentGame?.playerId = Auth.auth().currentUser?.uid ?? "noUser"
+        self.currentGame?.result = getGameResult()
+        self.currentGame?.resultDiff = abs(targetNumber.value - getGameResult())
         
         saveGameResult()
-        
         showResultView()
     }
     
+    
+    // saving results to the database
     func saveGameResult(){
         
         let ref = Database.database().reference()
@@ -168,11 +158,9 @@ class GameScene: SKScene {
             user = (Auth.auth().currentUser?.uid)!
             userEmail = (Auth.auth().currentUser?.email)!
         }
-        
-        
-        
+
         //update score only if user won..
-        if ( self.currentGame["resultDiff"] as! Int == 0 ){
+        if ( self.currentGame?.resultDiff == 0 ){
             
             //get user last score from database
             ref.child("score").observeSingleEvent(of: .value, with: {
@@ -205,13 +193,7 @@ class GameScene: SKScene {
             }
         }
         
-        
-        
-        let key = ref.child("gamehistory").childByAutoId().key
-        
-        let gameHistoryUpdate = ["/gamehistory/\(key)": currentGame]
-        ref.updateChildValues(gameHistoryUpdate)
-        
+        currentGame?.saveGameHistory()
         
     }
     
@@ -220,7 +202,7 @@ class GameScene: SKScene {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let resultController = storyBoard.instantiateViewController(withIdentifier: "ResultController") as! ResultController
         
-        resultController.gameResult = currentGame
+        resultController.gameResult = currentGame!
         
         if var topController = UIApplication.shared.keyWindow?.rootViewController
         {

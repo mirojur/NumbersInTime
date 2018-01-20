@@ -39,58 +39,64 @@ class Game {
     
     static let sharedInstance: Game = Game()
     
+    var onlineGames = [GameObject] ()
     
-    func createGame() throws -> [String : AnyObject]{
+    func createGame() -> GameObject{
         
+        let gameObject:GameObject = GameObject()!
+        gameObject.saveGame()
+        return gameObject
         
-        let targetNumber: Int = Int(arc4random_uniform(999))
-        let numbersArray: [Int] = [1,2,3,4,5,6,7,8,9,10,15,20,25,1,2,3,4,5,6,7,8,9,10,15,20,25,1,2,3,4,5,6,7,8,9,10,15,20,25,1,2,3,4,5,6,7,8,9,10,15,20,25,1,2,3,4,5,6,7,8,9,10,15,20,25,]
-        var numbersString: String = ""
+    }
+    
+    func userHasOnlineGames() -> Bool {
+        return !onlineGames.isEmpty
+    }
+    
+    
+    func getOnlineGame() -> GameObject {
+        let result : GameObject = self.onlineGames[0]
+        return result
+    }
+    
+    
+    func getGamesFromServer() {
         
+        let ref = Database.database().reference()
         
-        for  _ in 1...6 {
-            let randomIndex : Int = Int(arc4random_uniform(UInt32(numbersArray.count)))
-            numbersString = numbersString +  String(numbersArray[randomIndex]) + ";"
-        }
-        
-        let ref = Database.database().reference(fromURL: "https://numbersintime-1fcc3.firebaseio.com/")
-        
-        let key = ref.child("games").childByAutoId().key
-        
-       /* let theGame : [String : AnyObject] = [
-            "gameId": key as AnyObject,
-            "numbers": numbersString as AnyObject,
-            "targetNumber": targetNumber as AnyObject,
-            "timestamp": ServerValue.timestamp() as AnyObject
-        ]*/
-
-        
-        let theGame : [String : AnyObject] = [
-            "gameId": key as AnyObject,
-            "numbers": "1;1;1;1;1;1;" as AnyObject,
-            "targetNumber": 1 as AnyObject,
-            "timestamp": ServerValue.timestamp() as AnyObject
-        ]
-        
-        let childUpdates = ["/games/\(key)": theGame]
-        ref.updateChildValues(childUpdates)
-        
-        
-        return theGame
+        ref.child("gamehistory").observeSingleEvent(of: .value, with: {
+            
+            (snapshot) in
+            let children = snapshot.children
+            var yourArray = [String: Any]()
+            let user = (Auth.auth().currentUser?.uid)!
+            
+            var playedGames = UserDefaults.standard.object(forKey: user) as? [String] ?? [String]()
+            
+            while let rest = children.nextObject() as? DataSnapshot, let value = rest.value {
+                
+                yourArray = (value as! [String: AnyObject])
+                
+                let playerId : String = yourArray["playerId"] as! String
+                let gameId:String = yourArray["gameId"] as! String
+                
+                //check if user play this game
+                if(playerId == user &&  !(playedGames.contains(gameId))){
+                    playedGames.append(gameId)
+                    UserDefaults.standard.set(playedGames, forKey: user)
+                }
+                
+                //if game is not into the local array
+                if(playerId != user  && self.onlineGames.filter{$0.gameId == gameId}.count == 0){
+                    let newOnlineGame = GameObject(json: yourArray)
+                    self.onlineGames.append(newOnlineGame!)
+                }
+                
+            }
+            
+        })
         
     }
     
     
-    func getCommunityGame() -> [String : AnyObject]{
-        
-        let theGame : [String : AnyObject]? = nil
-        
-        // hole alle spiele, die nicht von mir sind
-        //
-        
-        
-        return theGame!
-    }
-    
-        
 }

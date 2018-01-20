@@ -174,6 +174,9 @@
                                 <state key="normal" title="Play in community">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="Mvy-mp-tXr" kind="show" id="Ftq-Z3-gNr"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="no user" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VPl-Ah-K4M">
                                 <rect key="frame" x="0.0" y="254" width="375" height="21"/>
@@ -222,6 +225,77 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iuw-3N-52O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2044" y="-325.86206896551727"/>
+        </scene>
+        <!--Community View Controller-->
+        <scene sceneID="myO-mU-WZo">
+            <objects>
+                <viewController storyboardIdentifier="CommunityViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Mvy-mp-tXr" customClass="CommunityViewController" customModule="NumbersInTime" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="imO-Oa-UAK"/>
+                        <viewControllerLayoutGuide type="bottom" id="G2E-Ef-RFb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0r1-GV-Oxw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="you are playing again" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="acw-gI-Xvp">
+                                <rect key="frame" x="-0.66666666666665719" y="87" width="375.33333333333326" height="20.333333333333329"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Miroj" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mxh-K9-oRp">
+                                <rect key="frame" x="-0.66666666666665719" y="117.33333333333333" width="375.33333333333326" height="20.999999999999986"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="game played on 12.12.2017 16:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DNY-Ef-G4j">
+                                <rect key="frame" x="-0.66666666666665719" y="198.33333333333334" width="375.33333333333326" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Miroj won this game" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Brd-cI-jBI">
+                                <rect key="frame" x="0.0" y="299" width="375" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Rq-SV-DrJ">
+                                <rect key="frame" x="0.33333333333334281" y="520" width="375" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="play this game">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="playThisGame:" destination="Mvy-mp-tXr" eventType="touchUpInside" id="hAm-ND-UHm"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Brd-cI-jBI" firstAttribute="centerX" secondItem="0r1-GV-Oxw" secondAttribute="centerX" id="1fo-ln-hsq"/>
+                            <constraint firstItem="acw-gI-Xvp" firstAttribute="centerX" secondItem="0r1-GV-Oxw" secondAttribute="centerX" id="C4j-nX-9CI"/>
+                            <constraint firstItem="Mxh-K9-oRp" firstAttribute="top" secondItem="acw-gI-Xvp" secondAttribute="bottom" constant="10" id="NjQ-iN-g8T"/>
+                            <constraint firstItem="Brd-cI-jBI" firstAttribute="top" secondItem="DNY-Ef-G4j" secondAttribute="bottom" constant="80" id="U9q-X9-jkj"/>
+                            <constraint firstItem="acw-gI-Xvp" firstAttribute="top" secondItem="imO-Oa-UAK" secondAttribute="bottom" constant="43" id="UBp-TD-dIF"/>
+                            <constraint firstItem="0Rq-SV-DrJ" firstAttribute="width" secondItem="0r1-GV-Oxw" secondAttribute="width" id="YJ8-vs-yTL"/>
+                            <constraint firstItem="Mxh-K9-oRp" firstAttribute="centerX" secondItem="0r1-GV-Oxw" secondAttribute="centerX" id="ZbL-fj-0Ha"/>
+                            <constraint firstItem="DNY-Ef-G4j" firstAttribute="centerX" secondItem="0r1-GV-Oxw" secondAttribute="centerX" id="dI9-7l-FQZ"/>
+                            <constraint firstItem="DNY-Ef-G4j" firstAttribute="top" secondItem="Mxh-K9-oRp" secondAttribute="bottom" constant="60" id="g0h-Vr-KOt"/>
+                            <constraint firstItem="0Rq-SV-DrJ" firstAttribute="top" secondItem="Brd-cI-jBI" secondAttribute="bottom" constant="200" id="jP0-kc-yqU"/>
+                            <constraint firstItem="Brd-cI-jBI" firstAttribute="width" secondItem="0r1-GV-Oxw" secondAttribute="width" id="jbV-Fz-KAl"/>
+                            <constraint firstItem="DNY-Ef-G4j" firstAttribute="width" secondItem="0r1-GV-Oxw" secondAttribute="width" id="mnG-gh-K54"/>
+                            <constraint firstItem="acw-gI-Xvp" firstAttribute="width" secondItem="0r1-GV-Oxw" secondAttribute="width" id="ofS-N9-lm2"/>
+                            <constraint firstItem="Mxh-K9-oRp" firstAttribute="width" secondItem="0r1-GV-Oxw" secondAttribute="width" id="ueW-PJ-dYz"/>
+                            <constraint firstItem="0Rq-SV-DrJ" firstAttribute="centerX" secondItem="0r1-GV-Oxw" secondAttribute="centerX" id="ybn-NB-drS"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nWM-f8-bch" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2861.5999999999999" y="239.40886699507391"/>
         </scene>
         <!--Intro Video Controller-->
         <scene sceneID="Wwe-hZ-PJe">

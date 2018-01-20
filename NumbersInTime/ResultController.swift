@@ -21,13 +21,14 @@ class ResultController: UIViewController, ScrollableGraphViewDataSource, UIImage
     @IBOutlet weak var graphSubView: ScrollableGraphView!
     
     
-    var gameResult :  [String : AnyObject]  = [:]
+    var gameResult :  GameObject? = nil
     var lastResults : [Bool] = []
     
     let gameHistoryKey = "gamehistory"
     
     lazy var ref: DatabaseReference = Database.database().reference()
     var gamesRef: DatabaseReference!
+    var scoreRef: DatabaseReference!
     
     
     
@@ -41,6 +42,7 @@ class ResultController: UIViewController, ScrollableGraphViewDataSource, UIImage
         super.viewDidLoad()
         
         gamesRef = ref.child(gameHistoryKey)
+        scoreRef = ref.child("score")
         
         avatar.layer.borderWidth = 1
         avatar.layer.masksToBounds = false
@@ -75,20 +77,33 @@ class ResultController: UIViewController, ScrollableGraphViewDataSource, UIImage
         
         
         if(Auth.auth().currentUser != nil){
-            userId = (Auth.auth().currentUser?.email)!
+            userId = (Auth.auth().currentUser?.uid)!
         }
         
+        
+        //get score data
+        ref.child("score/"+userId).observeSingleEvent(of: .value, with: {
+            
+            (snapshot) in
+            
+            if( snapshot.exists() ) {
+                
+                let points = snapshot.childSnapshot(forPath: "points").value! as! Int
+                self.score.text = "\(points) points"
+                
+            }
+            
+           
+        })
         
         
         gamesRef.queryOrdered(byChild: "playerId").queryEqual(toValue: userId).observe(.value, with: {
             
             snapshot in
-            
-            print("   query games refs")
+
             var newlastResults : [Bool] = []
-            var score = 0
             var count = 0
-            var rat: Double = 0.0
+            var ratioString = ""
             
              if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
                 
@@ -98,7 +113,6 @@ class ResultController: UIViewController, ScrollableGraphViewDataSource, UIImage
                     
                     if(resultDiff == 0){
                         newlastResults.append(true)
-                        score = score + 10
                         count = count + 1
                     } else {
                         newlastResults.append(false)
@@ -107,19 +121,21 @@ class ResultController: UIViewController, ScrollableGraphViewDataSource, UIImage
                 }
                 
                 self.lastResults = newlastResults.reversed()
-              
-                if( self.lastResults.count > 0 ){
-                    rat = Double(count) / Double(self.lastResults.count)
+ 
+                if(self.lastResults.count>0){
+                    let ratio: Double = 100*Double(count)/Double(self.lastResults.count)
+                    ratioString = String.localizedStringWithFormat("%.2f %@", ratio, "%")
                 }
-                self.score.text = "\(score) points"
-                self.ratio.text = String.localizedStringWithFormat("%.4f %@", rat, "ratio")
-               
+                self.ratio.text = "\(self.lastResults.count) played, \(count) won -> \(ratioString)"
+                //"self.las"String.localizedStringWithFormat("%.2f %@", rat, "ratio")
                 self.graphSubView.reload()
-                print("   exiting query games refs")
-               
             }
             
         })
+        
+      
+       
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -234,6 +250,21 @@ class ResultController: UIViewController, ScrollableGraphViewDataSource, UIImage
         let startController = storyBoard.instantiateViewController(withIdentifier: "StartController") as! StartController
         self.present(startController, animated:true, completion:nil)
         
+    }
+    
+    func showPlayInCommunityView() {
+        
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let cvController = storyBoard.instantiateViewController(withIdentifier: "CommunityViewController") as! CommunityViewController
+        
+        if var topController = UIApplication.shared.keyWindow?.rootViewController
+        {
+            while (topController.presentedViewController != nil)
+            {
+                topController = topController.presentedViewController!
+            }
+            topController.present(cvController, animated: true, completion: nil)
+        }
     }
     
     

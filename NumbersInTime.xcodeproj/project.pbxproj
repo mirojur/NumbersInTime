@@ -34,14 +34,12 @@
 		4EBC4CFD1E3D236C000842EA /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBC4CFC1E3D236C000842EA /* Result.swift */; };
 		4EBC4CFF1E3D24E6000842EA /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBC4CFE1E3D24E6000842EA /* Operation.swift */; };
 		4EC2E4BC1FE5A021008CB44C /* ResultController+handler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC2E4BB1FE5A021008CB44C /* ResultController+handler.swift */; };
-		4EDCE7BB1EBF9122003CC8E4 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDCE7B91EBF9122003CC8E4 /* HeaderCell.swift */; };
-		4EDCE7C01EBFB83D003CC8E4 /* UserResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDCE7BF1EBFB83D003CC8E4 /* UserResultCell.swift */; };
 		4EEED7261EB7A1F6008C0206 /* SignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEED7251EB7A1F6008C0206 /* SignInController.swift */; };
-		4EF086361E5B57C200E92BB0 /* ResultScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4EF086351E5B57C200E92BB0 /* ResultScene.sks */; };
-		4EF086381E5B57E400E92BB0 /* ResultScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF086371E5B57E400E92BB0 /* ResultScene.swift */; };
 		4EF4F3CB1E61F3A700FC9921 /* ScoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF4F3CA1E61F3A700FC9921 /* ScoreController.swift */; };
 		62050402435F3A0130E26177 /* Pods_NumbersInTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BFD14081AA310BAD1EA08C2 /* Pods_NumbersInTime.framework */; };
+		B22B480A2002A6AB005E719D /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22B48092002A6AB005E719D /* CommunityViewController.swift */; };
 		B22E44571FF3F83100FC48C4 /* test.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B22E44561FF3F83000FC48C4 /* test.mp4 */; };
+		B24C067D200A2A6E00496CBB /* GameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24C067C200A2A6E00496CBB /* GameObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,13 +74,11 @@
 		4EBC4CFC1E3D236C000842EA /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		4EBC4CFE1E3D24E6000842EA /* Operation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
 		4EC2E4BB1FE5A021008CB44C /* ResultController+handler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ResultController+handler.swift"; sourceTree = "<group>"; };
-		4EDCE7B91EBF9122003CC8E4 /* HeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
-		4EDCE7BF1EBFB83D003CC8E4 /* UserResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserResultCell.swift; sourceTree = "<group>"; };
 		4EEED7251EB7A1F6008C0206 /* SignInController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInController.swift; sourceTree = "<group>"; };
-		4EF086351E5B57C200E92BB0 /* ResultScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ResultScene.sks; sourceTree = "<group>"; };
-		4EF086371E5B57E400E92BB0 /* ResultScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultScene.swift; sourceTree = "<group>"; };
 		4EF4F3CA1E61F3A700FC9921 /* ScoreController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreController.swift; sourceTree = "<group>"; };
+		B22B48092002A6AB005E719D /* CommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
 		B22E44561FF3F83000FC48C4 /* test.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.mp4; sourceTree = "<group>"; };
+		B24C067C200A2A6E00496CBB /* GameObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameObject.swift; sourceTree = "<group>"; };
 		DC6A8FB13C33A42606947CEB /* Pods-NumbersInTime.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NumbersInTime.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NumbersInTime/Pods-NumbersInTime.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -120,7 +116,6 @@
 		3A690C8A1DE75044005D9A64 /* NumbersInTime */ = {
 			isa = PBXGroup;
 			children = (
-				4EDCE7B81EBF90EE003CC8E4 /* cells */,
 				4E07C6751E75E20200A962F5 /* scenes */,
 				4E8024C81E6361680056CC24 /* controller */,
 				4E33C3491E4E3FD0007665BA /* helper */,
@@ -155,8 +150,6 @@
 			children = (
 				3A690C8D1DE75044005D9A64 /* GameScene.sks */,
 				3A690C911DE75044005D9A64 /* GameScene.swift */,
-				4EF086371E5B57E400E92BB0 /* ResultScene.swift */,
-				4EF086351E5B57C200E92BB0 /* ResultScene.sks */,
 			);
 			name = scenes;
 			sourceTree = "<group>";
@@ -165,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				4E0180211E1D94B600BA8301 /* Game.swift */,
+				B24C067C200A2A6E00496CBB /* GameObject.swift */,
 			);
 			name = game;
 			sourceTree = "<group>";
@@ -195,6 +189,7 @@
 				4E5567371FDDB02E00B84188 /* UIColor+colorFromHex.swift */,
 				3A602BE91EA522D100B44FF6 /* StartController.swift */,
 				4E1F4B561F6ED60E005FCAC9 /* ResultController.swift */,
+				B22B48092002A6AB005E719D /* CommunityViewController.swift */,
 				4EC2E4BB1FE5A021008CB44C /* ResultController+handler.swift */,
 				4EEED7251EB7A1F6008C0206 /* SignInController.swift */,
 				4E8024C91E6362020056CC24 /* LoginController.swift */,
@@ -203,15 +198,6 @@
 				4E2032C91FC4BB59004BB117 /* IntroVideoController.swift */,
 			);
 			name = controller;
-			sourceTree = "<group>";
-		};
-		4EDCE7B81EBF90EE003CC8E4 /* cells */ = {
-			isa = PBXGroup;
-			children = (
-				4EDCE7B91EBF9122003CC8E4 /* HeaderCell.swift */,
-				4EDCE7BF1EBFB83D003CC8E4 /* UserResultCell.swift */,
-			);
-			name = cells;
 			sourceTree = "<group>";
 		};
 		822789A93261D970A464EB47 /* Pods */ = {
@@ -304,7 +290,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A2EC6EF1EA53DCC00FB1B9F /* Images.xcassets in Resources */,
-				4EF086361E5B57C200E92BB0 /* ResultScene.sks in Resources */,
 				4E6923511E6347B500676DCE /* GoogleService-Info.plist in Resources */,
 				3A690C971DE75044005D9A64 /* Main.storyboard in Resources */,
 				3A690C8E1DE75044005D9A64 /* GameScene.sks in Resources */,
@@ -389,10 +374,9 @@
 				4E0180201E1D8F2D00BA8301 /* DivisionAction.swift in Sources */,
 				3A602BEA1EA522D100B44FF6 /* StartController.swift in Sources */,
 				3AD488761DE8CCDF009CF85D /* SceneObject.swift in Sources */,
-				4EDCE7C01EBFB83D003CC8E4 /* UserResultCell.swift in Sources */,
+				B24C067D200A2A6E00496CBB /* GameObject.swift in Sources */,
 				4E0180171E1D8CED00BA8301 /* GameAction.swift in Sources */,
 				4EBC4CFD1E3D236C000842EA /* Result.swift in Sources */,
-				4EDCE7BB1EBF9122003CC8E4 /* HeaderCell.swift in Sources */,
 				3AD488741DE8C9E0009CF85D /* TargetNumber.swift in Sources */,
 				4EF4F3CB1E61F3A700FC9921 /* ScoreController.swift in Sources */,
 				3A690C921DE75044005D9A64 /* GameScene.swift in Sources */,
@@ -404,10 +388,10 @@
 				4E8024CA1E6362020056CC24 /* LoginController.swift in Sources */,
 				4EC2E4BC1FE5A021008CB44C /* ResultController+handler.swift in Sources */,
 				4E1F4B571F6ED60E005FCAC9 /* ResultController.swift in Sources */,
-				4EF086381E5B57E400E92BB0 /* ResultScene.swift in Sources */,
 				3A690C941DE75044005D9A64 /* GameController.swift in Sources */,
 				4E5567381FDDB02E00B84188 /* UIColor+colorFromHex.swift in Sources */,
 				4E01801B1E1D8E0400BA8301 /* MinusAction.swift in Sources */,
+				B22B480A2002A6AB005E719D /* CommunityViewController.swift in Sources */,
 				3A690C8C1DE75044005D9A64 /* AppDelegate.swift in Sources */,
 				4E33C34B1E4E3FF6007665BA /* Reach.swift in Sources */,
 				4EEED7261EB7A1F6008C0206 /* SignInController.swift in Sources */,
