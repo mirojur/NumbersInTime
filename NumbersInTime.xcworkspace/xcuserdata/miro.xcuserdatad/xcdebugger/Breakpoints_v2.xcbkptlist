@@ -299,8 +299,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "89"
             endingLineNumber = "89"
-            landmarkName = "signInAction(_:)"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
@@ -310,27 +310,27 @@
                   moduleName = "NumbersInTime"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/miro/Desktop/NumbersInTime/NumbersInTime/SignInController.swift"
-                  timestampString = "535229282.965042"
+                  timestampString = "538152336.857344"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "89"
                   endingLineNumber = "89"
-                  offsetFromSymbolStart = "2904">
+                  offsetFromSymbolStart = "2480">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;__ObjC.User&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in NumbersInTime.SignInController.signInAction(Any) -&gt; ()"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (Swift.Optional&lt;__ObjC.User&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in NumbersInTime.SignInController.signInAction(Any) -&gt; ()"
                   moduleName = "NumbersInTime"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/miro/Desktop/NumbersInTime/NumbersInTime/SignInController.swift"
-                  timestampString = "535229282.96661"
+                  timestampString = "538152336.859028"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "89"
-                  endingLineNumber = "89"
-                  offsetFromSymbolStart = "5268">
+                  startingLineNumber = "93"
+                  endingLineNumber = "93"
+                  offsetFromSymbolStart = "24">
                </Location>
             </Locations>
          </BreakpointContent>
