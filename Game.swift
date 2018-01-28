@@ -37,13 +37,15 @@ struct MyGame {
 
 class Game {
     
-    static let sharedInstance: Game = Game()
     
+    static let sharedInstance: Game = Game()
+    var currentGame : GameObject? = nil
     var onlineGames = [GameObject] ()
     
     func createGame() -> GameObject{
         
         let gameObject:GameObject = GameObject()!
+        gameObject.isMyGame = true
         gameObject.saveGame()
         return gameObject
         
@@ -56,6 +58,7 @@ class Game {
     
     func getOnlineGame() -> GameObject {
         let result : GameObject = self.onlineGames[0]
+        result.isMyGame = false
         return result
     }
     

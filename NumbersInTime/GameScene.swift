@@ -47,19 +47,20 @@ class GameScene: SKScene {
             return
         }
         
-        do {
-            currentGame = try Game.sharedInstance.createGame()
-            addNumbers(numbersString: (currentGame?.numbers)!)
-            addTargetNumber(value: (currentGame?.targetNumber)!)
-            initializeModalDialog()
-            setupTimer()
-            self.userForcedResult = nil
-            self.firstInit = true
-            
-        } catch {
-            
-            
+        if( Game.sharedInstance.currentGame == nil){
+            self.currentGame =  Game.sharedInstance.createGame()
+            Game.sharedInstance.currentGame = self.currentGame
+        } else {
+            self.currentGame = Game.sharedInstance.currentGame
         }
+        
+        addNumbers(numbersString: (currentGame?.numbers)!)
+        addTargetNumber(value: (currentGame?.targetNumber)!)
+        initializeModalDialog()
+        setupTimer()
+        self.userForcedResult = nil
+        self.firstInit = true
+        
         
     }
     
@@ -135,67 +136,24 @@ class GameScene: SKScene {
         
         gameTimer.invalidate()
         
-       
-        self.currentGame?.gameHistory =  gameHistoryToString()
-        self.currentGame?.playerId = Auth.auth().currentUser?.uid ?? "noUser"
-        self.currentGame?.result = getGameResult()
-        self.currentGame?.resultDiff = abs(targetNumber.value - getGameResult())
+        if(self.currentGame?.isMyGame)!{
+            self.currentGame?.gameHistory =  gameHistoryToString()
+            self.currentGame?.playerId = Auth.auth().currentUser?.uid ?? "noUser"
+            self.currentGame?.playerImageUrl = Auth.auth().currentUser?.photoURL?.absoluteString ?? ""
+            self.currentGame?.result = getGameResult()
+            self.currentGame?.resultDiff = abs(targetNumber.value - getGameResult())
+        }else {
+            self.currentGame?.gameHistory2 =  gameHistoryToString()
+            self.currentGame?.playerId2 = Auth.auth().currentUser?.uid ?? "noUser"
+            self.currentGame?.playerImageUrl2 = Auth.auth().currentUser?.photoURL?.absoluteString ?? ""
+            self.currentGame?.result2 = getGameResult()
+            self.currentGame?.resultDiff2 = abs(targetNumber.value - getGameResult())
+        }
         
-        saveGameResult()
+        currentGame?.saveGameResult()
         showResultView()
     }
     
-    
-    // saving results to the database
-    func saveGameResult(){
-        
-        let ref = Database.database().reference()
-        var user = "noUser"
-        var lastUserScore = 10
-        var userEmail = ""
-        
-        if(( Auth.auth().currentUser ) != nil){
-            user = (Auth.auth().currentUser?.uid)!
-            userEmail = (Auth.auth().currentUser?.email)!
-        }
-
-        //update score only if user won..
-        if ( self.currentGame?.resultDiff == 0 ){
-            
-            //get user last score from database
-            ref.child("score").observeSingleEvent(of: .value, with: {
-                
-                (snapshot) in
-                
-                if snapshot.hasChild(user){
-                    // Get user value
-                    let value = snapshot.value as? NSDictionary
-                    
-                    if( value != nil ){
-                        let userlastvalues = value?[user] as? NSDictionary
-                        lastUserScore = (userlastvalues?["points"] as? Int)! + 10
-                    }
-                    
-                }
-                
-                let scoreData : [String : AnyObject] = [
-                    "points": lastUserScore as AnyObject,
-                    "email": userEmail as AnyObject,
-                    "timestamp": ServerValue.timestamp() as AnyObject
-                ]
-                
-                let scoreHistoryUpdate = ["/score/\(user)": scoreData]
-                ref.updateChildValues(scoreHistoryUpdate)
-                
-                
-            }) { (error) in
-                print(error.localizedDescription)
-            }
-        }
-        
-        currentGame?.saveGameHistory()
-        
-    }
     
     func showResultView() {
         
@@ -350,6 +308,7 @@ class GameScene: SKScene {
         
         
         var op : Int = Operation.NO_OPERATION
+       
         
         if  (node is SKLabelNode && node.parent is PlusAction) ||
             (node is PlusAction) {
@@ -500,7 +459,7 @@ class GameScene: SKScene {
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-       
+        
     }
     
     
@@ -524,7 +483,7 @@ class GameScene: SKScene {
     }
     
     func touchUp(atPoint pos : CGPoint) {
- 
+        
     }
     
     func setupTimer(){

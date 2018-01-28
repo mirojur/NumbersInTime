@@ -54,7 +54,17 @@ class ResultController: UIViewController, ScrollableGraphViewDataSource, UIImage
         
         
         if(Auth.auth().currentUser != nil){
-            userDisplayName.text = Auth.auth().currentUser?.displayName
+            userDisplayName.text = Auth.auth().currentUser?.displayName ?? Auth.auth().currentUser?.email
+            
+            if(( Auth.auth().currentUser?.photoURL ) != nil){
+                let data = try? Data(contentsOf: (Auth.auth().currentUser?.photoURL)!)
+                
+                if (( data ) != nil) {
+                    avatar.image = UIImage(data: data!)
+                }else {
+                    avatar.image = UIImage(named: "avatar")
+                }
+            }
         }else {
             userDisplayName.text = "no user logged in"
         }
@@ -93,19 +103,19 @@ class ResultController: UIViewController, ScrollableGraphViewDataSource, UIImage
                 
             }
             
-           
+            
         })
         
         
         gamesRef.queryOrdered(byChild: "playerId").queryEqual(toValue: userId).observe(.value, with: {
             
             snapshot in
-
+            
             var newlastResults : [Bool] = []
             var count = 0
             var ratioString = ""
             
-             if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
+            if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
                 
                 for snap in snapshots
                 {
@@ -121,7 +131,7 @@ class ResultController: UIViewController, ScrollableGraphViewDataSource, UIImage
                 }
                 
                 self.lastResults = newlastResults.reversed()
- 
+                
                 if(self.lastResults.count>0){
                     let ratio: Double = 100*Double(count)/Double(self.lastResults.count)
                     ratioString = String.localizedStringWithFormat("%.2f %@", ratio, "%")
@@ -133,8 +143,8 @@ class ResultController: UIViewController, ScrollableGraphViewDataSource, UIImage
             
         })
         
-      
-       
+        
+        
         
     }
     
@@ -145,7 +155,7 @@ class ResultController: UIViewController, ScrollableGraphViewDataSource, UIImage
         print("exiting viewWillAppear")
     }
     
-   override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
@@ -180,7 +190,7 @@ class ResultController: UIViewController, ScrollableGraphViewDataSource, UIImage
     }
     
     func numberOfPoints() -> Int {
-            return 5
+        return 5
     }
     
     func setupGraph(graphView: ScrollableGraphView) {

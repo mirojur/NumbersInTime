@@ -11,7 +11,7 @@ import Firebase
 import FirebaseAuth
 
 class SignInController: UIViewController {
-
+    
     @IBOutlet weak var nickname: UITextField!
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
@@ -46,7 +46,7 @@ class SignInController: UIViewController {
             
         }
         
-        if(password.text!.length < 6){
+        if(password.text!.count < 6){
             alertDefault(title: "Error", message: "password must be at least 6 characters long")
             password.text = ""
             confirmPassword.text = ""
@@ -79,36 +79,31 @@ class SignInController: UIViewController {
             }
             else {
                 
-                print ("neuer User erfolgreich angelegt..")
+                let changeRequest : UserProfileChangeRequest = (user?.createProfileChangeRequest())!
+                changeRequest.displayName = self.nickname.text
                 
-    
-                   
-                    let changeRequest : UserProfileChangeRequest = (user?.createProfileChangeRequest())!
-                    changeRequest.displayName = self.nickname.text
+                changeRequest.commitChanges(completion: {
                     
-                    changeRequest.commitChanges(completion: {
-                        
-                        error in
-                        
-                        if let error = error {
-                            self.alertDefault(title: "Error", message: "\(error)")
-                        }
-                        
-                    } )
-    
+                    error in
+                    
+                    if let error = error {
+                        self.alertDefault(title: "Error", message: "\(error)")
+                    }
+                    
+                } )
+                
                 
                 let message = "user " + (user?.email)! + " created"
                 self.alertDefault(title: "Welcome", message: message)
-                
-                
+
                 self.showGameConfig()
                 
             }
             
         })
-
-    
-    
+        
+        
+        
     }
     
     func showGameConfig() {
@@ -128,25 +123,25 @@ class SignInController: UIViewController {
     }
     
     
-
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     //Basic alert popup
     func alertDefault(title:String, message : String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "ok", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
-
+    
 }

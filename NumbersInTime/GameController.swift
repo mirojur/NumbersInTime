@@ -12,7 +12,8 @@ import GameplayKit
 
 class GameController: UIViewController {
     
-  
+    var myGame : GameObject? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,19 +21,15 @@ class GameController: UIViewController {
         // including entities and graphs.
         let scene = GKScene(fileNamed: "GameScene")!
         let sceneNode = scene.rootNode as! GameScene
-               // Set the scale mode to scale to fit the window
-                sceneNode.scaleMode = .aspectFill
-                
-                // Present the scene
-                if let view = self.view as! SKView? {
-                          
-                    view.ignoresSiblingOrder = true
-                    view.showsFPS = true
-                    view.showsNodeCount = true
-                    view.presentScene(sceneNode)
-
-                    
-                }
+        // Set the scale mode to scale to fit the window
+        sceneNode.scaleMode = .aspectFill
+        // Present the scene
+        if let view = self.view as! SKView? {
+            view.ignoresSiblingOrder = true
+            view.showsFPS = true
+            view.showsNodeCount = true
+            view.presentScene(sceneNode)
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -50,21 +47,21 @@ class GameController: UIViewController {
         let loginViewController:LoginController = LoginController()
         self.present(loginViewController, animated: true, completion: nil)
     }
-
+    
     override var shouldAutorotate: Bool {
         return false
     }
-
+    
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-           return .portrait
-       
+        return .portrait
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Release any cached data, images, etc that aren't in use.
     }
-
+    
     override var prefersStatusBarHidden: Bool {
         return true
     }

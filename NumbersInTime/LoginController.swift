@@ -33,7 +33,7 @@ class LoginController: UIViewController {
             if error != nil{
                 
                 
-               if let errCode = AuthErrorCode(rawValue: error!._code) {
+                if let errCode = AuthErrorCode(rawValue: error!._code) {
                     
                     switch errCode {
                     case .userDisabled:
@@ -47,17 +47,17 @@ class LoginController: UIViewController {
                     default:
                         self.alertDefault(title: "Error", message: "Login Error: \(error!)")                    }
                 }
-
+                
                 return
                 
             }
             else {
                 
-               self.showResultPage()
+                self.showResultPage()
             }
             
         })
-               
+        
     }
     
     
@@ -80,7 +80,7 @@ class LoginController: UIViewController {
         let gameResultController = storyBoard.instantiateViewController(withIdentifier: "ResultController") as! ResultController
         self.present(gameResultController, animated:true, completion:nil)
     }
-
+    
     
     
     func handleResetPassword() {
@@ -147,7 +147,7 @@ class LoginController: UIViewController {
         
         self.present(alert, animated: true, completion: nil)
     }
-
+    
     
     
 }
@@ -190,9 +190,7 @@ extension String {
         return String(format: self) == find
     }
     
-    var length: Int {
-        return characters.count
-    }
+    
     
 }
 
